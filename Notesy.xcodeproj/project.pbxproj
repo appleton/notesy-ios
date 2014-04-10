@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1D9598B18F684A800113622 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598A18F684A800113622 /* Foundation.framework */; };
+		A1D9598D18F684A800113622 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598C18F684A800113622 /* CoreGraphics.framework */; };
+		A1D9598F18F684A800113622 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598E18F684A800113622 /* UIKit.framework */; };
+		A1D9599518F684A800113622 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1D9599318F684A800113622 /* InfoPlist.strings */; };
+		A1D9599718F684A800113622 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D9599618F684A800113622 /* main.m */; };
+		A1D9599B18F684A800113622 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D9599A18F684A800113622 /* AppDelegate.m */; };
+		A1D9599E18F684A800113622 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D9599C18F684A800113622 /* Main_iPhone.storyboard */; };
+		A1D959A118F684A800113622 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D9599F18F684A800113622 /* Main_iPad.storyboard */; };
+		A1D959A418F684A800113622 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D959A318F684A800113622 /* MasterViewController.m */; };
+		A1D959A718F684A800113622 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D959A618F684A800113622 /* DetailViewController.m */; };
+		A1D959A918F684A800113622 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1D959A818F684A800113622 /* Images.xcassets */; };
+		A1D959B018F684A800113622 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D959AF18F684A800113622 /* XCTest.framework */; };
+		A1D959B118F684A800113622 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598A18F684A800113622 /* Foundation.framework */; };
+		A1D959B218F684A800113622 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598E18F684A800113622 /* UIKit.framework */; };
+		A1D959BA18F684A800113622 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1D959B818F684A800113622 /* InfoPlist.strings */; };
+		A1D959BC18F684A800113622 /* NotesyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D959BB18F684A800113622 /* NotesyTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A1D959B318F684A800113622 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1D9597F18F684A800113622 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1D9598618F684A800113622;
+			remoteInfo = Notesy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A1D9598718F684A800113622 /* Notesy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notesy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1D9598A18F684A800113622 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A1D9598C18F684A800113622 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A1D9598E18F684A800113622 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A1D9599218F684A800113622 /* Notesy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Notesy-Info.plist"; sourceTree = "<group>"; };
+		A1D9599418F684A800113622 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A1D9599618F684A800113622 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A1D9599818F684A800113622 /* Notesy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Notesy-Prefix.pch"; sourceTree = "<group>"; };
+		A1D9599918F684A800113622 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A1D9599A18F684A800113622 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A1D9599D18F684A800113622 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		A1D959A018F684A800113622 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		A1D959A218F684A800113622 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		A1D959A318F684A800113622 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		A1D959A518F684A800113622 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		A1D959A618F684A800113622 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		A1D959A818F684A800113622 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A1D959AE18F684A800113622 /* NotesyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1D959AF18F684A800113622 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A1D959B718F684A800113622 /* NotesyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NotesyTests-Info.plist"; sourceTree = "<group>"; };
+		A1D959B918F684A800113622 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A1D959BB18F684A800113622 /* NotesyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotesyTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1D9598418F684A800113622 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1D9598D18F684A800113622 /* CoreGraphics.framework in Frameworks */,
+				A1D9598F18F684A800113622 /* UIKit.framework in Frameworks */,
+				A1D9598B18F684A800113622 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1D959AB18F684A800113622 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1D959B018F684A800113622 /* XCTest.framework in Frameworks */,
+				A1D959B218F684A800113622 /* UIKit.framework in Frameworks */,
+				A1D959B118F684A800113622 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1D9597E18F684A800113622 = {
+			isa = PBXGroup;
+			children = (
+				A1D9599018F684A800113622 /* Notesy */,
+				A1D959B518F684A800113622 /* NotesyTests */,
+				A1D9598918F684A800113622 /* Frameworks */,
+				A1D9598818F684A800113622 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A1D9598818F684A800113622 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1D9598718F684A800113622 /* Notesy.app */,
+				A1D959AE18F684A800113622 /* NotesyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1D9598918F684A800113622 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A1D9598A18F684A800113622 /* Foundation.framework */,
+				A1D9598C18F684A800113622 /* CoreGraphics.framework */,
+				A1D9598E18F684A800113622 /* UIKit.framework */,
+				A1D959AF18F684A800113622 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1D9599018F684A800113622 /* Notesy */ = {
+			isa = PBXGroup;
+			children = (
+				A1D9599918F684A800113622 /* AppDelegate.h */,
+				A1D9599A18F684A800113622 /* AppDelegate.m */,
+				A1D9599C18F684A800113622 /* Main_iPhone.storyboard */,
+				A1D9599F18F684A800113622 /* Main_iPad.storyboard */,
+				A1D959A218F684A800113622 /* MasterViewController.h */,
+				A1D959A318F684A800113622 /* MasterViewController.m */,
+				A1D959A518F684A800113622 /* DetailViewController.h */,
+				A1D959A618F684A800113622 /* DetailViewController.m */,
+				A1D959A818F684A800113622 /* Images.xcassets */,
+				A1D9599118F684A800113622 /* Supporting Files */,
+			);
+			path = Notesy;
+			sourceTree = "<group>";
+		};
+		A1D9599118F684A800113622 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1D9599218F684A800113622 /* Notesy-Info.plist */,
+				A1D9599318F684A800113622 /* InfoPlist.strings */,
+				A1D9599618F684A800113622 /* main.m */,
+				A1D9599818F684A800113622 /* Notesy-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A1D959B518F684A800113622 /* NotesyTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1D959BB18F684A800113622 /* NotesyTests.m */,
+				A1D959B618F684A800113622 /* Supporting Files */,
+			);
+			path = NotesyTests;
+			sourceTree = "<group>";
+		};
+		A1D959B618F684A800113622 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1D959B718F684A800113622 /* NotesyTests-Info.plist */,
+				A1D959B818F684A800113622 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1D9598618F684A800113622 /* Notesy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1D959BF18F684A800113622 /* Build configuration list for PBXNativeTarget "Notesy" */;
+			buildPhases = (
+				A1D9598318F684A800113622 /* Sources */,
+				A1D9598418F684A800113622 /* Frameworks */,
+				A1D9598518F684A800113622 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Notesy;
+			productName = Notesy;
+			productReference = A1D9598718F684A800113622 /* Notesy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A1D959AD18F684A800113622 /* NotesyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1D959C218F684A800113622 /* Build configuration list for PBXNativeTarget "NotesyTests" */;
+			buildPhases = (
+				A1D959AA18F684A800113622 /* Sources */,
+				A1D959AB18F684A800113622 /* Frameworks */,
+				A1D959AC18F684A800113622 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1D959B418F684A800113622 /* PBXTargetDependency */,
+			);
+			name = NotesyTests;
+			productName = NotesyTests;
+			productReference = A1D959AE18F684A800113622 /* NotesyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1D9597F18F684A800113622 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Notesy.co;
+				TargetAttributes = {
+					A1D959AD18F684A800113622 = {
+						TestTargetID = A1D9598618F684A800113622;
+					};
+				};
+			};
+			buildConfigurationList = A1D9598218F684A800113622 /* Build configuration list for PBXProject "Notesy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A1D9597E18F684A800113622;
+			productRefGroup = A1D9598818F684A800113622 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1D9598618F684A800113622 /* Notesy */,
+				A1D959AD18F684A800113622 /* NotesyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1D9598518F684A800113622 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1D959A118F684A800113622 /* Main_iPad.storyboard in Resources */,
+				A1D959A918F684A800113622 /* Images.xcassets in Resources */,
+				A1D9599E18F684A800113622 /* Main_iPhone.storyboard in Resources */,
+				A1D9599518F684A800113622 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1D959AC18F684A800113622 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1D959BA18F684A800113622 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1D9598318F684A800113622 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1D9599B18F684A800113622 /* AppDelegate.m in Sources */,
+				A1D959A418F684A800113622 /* MasterViewController.m in Sources */,
+				A1D9599718F684A800113622 /* main.m in Sources */,
+				A1D959A718F684A800113622 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1D959AA18F684A800113622 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1D959BC18F684A800113622 /* NotesyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1D959B418F684A800113622 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1D9598618F684A800113622 /* Notesy */;
+			targetProxy = A1D959B318F684A800113622 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A1D9599318F684A800113622 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1D9599418F684A800113622 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A1D9599C18F684A800113622 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1D9599D18F684A800113622 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		A1D9599F18F684A800113622 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1D959A018F684A800113622 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		A1D959B818F684A800113622 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1D959B918F684A800113622 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A1D959BD18F684A800113622 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A1D959BE18F684A800113622 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A1D959C018F684A800113622 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Notesy/Notesy-Prefix.pch";
+				INFOPLIST_FILE = "Notesy/Notesy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A1D959C118F684A800113622 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Notesy/Notesy-Prefix.pch";
+				INFOPLIST_FILE = "Notesy/Notesy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A1D959C318F684A800113622 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Notesy.app/Notesy";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Notesy/Notesy-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "NotesyTests/NotesyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A1D959C418F684A800113622 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Notesy.app/Notesy";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Notesy/Notesy-Prefix.pch";
+				INFOPLIST_FILE = "NotesyTests/NotesyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1D9598218F684A800113622 /* Build configuration list for PBXProject "Notesy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1D959BD18F684A800113622 /* Debug */,
+				A1D959BE18F684A800113622 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1D959BF18F684A800113622 /* Build configuration list for PBXNativeTarget "Notesy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1D959C018F684A800113622 /* Debug */,
+				A1D959C118F684A800113622 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A1D959C218F684A800113622 /* Build configuration list for PBXNativeTarget "NotesyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1D959C318F684A800113622 /* Debug */,
+				A1D959C418F684A800113622 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1D9597F18F684A800113622 /* Project object */;
+}
