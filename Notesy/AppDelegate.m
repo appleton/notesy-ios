@@ -17,6 +17,13 @@
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
+        
+        // create a shared instance of CBLManager
+        CBLManager *manager = [CBLManager sharedInstance];
+        
+        // create a database
+        NSError *error;
+        self.database = [manager databaseNamed: @"notes" error: &error];
     }
     return YES;
 }

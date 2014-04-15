@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		734EA58DED6C454AA57CEED1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B44FE902987E44269E10ACF9 /* libPods.a */; };
+		A13CE5E318FD59C1004EDEEA /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5E218FD59C1004EDEEA /* CouchbaseLite.framework */; };
+		A13CE5E518FD59E7004EDEEA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5E418FD59E7004EDEEA /* CFNetwork.framework */; };
+		A13CE5E718FD59F1004EDEEA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5E618FD59F1004EDEEA /* Security.framework */; };
+		A13CE5E918FD59FB004EDEEA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5E818FD59FA004EDEEA /* SystemConfiguration.framework */; };
+		A13CE5EB18FD5A07004EDEEA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5EA18FD5A07004EDEEA /* libsqlite3.dylib */; };
+		A13CE5ED18FD5A10004EDEEA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5EC18FD5A10004EDEEA /* libz.dylib */; };
 		A1D9598B18F684A800113622 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598A18F684A800113622 /* Foundation.framework */; };
 		A1D9598D18F684A800113622 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598C18F684A800113622 /* CoreGraphics.framework */; };
 		A1D9598F18F684A800113622 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598E18F684A800113622 /* UIKit.framework */; };
@@ -36,6 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02E996934CB6426C956EAF5D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		A13CE5E218FD59C1004EDEEA /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchbaseLite.framework; path = "Pods/couchbase-lite-ios/CouchbaseLite.framework"; sourceTree = "<group>"; };
+		A13CE5E418FD59E7004EDEEA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A13CE5E618FD59F1004EDEEA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A13CE5E818FD59FA004EDEEA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A13CE5EA18FD5A07004EDEEA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		A13CE5EC18FD5A10004EDEEA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		A1D9598718F684A800113622 /* Notesy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notesy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D9598A18F684A800113622 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A1D9598C18F684A800113622 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,6 +72,7 @@
 		A1D959B718F684A800113622 /* NotesyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NotesyTests-Info.plist"; sourceTree = "<group>"; };
 		A1D959B918F684A800113622 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A1D959BB18F684A800113622 /* NotesyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotesyTests.m; sourceTree = "<group>"; };
+		B44FE902987E44269E10ACF9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,9 +80,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A13CE5ED18FD5A10004EDEEA /* libz.dylib in Frameworks */,
+				A13CE5EB18FD5A07004EDEEA /* libsqlite3.dylib in Frameworks */,
+				A13CE5E918FD59FB004EDEEA /* SystemConfiguration.framework in Frameworks */,
+				A13CE5E718FD59F1004EDEEA /* Security.framework in Frameworks */,
+				A13CE5E518FD59E7004EDEEA /* CFNetwork.framework in Frameworks */,
+				A13CE5E318FD59C1004EDEEA /* CouchbaseLite.framework in Frameworks */,
 				A1D9598D18F684A800113622 /* CoreGraphics.framework in Frameworks */,
 				A1D9598F18F684A800113622 /* UIKit.framework in Frameworks */,
 				A1D9598B18F684A800113622 /* Foundation.framework in Frameworks */,
+				734EA58DED6C454AA57CEED1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +113,7 @@
 				A1D959B518F684A800113622 /* NotesyTests */,
 				A1D9598918F684A800113622 /* Frameworks */,
 				A1D9598818F684A800113622 /* Products */,
+				02E996934CB6426C956EAF5D /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,10 +129,17 @@
 		A1D9598918F684A800113622 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A13CE5EC18FD5A10004EDEEA /* libz.dylib */,
+				A13CE5EA18FD5A07004EDEEA /* libsqlite3.dylib */,
+				A13CE5E818FD59FA004EDEEA /* SystemConfiguration.framework */,
+				A13CE5E618FD59F1004EDEEA /* Security.framework */,
+				A13CE5E418FD59E7004EDEEA /* CFNetwork.framework */,
+				A13CE5E218FD59C1004EDEEA /* CouchbaseLite.framework */,
 				A1D9598A18F684A800113622 /* Foundation.framework */,
 				A1D9598C18F684A800113622 /* CoreGraphics.framework */,
 				A1D9598E18F684A800113622 /* UIKit.framework */,
 				A1D959AF18F684A800113622 /* XCTest.framework */,
+				B44FE902987E44269E10ACF9 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -167,9 +197,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1D959BF18F684A800113622 /* Build configuration list for PBXNativeTarget "Notesy" */;
 			buildPhases = (
+				E9DC956179E5477DB05D276B /* Check Pods Manifest.lock */,
 				A1D9598318F684A800113622 /* Sources */,
 				A1D9598418F684A800113622 /* Frameworks */,
 				A1D9598518F684A800113622 /* Resources */,
+				6FAFC16C1B3640BEA0DCC631 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,6 +284,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6FAFC16C1B3640BEA0DCC631 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9DC956179E5477DB05D276B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A1D9598318F684A800113622 /* Sources */ = {
@@ -393,9 +458,14 @@
 		};
 		A1D959C018F684A800113622 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02E996934CB6426C956EAF5D /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/couchbase-lite-ios",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Notesy/Notesy-Prefix.pch";
 				INFOPLIST_FILE = "Notesy/Notesy-Info.plist";
@@ -406,9 +476,14 @@
 		};
 		A1D959C118F684A800113622 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02E996934CB6426C956EAF5D /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/couchbase-lite-ios",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Notesy/Notesy-Prefix.pch";
 				INFOPLIST_FILE = "Notesy/Notesy-Info.plist";
@@ -476,6 +551,7 @@
 				A1D959C118F684A800113622 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1D959C218F684A800113622 /* Build configuration list for PBXNativeTarget "NotesyTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +560,7 @@
 				A1D959C418F684A800113622 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
