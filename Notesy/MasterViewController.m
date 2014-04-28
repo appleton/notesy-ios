@@ -29,8 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	// Do any additional setup after loading the view, typically from a nib.
-    [JNKeychain deleteValueForKey:KEYCHAIN_KEY];
+    // Show login modal if we don't have user credentials
     NSDictionary *userInfo = [JNKeychain loadValueForKey:KEYCHAIN_KEY];
     if (!userInfo) {
         [self performSegueWithIdentifier:@"loginModal" sender:self];
