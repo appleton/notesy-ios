@@ -11,40 +11,75 @@
 #import "NSMutableURLRequest+BasicAuth.h"
 
 @interface LoginViewController()
+@property (strong, nonatomic) NSURLConnection *currentConnection;
+
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
 @end
 
 @implementation LoginViewController
+
 - (IBAction)loginButton:(UIButton *)sender {
     // Set errors and return if email or password is missing
-    if (!self.emailInput.text) [self setErrorFor:self.emailInput];
-    if (!self.passwordInput.text) [self setErrorFor:self.passwordInput];
-    if (!self.emailInput.text || !self.passwordInput.text) return;
+    if ([self.emailInput.text length] == 0) [self showErrorFor:self.emailInput];
+    if ([self.passwordInput.text length] == 0) [self showErrorFor:self.passwordInput];
+    if ([self.emailInput.text length] == 0 || [self.passwordInput.text length] == 0) return;
 
-    [self setLoginIsHappening];
-
-    NSString *email = self.emailInput.text;
-    NSString *password = self.passwordInput.text;
-
-    NSString *url = [NSString stringWithFormat:@"%@%@_users/%@",
-                                                PROTOCOL,
-                                                COUCH_URL,
-                                                [self encodedUserNameFromEmail:email]];
-    NSLog(@"%@", url);
-
-    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [NSMutableURLRequest basicAuthForRequest:req withUsername:email andPassword:password];
-    NSURLResponse *res = nil;
-    NSError *error = nil;
-    NSData * data = [NSURLConnection sendSynchronousRequest:req
-                                          returningResponse:&res
-                                                      error:&error];
-    NSLog(@"error: %@", error);
-    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves error:&error];
-    NSLog(@"%@", results);
+    [self showLoginIsHappening];
+    [self logInUser:self.emailInput.text password:self.passwordInput.text];
 }
+
+- (void) logInUser:(NSString *)email password:(NSString *)password {
+    NSString *url = [NSString stringWithFormat:@"%@%@_users/%@", PROTOCOL, COUCH_URL,
+                                               [self encodedUserNameFromEmail:email]];
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [NSMutableURLRequest basicAuthForRequest:request withUsername:email andPassword:password];
+    [NSURLConnection connectionWithRequest:request delegate:self];
+}
+
+- (void) showErrorFor:(UITextField *)field {
+// TODO: make the field go red or something
+}
+
+- (void) showLoginIsHappening {
+// TODO: use MBProgressHUD
+}
+
+- (void) showLoginError:(NSError *)error {
+    NSLog(@"Login error: %@", error);
+}
+
+#pragma mark NSURLConnection Delegate Methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    self.responseData = [[NSMutableData alloc] init];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [self.responseData appendData:data];
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+    // do not store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    NSError *error = nil;
+    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:self.responseData
+                                                            options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves
+                                                              error:&error];
+    NSLog(@"JSON data: %@", results);
+    if (error) NSLog(@"JSON parse error: %@", error);
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    [self showLoginError:error];
+}
+
+#pragma mark Formatting helpers
 
 - (NSString *) encodedUserNameFromEmail:(NSString *)email {
     return [self urlEncode:[COUCH_USERNAME_PREFIX stringByAppendingString:email]];
@@ -57,14 +92,6 @@
                                                                                  NULL,
                                                                                  (CFStringRef)@"!*'();:@&=+$,/?%#[]",
                                                                                  kCFStringEncodingUTF8));
-}
-
-- (void) setErrorFor:(UITextField *)field {
-// TODO: make the field go red or something
-}
-
-- (void) setLoginIsHappening {
-// TODO: disable the inputs
 }
 
 @end
