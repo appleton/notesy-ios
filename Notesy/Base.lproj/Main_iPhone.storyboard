@@ -56,11 +56,19 @@
                                     <action selector="loginButton:" destination="P6o-j8-jWJ" eventType="touchUpInside" id="e9s-dd-AbD"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzs-3B-gKX">
+                                <rect key="frame" x="20" y="68" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.87450980392156863" green="0.25882352941176473" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="emailInput" destination="hRU-ky-kZ2" id="hhu-td-Nfk"/>
+                        <outlet property="loginErrorLabel" destination="Mzs-3B-gKX" id="ydI-b9-W8w"/>
                         <outlet property="passwordInput" destination="I2d-0A-Yjh" id="7kx-6j-6CL"/>
                     </connections>
                 </viewController>

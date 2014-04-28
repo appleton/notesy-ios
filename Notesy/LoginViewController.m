@@ -17,15 +17,18 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
+@property (weak, nonatomic) IBOutlet UILabel *loginErrorLabel;
 @end
 
 @implementation LoginViewController
 
 - (IBAction)loginButton:(UIButton *)sender {
-    // Set errors and return if email or password is missing
-    if ([self.emailInput.text length] == 0) [self showErrorFor:self.emailInput];
-    if ([self.passwordInput.text length] == 0) [self showErrorFor:self.passwordInput];
-    if ([self.emailInput.text length] == 0 || [self.passwordInput.text length] == 0) return;
+    [self hideLoginError];
+
+    if ([self.emailInput.text length] == 0 || [self.passwordInput.text length] == 0) {
+        [self showLoginError:@{@"reason": @"Email and password are required."}];
+        return;
+    }
 
     [self showLoginIsHappening];
     [self logInUser:self.emailInput.text password:self.passwordInput.text];
@@ -40,16 +43,16 @@
     [NSURLConnection connectionWithRequest:request delegate:self];
 }
 
-- (void) showErrorFor:(UITextField *)field {
-// TODO: make the field go red or something
-}
-
 - (void) showLoginIsHappening {
 // TODO: use MBProgressHUD
 }
 
-- (void) showLoginError:(NSError *)error {
-    NSLog(@"Login error: %@", error);
+- (void) showLoginError:(NSDictionary *)response {
+    self.loginErrorLabel.text = [response objectForKey:@"reason"];
+}
+
+- (void) hideLoginError {
+    self.loginErrorLabel.text = @"reason";
 }
 
 - (void) storeLoginData {
@@ -76,20 +79,21 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSError *error = nil;
     NSDictionary *results = [NSJSONSerialization JSONObjectWithData:self.responseData
                                                             options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves
-                                                              error:&error];
-    if (error) NSLog(@"JSON parse error: %@", error);
-    NSLog(@"JSON data: %@", results);
+                                                              error:nil];
 
-    self.notesDb = results[@"notes_db"];
-    [self storeLoginData];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([results objectForKey:@"error"]) {
+        [self showLoginError:results];
+    } else {
+        self.notesDb = results[@"notes_db"];
+        [self storeLoginData];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    [self showLoginError:error];
+    [self showLoginError:@{@"reason": @"Network error. Please try again!"}];
 }
 
 #pragma mark Formatting helpers
