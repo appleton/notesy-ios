@@ -7,6 +7,7 @@
 //
 
 @interface Constants : NSObject
+extern NSString* const KEYCHAIN_KEY;
 extern NSString* const PROTOCOL;
 extern NSString* const COUCH_URL;
 extern NSString* const APP_URL;

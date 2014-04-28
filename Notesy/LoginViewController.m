@@ -9,9 +9,11 @@
 #import "LoginViewController.h"
 #import "Constants.h"
 #import "NSMutableURLRequest+BasicAuth.h"
+#import "JNKeychain.h"
 
 @interface LoginViewController()
 @property (strong, nonatomic) NSURLConnection *currentConnection;
+@property (strong, nonatomic) NSString *notesDb;
 
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
@@ -50,6 +52,13 @@
     NSLog(@"Login error: %@", error);
 }
 
+- (void) storeLoginData {
+    [JNKeychain saveValue:@{@"username": self.emailInput.text,
+                            @"password": self.passwordInput.text,
+                            @"notesDb": self.notesDb}
+                   forKey:KEYCHAIN_KEY];
+}
+
 #pragma mark NSURLConnection Delegate Methods
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -71,8 +80,11 @@
     NSDictionary *results = [NSJSONSerialization JSONObjectWithData:self.responseData
                                                             options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves
                                                               error:&error];
-    NSLog(@"JSON data: %@", results);
     if (error) NSLog(@"JSON parse error: %@", error);
+    NSLog(@"JSON data: %@", results);
+
+    self.notesDb = results[@"notes_db"];
+    [self storeLoginData];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {

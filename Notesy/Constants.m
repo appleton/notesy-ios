@@ -19,6 +19,7 @@
 #endif
 
 NSString* const COUCH_USERNAME_PREFIX = @"org.couchdb.user:";
+NSString* const KEYCHAIN_KEY = @"Notesy login";
 
 @implementation Constants
 @end

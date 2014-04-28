@@ -17,6 +17,7 @@
 		A1948326190E6C9F00E46E5F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948325190E6C9F00E46E5F /* LoginViewController.m */; };
 		A194832A190E7B3C00E46E5F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948329190E7B3C00E46E5F /* Constants.m */; };
 		A1948343190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948342190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.m */; };
+		A1948349190EAC5F00E46E5F /* JNKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948348190EAC5F00E46E5F /* JNKeychain.m */; };
 		A1D9598B18F684A800113622 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598A18F684A800113622 /* Foundation.framework */; };
 		A1D9598D18F684A800113622 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598C18F684A800113622 /* CoreGraphics.framework */; };
 		A1D9598F18F684A800113622 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598E18F684A800113622 /* UIKit.framework */; };
@@ -59,6 +60,8 @@
 		A1948329190E7B3C00E46E5F /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		A1948341190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+BasicAuth.h"; sourceTree = "<group>"; };
 		A1948342190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+BasicAuth.m"; sourceTree = "<group>"; };
+		A1948347190EAC5F00E46E5F /* JNKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNKeychain.h; sourceTree = "<group>"; };
+		A1948348190EAC5F00E46E5F /* JNKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNKeychain.m; sourceTree = "<group>"; };
 		A1D9598718F684A800113622 /* Notesy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notesy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D9598A18F684A800113622 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A1D9598C18F684A800113622 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -89,10 +92,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A13CE5E718FD59F1004EDEEA /* Security.framework in Frameworks */,
 				A13CE5ED18FD5A10004EDEEA /* libz.dylib in Frameworks */,
 				A13CE5EB18FD5A07004EDEEA /* libsqlite3.dylib in Frameworks */,
 				A13CE5E918FD59FB004EDEEA /* SystemConfiguration.framework in Frameworks */,
-				A13CE5E718FD59F1004EDEEA /* Security.framework in Frameworks */,
 				A13CE5E518FD59E7004EDEEA /* CFNetwork.framework in Frameworks */,
 				A13CE5E318FD59C1004EDEEA /* CouchbaseLite.framework in Frameworks */,
 				A1D9598D18F684A800113622 /* CoreGraphics.framework in Frameworks */,
@@ -177,6 +180,8 @@
 		A1D9599118F684A800113622 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A1948347190EAC5F00E46E5F /* JNKeychain.h */,
+				A1948348190EAC5F00E46E5F /* JNKeychain.m */,
 				A1948341190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.h */,
 				A1948342190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.m */,
 				A1D9599218F684A800113622 /* Notesy-Info.plist */,
@@ -341,6 +346,7 @@
 				A1D9599B18F684A800113622 /* AppDelegate.m in Sources */,
 				A1D959A418F684A800113622 /* MasterViewController.m in Sources */,
 				A1D9599718F684A800113622 /* main.m in Sources */,
+				A1948349190EAC5F00E46E5F /* JNKeychain.m in Sources */,
 				A1D959A718F684A800113622 /* DetailViewController.m in Sources */,
 				A1948343190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.m in Sources */,
 				A1948326190E6C9F00E46E5F /* LoginViewController.m in Sources */,
