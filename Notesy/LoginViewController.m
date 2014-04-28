@@ -85,6 +85,7 @@
 
     self.notesDb = results[@"notes_db"];
     [self storeLoginData];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {

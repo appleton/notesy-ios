@@ -7,8 +7,9 @@
 //
 
 #import "MasterViewController.h"
-
 #import "DetailViewController.h"
+#import "Constants.h"
+#import "JNKeychain.h"
 
 @interface MasterViewController () {
     NSMutableArray *_objects;
@@ -27,7 +28,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
 	// Do any additional setup after loading the view, typically from a nib.
+    [JNKeychain deleteValueForKey:KEYCHAIN_KEY];
+    NSDictionary *userInfo = [JNKeychain loadValueForKey:KEYCHAIN_KEY];
+    if (!userInfo) {
+        [self performSegueWithIdentifier:@"loginModal" sender:self];
+        return;
+    }
+
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
