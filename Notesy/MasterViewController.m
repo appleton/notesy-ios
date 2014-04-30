@@ -42,6 +42,9 @@
     self.database = self.app.database;
 
     // Set up UI
+    self.title = @"Notes";
+    self.navigationItem.titleView = [[UIView alloc] init];
+
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
