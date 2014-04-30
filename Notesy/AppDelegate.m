@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Note.h"
 
 @implementation AppDelegate
 
@@ -24,6 +25,10 @@
     // create a database
     NSError *error;
     self.database = [manager databaseNamed: @"notes" error: &error];
+    if (error) {
+        NSLog(@"error getting database %@",error);
+        exit(-1);
+    }
 
     return YES;
 }
