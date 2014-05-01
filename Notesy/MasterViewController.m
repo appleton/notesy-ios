@@ -13,6 +13,7 @@
 #import "JNKeychain.h"
 #import "Note.h"
 #import "CouchbaseLite.h"
+#import "NoteTableViewCell.h"
 
 @interface MasterViewController()
 @property (strong, nonatomic) AppDelegate* app;
@@ -20,6 +21,8 @@
 @property (strong, nonatomic) NSMutableArray* notes;
 @property (strong, nonatomic) NSDictionary* userInfo;
 @end
+
+static NSString* CellIdentifier = @"CellIdentifier";
 
 @implementation MasterViewController
 
@@ -89,11 +92,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    NoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
+                                                            forIndexPath:indexPath];
 
     Note *note = self.notes[indexPath.row];
-    cell.textLabel.text = note.text;
-
+    cell.titleLabel.text = [note trimmedTextAtLine:0];
+    cell.subtitleLabel.text = [note trimmedTextAtLine:1];
+    cell.timeLabel.text = [note formattedUpdatedAt];
     return cell;
 }
 

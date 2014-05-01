@@ -12,7 +12,10 @@
 + (CBLQuery*) allIn:(CBLDatabase*)db;
 + (CBLQuery*) findIn:(CBLDatabase*)db byId:(NSString *)noteId;
 
+- (NSString *)trimmedTextAtLine:(int)line;
+- (NSString *)formattedUpdatedAt;
+
 @property (strong, nonatomic) NSString* text;
-@property (strong, nonatomic) NSDate* createdAt;
-@property (strong, nonatomic) NSDate* updatedAt;
+@property (strong, nonatomic) NSString* createdAt;
+@property (strong, nonatomic) NSString* updatedAt;
 @end

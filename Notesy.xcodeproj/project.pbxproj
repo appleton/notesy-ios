@@ -19,6 +19,11 @@
 		A1948343190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948342190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.m */; };
 		A1948349190EAC5F00E46E5F /* JNKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948348190EAC5F00E46E5F /* JNKeychain.m */; };
 		A194834C190FCCB600E46E5F /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = A194834B190FCCB600E46E5F /* Note.m */; };
+		A19483501910ED2A00E46E5F /* SourceCodePro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A194834E1910ED2A00E46E5F /* SourceCodePro-Light.otf */; };
+		A19483511910ED2A00E46E5F /* SourceCodePro-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = A194834F1910ED2A00E46E5F /* SourceCodePro-Medium.otf */; };
+		A19483551910ED8500E46E5F /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A19483531910ED8500E46E5F /* SourceSansPro-Light.otf */; };
+		A19483561910ED8500E46E5F /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A19483541910ED8500E46E5F /* SourceSansPro-Semibold.otf */; };
+		A19483591911F8EE00E46E5F /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A19483581911F8EE00E46E5F /* NoteTableViewCell.m */; };
 		A1D9598B18F684A800113622 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598A18F684A800113622 /* Foundation.framework */; };
 		A1D9598D18F684A800113622 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598C18F684A800113622 /* CoreGraphics.framework */; };
 		A1D9598F18F684A800113622 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598E18F684A800113622 /* UIKit.framework */; };
@@ -65,6 +70,12 @@
 		A1948348190EAC5F00E46E5F /* JNKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNKeychain.m; sourceTree = "<group>"; };
 		A194834A190FCCB600E46E5F /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Note.h; path = Models/Note.h; sourceTree = "<group>"; };
 		A194834B190FCCB600E46E5F /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Note.m; path = Models/Note.m; sourceTree = "<group>"; };
+		A194834E1910ED2A00E46E5F /* SourceCodePro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Light.otf"; sourceTree = "<group>"; };
+		A194834F1910ED2A00E46E5F /* SourceCodePro-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Medium.otf"; sourceTree = "<group>"; };
+		A19483531910ED8500E46E5F /* SourceSansPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.otf"; sourceTree = "<group>"; };
+		A19483541910ED8500E46E5F /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
+		A19483571911F8EE00E46E5F /* NoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteTableViewCell.h; path = ../NoteTableViewCell.h; sourceTree = "<group>"; };
+		A19483581911F8EE00E46E5F /* NoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteTableViewCell.m; path = ../NoteTableViewCell.m; sourceTree = "<group>"; };
 		A1D9598718F684A800113622 /* Notesy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notesy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D9598A18F684A800113622 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A1D9598C18F684A800113622 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -130,6 +141,17 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		A19483521910ED4900E46E5F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A19483531910ED8500E46E5F /* SourceSansPro-Light.otf */,
+				A19483541910ED8500E46E5F /* SourceSansPro-Semibold.otf */,
+				A194834E1910ED2A00E46E5F /* SourceCodePro-Light.otf */,
+				A194834F1910ED2A00E46E5F /* SourceCodePro-Medium.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		A1D9597E18F684A800113622 = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +193,8 @@
 		A1D9599018F684A800113622 /* Notesy */ = {
 			isa = PBXGroup;
 			children = (
+				A19483571911F8EE00E46E5F /* NoteTableViewCell.h */,
+				A19483581911F8EE00E46E5F /* NoteTableViewCell.m */,
 				A1D9599918F684A800113622 /* AppDelegate.h */,
 				A1D9599A18F684A800113622 /* AppDelegate.m */,
 				A1D9599C18F684A800113622 /* Main_iPhone.storyboard */,
@@ -193,6 +217,7 @@
 		A1D9599118F684A800113622 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A19483521910ED4900E46E5F /* Fonts */,
 				A1948347190EAC5F00E46E5F /* JNKeychain.h */,
 				A1948348190EAC5F00E46E5F /* JNKeychain.m */,
 				A1948341190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.h */,
@@ -301,7 +326,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19483551910ED8500E46E5F /* SourceSansPro-Light.otf in Resources */,
 				A1D959A118F684A800113622 /* Main_iPad.storyboard in Resources */,
+				A19483501910ED2A00E46E5F /* SourceCodePro-Light.otf in Resources */,
+				A19483511910ED2A00E46E5F /* SourceCodePro-Medium.otf in Resources */,
+				A19483561910ED8500E46E5F /* SourceSansPro-Semibold.otf in Resources */,
 				A1D959A918F684A800113622 /* Images.xcassets in Resources */,
 				A1D9599E18F684A800113622 /* Main_iPhone.storyboard in Resources */,
 				A1D9599518F684A800113622 /* InfoPlist.strings in Resources */,
@@ -365,6 +394,7 @@
 				A1948343190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.m in Sources */,
 				A1948326190E6C9F00E46E5F /* LoginViewController.m in Sources */,
 				A194832A190E7B3C00E46E5F /* Constants.m in Sources */,
+				A19483591911F8EE00E46E5F /* NoteTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
