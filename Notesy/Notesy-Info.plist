@@ -24,6 +24,13 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SourceSansPro-Light.otf</string>
+		<string>SourceSansPro-Semibold.otf</string>
+		<string>SourceCodePro-Regular.otf</string>
+		<string>SourceCodePro-Bold.otf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main_iPhone</string>
 	<key>UIMainStoryboardFile~ipad</key>
@@ -47,13 +54,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>SourceSansPro-Light.otf</string>
-		<string>SourceSansPro-Semibold.otf</string>
-		<string>SourceCodePro-Light.otf</string>
-		<string>SourceCodePro-Medium.otf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

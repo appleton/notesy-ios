@@ -34,6 +34,7 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.note) self.noteText.text = self.note.text;
+    self.noteText.font = [UIFont fontWithName:@"SourceCodePro-Regular" size:17];
 }
 
 - (void)viewDidLoad {
