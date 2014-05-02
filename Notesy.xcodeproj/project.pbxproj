@@ -16,7 +16,6 @@
 		A13CE5ED18FD5A10004EDEEA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5EC18FD5A10004EDEEA /* libz.dylib */; };
 		A1948326190E6C9F00E46E5F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948325190E6C9F00E46E5F /* LoginViewController.m */; };
 		A194832A190E7B3C00E46E5F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948329190E7B3C00E46E5F /* Constants.m */; };
-		A1948343190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948342190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.m */; };
 		A1948349190EAC5F00E46E5F /* JNKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948348190EAC5F00E46E5F /* JNKeychain.m */; };
 		A194834C190FCCB600E46E5F /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = A194834B190FCCB600E46E5F /* Note.m */; };
 		A19483551910ED8500E46E5F /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A19483531910ED8500E46E5F /* SourceSansPro-Light.otf */; };
@@ -64,8 +63,6 @@
 		A1948325190E6C9F00E46E5F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A1948327190E798000E46E5F /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A1948329190E7B3C00E46E5F /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		A1948341190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+BasicAuth.h"; sourceTree = "<group>"; };
-		A1948342190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+BasicAuth.m"; sourceTree = "<group>"; };
 		A1948347190EAC5F00E46E5F /* JNKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNKeychain.h; sourceTree = "<group>"; };
 		A1948348190EAC5F00E46E5F /* JNKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNKeychain.m; sourceTree = "<group>"; };
 		A194834A190FCCB600E46E5F /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Note.h; path = Models/Note.h; sourceTree = "<group>"; };
@@ -220,8 +217,6 @@
 				A19483521910ED4900E46E5F /* Fonts */,
 				A1948347190EAC5F00E46E5F /* JNKeychain.h */,
 				A1948348190EAC5F00E46E5F /* JNKeychain.m */,
-				A1948341190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.h */,
-				A1948342190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.m */,
 				A1D9599218F684A800113622 /* Notesy-Info.plist */,
 				A1D9599318F684A800113622 /* InfoPlist.strings */,
 				A1D9599618F684A800113622 /* main.m */,
@@ -391,7 +386,6 @@
 				A1D9599718F684A800113622 /* main.m in Sources */,
 				A1948349190EAC5F00E46E5F /* JNKeychain.m in Sources */,
 				A1D959A718F684A800113622 /* DetailViewController.m in Sources */,
-				A1948343190E8E2F00E46E5F /* NSMutableURLRequest+BasicAuth.m in Sources */,
 				A1948326190E6C9F00E46E5F /* LoginViewController.m in Sources */,
 				A194832A190E7B3C00E46E5F /* Constants.m in Sources */,
 				A19483591911F8EE00E46E5F /* NoteTableViewCell.m in Sources */,

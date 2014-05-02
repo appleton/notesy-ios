@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E6AB623C5377490FA124BDC1"
-               BuildableName = "libPods-couchbase-lite-ios.a"
-               BlueprintName = "Pods-couchbase-lite-ios"
+               BlueprintIdentifier = "A135CBD0A08E461B9DFE6DDA"
+               BuildableName = "libPods-NSMutableURLRequest-BasicAuth.a"
+               BlueprintName = "Pods-NSMutableURLRequest-BasicAuth"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

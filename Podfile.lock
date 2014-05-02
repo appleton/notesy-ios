@@ -1,10 +1,16 @@
 PODS:
   - couchbase-lite-ios (1.0-beta3.32-bit)
+  - MBProgressHUD (0.8)
+  - NSMutableURLRequest-BasicAuth (1.0.1)
 
 DEPENDENCIES:
   - couchbase-lite-ios
+  - MBProgressHUD (~> 0.8)
+  - NSMutableURLRequest-BasicAuth
 
 SPEC CHECKSUMS:
   couchbase-lite-ios: 47a4f4d251aa83f658dbba31dd25d34857769342
+  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
+  NSMutableURLRequest-BasicAuth: dcb0191bafe152924ace6c9c98ed25d30d6c644b
 
-COCOAPODS: 0.31.1
+COCOAPODS: 0.32.1

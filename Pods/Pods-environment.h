@@ -6,6 +6,18 @@
 // project.
 
 
+// MBProgressHUD
+#define COCOAPODS_POD_AVAILABLE_MBProgressHUD
+#define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0
+#define COCOAPODS_VERSION_MINOR_MBProgressHUD 8
+#define COCOAPODS_VERSION_PATCH_MBProgressHUD 0
+
+// NSMutableURLRequest-BasicAuth
+#define COCOAPODS_POD_AVAILABLE_NSMutableURLRequest_BasicAuth
+#define COCOAPODS_VERSION_MAJOR_NSMutableURLRequest_BasicAuth 1
+#define COCOAPODS_VERSION_MINOR_NSMutableURLRequest_BasicAuth 0
+#define COCOAPODS_VERSION_PATCH_NSMutableURLRequest_BasicAuth 1
+
 // couchbase-lite-ios
 #define COCOAPODS_POD_AVAILABLE_couchbase_lite_ios
 // This library does not follow semantic-versioning,

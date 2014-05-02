@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-NSMutableURLRequest-BasicAuth.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-couchbase-lite-ios.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>C0B3F638832C48D5B4A5D01B</key>
+		<key>183534F43C2546FF808769D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DFA8866CD0834EE2AF82D572</key>
+		<key>91EE3B51C8054A1284ED9AE3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A135CBD0A08E461B9DFE6DDA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E6AB623C5377490FA124BDC1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
