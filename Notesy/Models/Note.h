@@ -9,8 +9,9 @@
 #import "CouchbaseLite.h"
 
 @interface Note : CBLModel
-+ (CBLQuery*) allIn:(CBLDatabase*)db;
-+ (CBLQuery*) findIn:(CBLDatabase*)db byId:(NSString *)noteId;
++ (CBLDatabase *)dbInstanceFor:(NSString *)dbName;
++ (CBLQuery *) allIn:(CBLDatabase*)db;
++ (CBLQuery *) findIn:(CBLDatabase*)db byId:(NSString *)noteId;
 
 - (NSString *)trimmedTextAtLine:(int)line;
 - (NSString *)formattedUpdatedAt;

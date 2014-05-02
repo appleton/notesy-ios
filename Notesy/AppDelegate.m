@@ -19,17 +19,6 @@
         splitViewController.delegate = (id)navigationController.topViewController;
     }
 
-    // create a shared instance of CBLManager
-    CBLManager *manager = [CBLManager sharedInstance];
-
-    // create a database
-    NSError *error;
-    self.database = [manager databaseNamed: @"notes" error: &error];
-    if (error) {
-        NSLog(@"error getting database %@",error);
-        exit(-1);
-    }
-
     return YES;
 }
 

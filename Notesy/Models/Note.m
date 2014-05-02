@@ -13,6 +13,19 @@
 //@synthesize updatedAt = _updatedAt;
 @dynamic text, createdAt, updatedAt;
 
++ (CBLDatabase *)dbInstanceFor:(NSString *)dbName {
+    CBLManager *manager = [CBLManager sharedInstance];
+    NSError *error;
+    CBLDatabase *database = [manager databaseNamed:dbName error: &error];
+
+    if (error) {
+        NSLog(@"error getting database %@", error);
+        exit(-1);
+    }
+
+    return database;
+}
+
 + (CBLQuery*) allIn:(CBLDatabase*)db {
     CBLView* view = [db viewNamed: @"notesByDate"];
 

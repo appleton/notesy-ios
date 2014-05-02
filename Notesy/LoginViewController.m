@@ -10,6 +10,8 @@
 #import "Constants.h"
 #import "NSMutableURLRequest+BasicAuth.h"
 #import "JNKeychain.h"
+#import "MBProgressHUD.h"
+#import "FormattingHelpers.h"
 
 @interface LoginViewController()
 @property (strong, nonatomic) NSURLConnection *currentConnection;
@@ -36,7 +38,7 @@
 
 - (void) logInUser:(NSString *)email password:(NSString *)password {
     NSString *url = [NSString stringWithFormat:@"%@%@_users/%@", PROTOCOL, COUCH_URL,
-                                               [self encodedUserNameFromEmail:email]];
+                                               [FormattingHelpers encodedUserNameFromEmail:email]];
 
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [NSMutableURLRequest basicAuthForRequest:request withUsername:email andPassword:password];
@@ -44,7 +46,12 @@
 }
 
 - (void) showLoginIsHappening {
-// TODO: use MBProgressHUD
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Logging in…";
+}
+
+- (void) hideLoginIsHappening {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void) showLoginError:(NSDictionary *)response {
@@ -52,7 +59,7 @@
 }
 
 - (void) hideLoginError {
-    self.loginErrorLabel.text = @"reason";
+    self.loginErrorLabel.text = @"";
 }
 
 - (void) storeLoginData {
@@ -83,6 +90,7 @@
                                                             options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves
                                                               error:nil];
 
+    [self hideLoginIsHappening];
     if ([results objectForKey:@"error"]) {
         [self showLoginError:results];
     } else {
@@ -93,22 +101,7 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    [self hideLoginIsHappening];
     [self showLoginError:@{@"reason": @"Network error. Please try again!"}];
 }
-
-#pragma mark Formatting helpers
-
-- (NSString *) encodedUserNameFromEmail:(NSString *)email {
-    return [self urlEncode:[COUCH_USERNAME_PREFIX stringByAppendingString:email]];
-}
-
-// Source http://simonwoodside.com/weblog/2009/4/22/how_to_really_url_encode/
-- (NSString *) urlEncode:(NSString *)string {
-    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
-                                                                                 (CFStringRef)string,
-                                                                                 NULL,
-                                                                                 (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                                 kCFStringEncodingUTF8));
-}
-
 @end

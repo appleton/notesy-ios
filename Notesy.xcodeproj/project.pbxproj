@@ -23,6 +23,7 @@
 		A19483591911F8EE00E46E5F /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A19483581911F8EE00E46E5F /* NoteTableViewCell.m */; };
 		A194835C1912A8BD00E46E5F /* SourceCodePro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A194835A1912A8BD00E46E5F /* SourceCodePro-Bold.otf */; };
 		A194835D1912A8BD00E46E5F /* SourceCodePro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A194835B1912A8BD00E46E5F /* SourceCodePro-Regular.otf */; };
+		A1948360191408B400E46E5F /* FormattingHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A194835F191408B400E46E5F /* FormattingHelpers.m */; };
 		A1D9598B18F684A800113622 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598A18F684A800113622 /* Foundation.framework */; };
 		A1D9598D18F684A800113622 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598C18F684A800113622 /* CoreGraphics.framework */; };
 		A1D9598F18F684A800113622 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598E18F684A800113622 /* UIKit.framework */; };
@@ -73,6 +74,8 @@
 		A19483581911F8EE00E46E5F /* NoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteTableViewCell.m; path = ../NoteTableViewCell.m; sourceTree = "<group>"; };
 		A194835A1912A8BD00E46E5F /* SourceCodePro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Bold.otf"; sourceTree = "<group>"; };
 		A194835B1912A8BD00E46E5F /* SourceCodePro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Regular.otf"; sourceTree = "<group>"; };
+		A194835E191408B400E46E5F /* FormattingHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormattingHelpers.h; sourceTree = "<group>"; };
+		A194835F191408B400E46E5F /* FormattingHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormattingHelpers.m; sourceTree = "<group>"; };
 		A1D9598718F684A800113622 /* Notesy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notesy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D9598A18F684A800113622 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A1D9598C18F684A800113622 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -215,6 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				A19483521910ED4900E46E5F /* Fonts */,
+				A194835E191408B400E46E5F /* FormattingHelpers.h */,
+				A194835F191408B400E46E5F /* FormattingHelpers.m */,
 				A1948347190EAC5F00E46E5F /* JNKeychain.h */,
 				A1948348190EAC5F00E46E5F /* JNKeychain.m */,
 				A1D9599218F684A800113622 /* Notesy-Info.plist */,
@@ -389,6 +394,7 @@
 				A1948326190E6C9F00E46E5F /* LoginViewController.m in Sources */,
 				A194832A190E7B3C00E46E5F /* Constants.m in Sources */,
 				A19483591911F8EE00E46E5F /* NoteTableViewCell.m in Sources */,
+				A1948360191408B400E46E5F /* FormattingHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

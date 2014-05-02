@@ -14,6 +14,7 @@
 #import "Note.h"
 #import "CouchbaseLite.h"
 #import "NoteTableViewCell.h"
+#import "FormattingHelpers.h"
 
 @interface MasterViewController()
 @property (strong, nonatomic) AppDelegate* app;
@@ -40,10 +41,6 @@ static NSString* CellIdentifier = @"CellIdentifier";
     // TODO: remove this
     // [JNKeychain deleteValueForKey:KEYCHAIN_KEY];
 
-    // Set up database
-    self.app = [[UIApplication sharedApplication] delegate];
-    self.database = self.app.database;
-
     // Set up UI
     self.title = @"Notes";
     self.navigationItem.titleView = [[UIView alloc] init];
@@ -54,12 +51,13 @@ static NSString* CellIdentifier = @"CellIdentifier";
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 
-    // Open login modal if required
+    // Open login modal if not signed in
     if (!self.userInfo) [self performSegueWithIdentifier:@"loginModal" sender:self];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self replicateDb];
     [self loadNotes];
 }
 
@@ -68,6 +66,24 @@ static NSString* CellIdentifier = @"CellIdentifier";
     // Dispose of any resources that can be recreated.
 }
 
+- (void) replicateDb {
+    if (!self.database) return;
+
+    NSString *userSegment = [NSString stringWithFormat:@"%@:%@",
+                             [FormattingHelpers urlEncode:self.userInfo[@"username"]],
+                             self.userInfo[@"password"]];
+
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@@%@%@", PROTOCOL, userSegment,
+                                       COUCH_URL, self.userInfo[@"notesDb"]]];
+
+    CBLReplication *push = [self.database createPushReplication:url];
+    CBLReplication *pull = [self.database createPullReplication:url];
+
+    [push start];
+    [pull start];
+}
+
+// TODO: convert this to use a live query
 - (void) loadNotes {
     CBLQuery* query = [Note allIn:self.database];
     CBLQueryEnumerator *rowEnum = [query run:nil];
@@ -155,6 +171,11 @@ static NSString* CellIdentifier = @"CellIdentifier";
 - (NSDictionary *)userInfo {
     if (!_userInfo) _userInfo = [JNKeychain loadValueForKey:KEYCHAIN_KEY];
     return _userInfo;
+}
+
+- (CBLDatabase *)database {
+    if (!_database && self.userInfo) self.database = [Note dbInstanceFor:self.userInfo[@"notesDb"]];
+    return _database;
 }
 
 @end
