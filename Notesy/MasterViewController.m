@@ -15,15 +15,14 @@
 #import "CouchbaseLite.h"
 #import "NoteTableViewCell.h"
 #import "FormattingHelpers.h"
+#import "NotesTableSource.h"
 
 @interface MasterViewController()
 @property (strong, nonatomic) AppDelegate* app;
 @property (strong, nonatomic) CBLDatabase* database;
-@property (strong, nonatomic) NSMutableArray* notes;
 @property (strong, nonatomic) NSDictionary* userInfo;
+@property (nonatomic) IBOutlet NotesTableSource* delegate;
 @end
-
-static NSString* CellIdentifier = @"CellIdentifier";
 
 @implementation MasterViewController
 
@@ -39,7 +38,7 @@ static NSString* CellIdentifier = @"CellIdentifier";
     [super viewDidLoad];
 
     // TODO: remove this
-    // [JNKeychain deleteValueForKey:KEYCHAIN_KEY];
+//    [JNKeychain deleteValueForKey:KEYCHAIN_KEY];
 
     // Set up UI
     self.title = @"Notes";
@@ -47,8 +46,8 @@ static NSString* CellIdentifier = @"CellIdentifier";
 
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+//    self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 
     // Open login modal if not signed in
@@ -83,40 +82,33 @@ static NSString* CellIdentifier = @"CellIdentifier";
     [pull start];
 }
 
-// TODO: convert this to use a live query
 - (void) loadNotes {
     CBLQuery* query = [Note allIn:self.database];
-    CBLQueryEnumerator *rowEnum = [query run:nil];
 
-    for (CBLQueryRow* row in rowEnum) [self.notes addObject:[Note modelForDocument:[row document]]];
+    self.delegate = [[NotesTableSource alloc] init];
+    self.delegate.tableView = self.tableView;
+    self.delegate.query = query.asLiveQuery;
+
+    [self.tableView setDataSource:self.delegate];
+    [self.tableView setDelegate:self.delegate];
 }
 
-- (void)insertNewObject:(id)sender {
-    [self.notes insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
+//- (void)insertNewObject:(id)sender {
+//    [self.notes insertObject:[NSDate date] atIndex:0];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//}
 
 #pragma mark - Table View
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.notes count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
-                                                            forIndexPath:indexPath];
-
-    Note *note = self.notes[indexPath.row];
-    cell.titleLabel.text = [note trimmedTextAtLine:0];
-    cell.subtitleLabel.text = [note trimmedTextAtLine:1];
-    cell.timeLabel.text = [note formattedUpdatedAt];
-    return cell;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return 1;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    return [self.notes count];
+//}
+//
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
@@ -125,48 +117,29 @@ static NSString* CellIdentifier = @"CellIdentifier";
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.notes removeObjectAtIndex:indexPath.row];
+//        [self.notes removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
 }
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        Note *note = self.notes[indexPath.row];
-        self.detailViewController.note = note;
+//        Note *note = self.notes[indexPath.row];
+        self.detailViewController.note = nil;
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Note *note = self.notes[indexPath.row];
-        [[segue destinationViewController] setNote:note];
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        Note *note = self.notes[indexPath.row];
+        [[segue destinationViewController] setNote:nil];
     }
 }
 
 #pragma mark - Getters
-
-- (NSMutableArray *)notes {
-    if (!_notes) _notes = [[NSMutableArray alloc] init];
-    return _notes;
-}
 
 - (NSDictionary *)userInfo {
     if (!_userInfo) _userInfo = [JNKeychain loadValueForKey:KEYCHAIN_KEY];
