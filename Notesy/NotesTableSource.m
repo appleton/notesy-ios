@@ -25,11 +25,4 @@ static NSString* CellIdentifier = @"CellIdentifier";
 
     return cell;
 }
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        //        Note *note = self.notes[indexPath.row];
-        self.detailViewController.note = nil;
-    }
-}
 @end

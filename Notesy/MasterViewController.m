@@ -18,7 +18,6 @@
 #import "NotesTableSource.h"
 
 @interface MasterViewController()
-@property (strong, nonatomic) AppDelegate* app;
 @property (strong, nonatomic) CBLDatabase* database;
 @property (strong, nonatomic) NSDictionary* userInfo;
 @property (nonatomic) IBOutlet NotesTableSource* delegate;
@@ -44,7 +43,7 @@
     self.title = @"Notes";
     self.navigationItem.titleView = [[UIView alloc] init];
 
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
 //    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
 //    self.navigationItem.rightBarButtonItem = addButton;
@@ -62,7 +61,8 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.database = nil;
+    self.userInfo = nil;
 }
 
 - (void) replicateDb {
@@ -101,15 +101,6 @@
 
 #pragma mark - Table View
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return 1;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return [self.notes count];
-//}
-//
-
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
@@ -126,16 +117,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-//        Note *note = self.notes[indexPath.row];
-        self.detailViewController.note = nil;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        CBLQueryRow *row = [self.delegate rowAtIndex:indexPath.row];
+        self.detailViewController.note = [Note modelForDocument: row.document];;
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        Note *note = self.notes[indexPath.row];
-        [[segue destinationViewController] setNote:nil];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        CBLQueryRow *row = [self.delegate rowAtIndex:indexPath.row];
+        [[segue destinationViewController] setNote:[Note modelForDocument: row.document]];
     }
 }
 

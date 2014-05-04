@@ -9,5 +9,4 @@
 #import <CouchbaseLite/CouchbaseLite.h>
 
 @interface NotesTableSource : CBLUITableSource <UITableViewDelegate>
-
 @end
