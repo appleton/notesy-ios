@@ -135,6 +135,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1363D1619162A300023C6ED /* MasterView */ = {
+			isa = PBXGroup;
+			children = (
+				A1D959A218F684A800113622 /* MasterViewController.h */,
+				A1D959A318F684A800113622 /* MasterViewController.m */,
+				A1363D1319158AED0023C6ED /* NotesTableSource.h */,
+				A1363D1419158AED0023C6ED /* NotesTableSource.m */,
+				A19483571911F8EE00E46E5F /* NoteTableViewCell.h */,
+				A19483581911F8EE00E46E5F /* NoteTableViewCell.m */,
+			);
+			name = MasterView;
+			sourceTree = "<group>";
+		};
+		A1363D1719162A430023C6ED /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				A1948324190E6C9F00E46E5F /* LoginViewController.h */,
+				A1948325190E6C9F00E46E5F /* LoginViewController.m */,
+			);
+			name = LoginView;
+			sourceTree = "<group>";
+		};
+		A1363D1819162A640023C6ED /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				A1D959A518F684A800113622 /* DetailViewController.h */,
+				A1D959A618F684A800113622 /* DetailViewController.m */,
+			);
+			name = DetailView;
+			sourceTree = "<group>";
+		};
 		A194834D190FCCC400E46E5F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,24 +227,17 @@
 		A1D9599018F684A800113622 /* Notesy */ = {
 			isa = PBXGroup;
 			children = (
-				A19483571911F8EE00E46E5F /* NoteTableViewCell.h */,
-				A19483581911F8EE00E46E5F /* NoteTableViewCell.m */,
+				A194834D190FCCC400E46E5F /* Models */,
+				A1363D1819162A640023C6ED /* DetailView */,
+				A1363D1719162A430023C6ED /* LoginView */,
+				A1363D1619162A300023C6ED /* MasterView */,
 				A1D9599918F684A800113622 /* AppDelegate.h */,
 				A1D9599A18F684A800113622 /* AppDelegate.m */,
-				A1D9599C18F684A800113622 /* Main_iPhone.storyboard */,
 				A1948327190E798000E46E5F /* Constants.h */,
 				A1948329190E7B3C00E46E5F /* Constants.m */,
-				A1948324190E6C9F00E46E5F /* LoginViewController.h */,
-				A1948325190E6C9F00E46E5F /* LoginViewController.m */,
-				A1D9599F18F684A800113622 /* Main_iPad.storyboard */,
-				A1D959A218F684A800113622 /* MasterViewController.h */,
-				A1D959A318F684A800113622 /* MasterViewController.m */,
-				A1363D1319158AED0023C6ED /* NotesTableSource.h */,
-				A1363D1419158AED0023C6ED /* NotesTableSource.m */,
-				A1D959A518F684A800113622 /* DetailViewController.h */,
-				A1D959A618F684A800113622 /* DetailViewController.m */,
-				A194834D190FCCC400E46E5F /* Models */,
 				A1D959A818F684A800113622 /* Images.xcassets */,
+				A1D9599F18F684A800113622 /* Main_iPad.storyboard */,
+				A1D9599C18F684A800113622 /* Main_iPhone.storyboard */,
 				A1D9599118F684A800113622 /* Supporting Files */,
 			);
 			path = Notesy;
