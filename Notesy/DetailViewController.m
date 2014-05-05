@@ -36,7 +36,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self removeObservers];
-    [self saveNoteImmediately];
+    [self saveNote];
 }
 
 - (void)removeObservers {
@@ -54,16 +54,8 @@
                                                object:nil];
 }
 
-// Debounce to save the note 1s after typing ends
 - (void)saveNote {
-    [LVDebounce fireAfter:1.0 target:self selector:@selector(saveNoteImmediately) userInfo:nil];
-}
-
-- (void)saveNoteImmediately {
-    if ([self.note.text isEqualToString:self.noteText.text]) return;
-
-    self.note.text = self.noteText.text;
-    [self.note save:nil];
+    if (![self.note.text isEqualToString:self.noteText.text]) self.note.text = self.noteText.text;
 }
 
 #pragma mark - Keyboard observer

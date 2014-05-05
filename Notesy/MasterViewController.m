@@ -83,6 +83,8 @@
 }
 
 - (void) loadNotes {
+    if (self.delegate) return;
+
     CBLQuery* query = [Note allIn:self.database];
 
     self.delegate = [[NotesTableSource alloc] init];
@@ -119,7 +121,10 @@
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         CBLQueryRow *row = [self.delegate rowAtIndex:indexPath.row];
-        self.detailViewController.note = [Note modelForDocument: row.document];;
+        Note *note = [Note modelForDocument: row.document];
+        note.autosaves = YES;
+
+        self.detailViewController.note = note;
     }
 }
 
@@ -127,7 +132,10 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         CBLQueryRow *row = [self.delegate rowAtIndex:indexPath.row];
-        [[segue destinationViewController] setNote:[Note modelForDocument: row.document]];
+        Note *note = [Note modelForDocument: row.document];
+        note.autosaves = YES;
+
+        [[segue destinationViewController] setNote:note];
     }
 }
 

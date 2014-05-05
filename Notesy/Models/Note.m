@@ -32,9 +32,9 @@
     if (!view.mapBlock) {
         // On first query after launch, register the map function:
         [view setMapBlock: MAPBLOCK({
-            NSString* date = doc[@"createdAt"];
+            NSString* date = doc[@"updatedAt"];
             emit(@[date], doc);
-        }) reduceBlock: nil version: @"1"]; // bump version any time you change the MAPBLOCK body!
+        }) reduceBlock: nil version: @"2"]; // bump version any time you change the MAPBLOCK body!
     }
 
     CBLQuery* query = [view createQuery];
@@ -49,13 +49,20 @@
 
 - (instancetype) initWithNewDocumentInDatabase:(CBLDatabase *)database {
     self = [super initWithNewDocumentInDatabase:database];
-    if (self) {
-        self.text = @"";
-        // TODO: all data needs to be converted to ISO date strings
-        // self.createdAt = [NSDate date];
-        // self.updatedAt = [NSDate date];
-    }
+    if (self) self.text = @"";
     return self;
+}
+
+- (NSTimeInterval)autosaveDelay {
+    return 0.5;
+}
+
+- (BOOL) save:(NSError **)error {
+    NSString *now = [NSString stringWithFormat:@"%f", ([[[NSDate alloc] init] timeIntervalSince1970] * 1000)];
+    self.updatedAt = now;
+    if (!self.createdAt) self.createdAt = now;
+
+    return [super save:error];
 }
 
 - (NSString *)trimmedTextAtLine:(int)line {
