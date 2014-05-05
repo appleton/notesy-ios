@@ -47,20 +47,17 @@
     return [db createAllDocumentsQuery];
 }
 
-- (instancetype) initWithNewDocumentInDatabase:(CBLDatabase *)database {
-    self = [super initWithNewDocumentInDatabase:database];
-    if (self) self.text = @"";
-    return self;
-}
-
 - (NSTimeInterval)autosaveDelay {
     return 0.5;
 }
 
 - (BOOL) save:(NSError **)error {
-    NSString *now = [NSString stringWithFormat:@"%f", ([[[NSDate alloc] init] timeIntervalSince1970] * 1000)];
+    long long intNow = [[[NSDate alloc] init] timeIntervalSince1970] * 1000;
+    NSString *now = [NSString stringWithFormat:@"%lld", intNow];
+
     self.updatedAt = now;
     if (!self.createdAt) self.createdAt = now;
+    if (!self.text) self.text = @"";
 
     return [super save:error];
 }
