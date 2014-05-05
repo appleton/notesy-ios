@@ -10,7 +10,6 @@
 #import "Note.h"
 
 @interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
-
 @property (strong, nonatomic) Note* note;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end
