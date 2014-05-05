@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-LVDebounce.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>183534F43C2546FF808769D8</key>
+		<key>00F0F33A43254DBCBCC4FE02</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>91EE3B51C8054A1284ED9AE3</key>
+		<key>506466A7C1434A169E2BD476</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A135CBD0A08E461B9DFE6DDA</key>
+		<key>6B425C63956D47E69FFE69C2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6AB623C5377490FA124BDC1</key>
+		<key>B0A1858217BC407C8980E3FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B95AF40DE2574760A8D9D40D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

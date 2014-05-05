@@ -6,6 +6,12 @@
 // project.
 
 
+// LVDebounce
+#define COCOAPODS_POD_AVAILABLE_LVDebounce
+#define COCOAPODS_VERSION_MAJOR_LVDebounce 0
+#define COCOAPODS_VERSION_MINOR_LVDebounce 0
+#define COCOAPODS_VERSION_PATCH_LVDebounce 4
+
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
 #define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0

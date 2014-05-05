@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6B425C63956D47E69FFE69C2"
-               BuildableName = "libPods-NSMutableURLRequest-BasicAuth.a"
-               BlueprintName = "Pods-NSMutableURLRequest-BasicAuth"
+               BlueprintIdentifier = "B95AF40DE2574760A8D9D40D"
+               BuildableName = "libPods-LVDebounce.a"
+               BlueprintName = "Pods-LVDebounce"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
