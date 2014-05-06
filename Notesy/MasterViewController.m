@@ -38,9 +38,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // TODO: remove this
-//    [JNKeychain deleteValueForKey:KEYCHAIN_KEY];
-
     // Set up UI
     self.title = @"Notes";
     self.navigationItem.titleView = [[UIView alloc] init];
@@ -92,6 +89,14 @@
 
     [self.push start];
     [self.pull start];
+}
+
+- (void) cancelDbReplication {
+    [self.push removeObserver:self forKeyPath:@"completedChangesCount"];
+    [self.pull removeObserver:self forKeyPath:@"completedChangesCount"];
+
+    [self.push stop];
+    [self.pull stop];
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath
@@ -172,6 +177,21 @@
 - (CBLDatabase *)database {
     if (!_database && self.userInfo) self.database = [Note dbInstanceFor:self.userInfo[@"notesDb"]];
     return _database;
+}
+
+#pragma mark - Temporary
+
+- (IBAction)logoutButton:(id)sender {
+    [self cancelDbReplication];
+
+    self.push = nil;
+    self.pull = nil;
+    self.userInfo = nil;
+    self.database = nil;
+    self.delegate = nil;
+
+    [JNKeychain deleteValueForKey:KEYCHAIN_KEY];
+    [self performSegueWithIdentifier:@"loginModal" sender:self];
 }
 
 @end

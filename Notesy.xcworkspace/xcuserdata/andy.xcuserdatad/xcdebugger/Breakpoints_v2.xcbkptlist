@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Notesy/DetailViewController.m"
-            timestampString = "421090611.037561"
+            timestampString = "421090856.79154"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "-configureView"
             landmarkType = "5">
          </BreakpointContent>

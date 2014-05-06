@@ -129,7 +129,13 @@
                             <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="tQt-TN-PWz"/>
+                    <navigationItem key="navigationItem" id="tQt-TN-PWz">
+                        <barButtonItem key="leftBarButtonItem" title="Log out" id="gjj-FZ-IC7">
+                            <connections>
+                                <action selector="logoutButton:" destination="pGg-6v-bdr" id="V3z-O8-JUV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="mLL-gJ-YKr" id="SA5-gc-c4h"/>
                         <segue destination="P6o-j8-jWJ" kind="modal" identifier="loginModal" id="8Oy-mR-NCE"/>
