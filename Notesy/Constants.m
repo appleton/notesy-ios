@@ -8,7 +8,7 @@
 
 #import "Constants.h"
 
-#ifdef DEBUG
+#if TARGET_IPHONE_SIMULATOR
     NSString* const PROTOCOL = @"http://";
     NSString* const COUCH_URL = @"localhost:5984/";
     NSString* const APP_URL = @"localhost:1337/";

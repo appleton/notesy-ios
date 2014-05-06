@@ -7,7 +7,6 @@
 //
 
 #import "DetailViewController.h"
-#import "LVDebounce.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -20,14 +19,13 @@
 #pragma mark - Managing the detail item
 
 - (void)configureView {
-    // Update the user interface for the detail item.
     if (self.note) self.noteText.text = self.note.text;
     self.noteText.font = [UIFont fontWithName:@"SourceCodePro-Regular" size:17];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
     [self observeKeyboard];
     [self observeTextField];
     [self configureView];
@@ -35,6 +33,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+
     [self removeObservers];
     [self saveNote];
 }
