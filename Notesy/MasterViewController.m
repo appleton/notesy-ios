@@ -20,6 +20,8 @@
 @interface MasterViewController()
 @property (strong, nonatomic) CBLDatabase* database;
 @property (strong, nonatomic) NSDictionary* userInfo;
+@property (strong, nonatomic) CBLReplication *pull;
+@property (strong, nonatomic) CBLReplication *push;
 @property (nonatomic) IBOutlet NotesTableSource* delegate;
 @end
 
@@ -65,9 +67,7 @@
     self.userInfo = nil;
 }
 
-- (void) replicateDb {
-    if (!self.database) return;
-
+- (void) initReplication {
     NSString *userSegment = [NSString stringWithFormat:@"%@:%@",
                              [FormattingHelpers urlEncode:self.userInfo[@"username"]],
                              self.userInfo[@"password"]];
@@ -75,12 +75,40 @@
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@@%@%@", PROTOCOL, userSegment,
                                        COUCH_URL, self.userInfo[@"notesDb"]]];
 
-    CBLReplication *push = [self.database createPushReplication:url];
-    CBLReplication *pull = [self.database createPullReplication:url];
+    self.push = [self.database createPushReplication:url];
+    self.pull = [self.database createPullReplication:url];
 
-    [push start];
-    [pull start];
+    // TODO: Is this bad for battery?
+    self.push.continuous = YES;
+    self.pull.continuous = YES;
+
+    [self.push addObserver:self forKeyPath:@"completedChangesCount" options:0 context:nil];
+    [self.pull addObserver:self forKeyPath:@"completedChangesCount" options:0 context:nil];
 }
+
+- (void) replicateDb {
+    if (!self.database) return;
+    if (!self.pull || !self.push) [self initReplication];
+
+    [self.push start];
+    [self.pull start];
+}
+
+- (void) observeValueForKeyPath:(NSString *)keyPath
+                       ofObject:(id)object
+                         change:(NSDictionary *)change
+                        context:(void *)context {
+
+    if (object != self.pull && object != self.push) return;
+
+    unsigned completed = self.pull.completedChangesCount + self.push.completedChangesCount;
+    unsigned total = self.pull.changesCount + self.push.changesCount;
+
+    BOOL showSpinner = (total > 0 && completed < total);
+
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = showSpinner;
+}
+
 
 - (void) loadNotes {
     if (self.delegate) return;
