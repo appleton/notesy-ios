@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Notesy/DetailViewController.m"
-            timestampString = "421090611.037561"
+            timestampString = "421179018.811577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "-observeTextField"
             landmarkType = "5">
          </BreakpointContent>

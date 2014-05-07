@@ -26,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    if ([self.note.text length] == 0) [self.noteText becomeFirstResponder];
     [self observeKeyboard];
     [self observeTextField];
     [self configureView];
