@@ -22,6 +22,12 @@
     if (self.note) self.noteText.text = self.note.text;
     self.noteText.font = [UIFont fontWithName:@"SourceCodePro-Regular" size:17];
     self.noteText.textContainerInset = UIEdgeInsetsMake(15, 15, 15, 15);
+    UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc]
+                                     initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
+                                                          target:self
+                                                          action:@selector(showDeletePopover)];
+    self.navigationItem.rightBarButtonItem = deleteButton;
+
 }
 
 - (void)viewDidLoad {
@@ -56,7 +62,32 @@
 }
 
 - (void)saveNote {
-    if (![self.note.text isEqualToString:self.noteText.text]) self.note.text = self.noteText.text;
+    if (self.note.text && ![self.note.text isEqualToString:self.noteText.text]) {
+        self.note.text = self.noteText.text;
+    }
+}
+
+#pragma mark Delete
+
+- (void)deleteNote {
+    [self.noteText resignFirstResponder];
+    [self.note deleteDocument:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)showDeletePopover {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Delete Note"
+                                                    otherButtonTitles:nil];
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Delete Note"]) {
+        [self deleteNote];
+    }
 }
 
 #pragma mark - Keyboard observer
