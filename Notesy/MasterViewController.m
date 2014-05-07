@@ -140,7 +140,7 @@
     note.autosaves = YES;
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    DetailViewController *detail = (DetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DetailView"];
+    DetailViewController *detail = [storyboard instantiateViewControllerWithIdentifier:@"DetailView"];
     detail.note = note;
 
     [self.navigationController pushViewController:detail animated:YES];
