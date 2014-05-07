@@ -42,10 +42,12 @@
     self.title = @"Notes";
     self.navigationItem.titleView = [[UIView alloc] init];
 
-//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                       target:self
+                                                       action:@selector(insertNewNote:)];
+    self.navigationItem.rightBarButtonItem = addButton;
 
-//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-//    self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 
     // Open login modal if not signed in
@@ -63,6 +65,8 @@
     self.database = nil;
     self.userInfo = nil;
 }
+
+#pragma mark - Replication
 
 - (void) initReplication {
     NSString *userSegment = [NSString stringWithFormat:@"%@:%@",
@@ -114,6 +118,7 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = showSpinner;
 }
 
+#pragma mark - Manage notes
 
 - (void) loadNotes {
     if (self.delegate) return;
@@ -128,22 +133,20 @@
     [self.tableView setDelegate:self.delegate];
 }
 
-//- (void)insertNewObject:(id)sender {
-//    [self.notes insertObject:[NSDate date] atIndex:0];
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//}
+- (void)insertNewNote:(id)sender {
+    Note *note = [[Note alloc] initWithNewDocumentInDatabase:self.database];
+    [note save:nil];
+
+    note.autosaves = YES;
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    DetailViewController *detail = (DetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DetailView"];
+    detail.note = note;
+
+    [self.navigationController pushViewController:detail animated:YES];
+}
 
 #pragma mark - Table View
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        [self.notes removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
