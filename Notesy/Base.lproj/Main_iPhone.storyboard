@@ -158,19 +158,19 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wqg-Zl-f5o">
-                                <rect key="frame" x="20" y="0.0" width="280" height="548"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="a0L-h9-sNL" firstAttribute="top" secondItem="Wqg-Zl-f5o" secondAttribute="bottom" constant="20" id="E6S-Bn-l7r"/>
-                            <constraint firstAttribute="trailing" secondItem="Wqg-Zl-f5o" secondAttribute="trailing" constant="20" id="GL5-5H-BvN"/>
+                            <constraint firstItem="a0L-h9-sNL" firstAttribute="top" secondItem="Wqg-Zl-f5o" secondAttribute="bottom" id="E6S-Bn-l7r"/>
+                            <constraint firstAttribute="trailing" secondItem="Wqg-Zl-f5o" secondAttribute="trailing" id="GL5-5H-BvN"/>
                             <constraint firstItem="Wqg-Zl-f5o" firstAttribute="top" secondItem="cIm-e0-J51" secondAttribute="bottom" constant="-64" id="JFP-wl-JbZ"/>
-                            <constraint firstItem="Wqg-Zl-f5o" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leading" constant="20" id="doo-gu-EN6"/>
+                            <constraint firstItem="Wqg-Zl-f5o" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leading" id="doo-gu-EN6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cra-N8-TIN"/>

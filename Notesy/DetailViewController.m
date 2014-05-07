@@ -21,6 +21,7 @@
 - (void)configureView {
     if (self.note) self.noteText.text = self.note.text;
     self.noteText.font = [UIFont fontWithName:@"SourceCodePro-Regular" size:17];
+    self.noteText.textContainerInset = UIEdgeInsetsMake(15, 15, 15, 15);
 }
 
 - (void)viewDidLoad {
