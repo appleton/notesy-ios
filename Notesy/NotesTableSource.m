@@ -19,7 +19,8 @@ static NSString* CellIdentifier = @"CellIdentifier";
                                                               forIndexPath:indexPath];
 
     Note *note = [Note modelForDocument:[self documentAtIndexPath:indexPath]];
-    cell.titleLabel.text = [note trimmedTextAtLine:0];
+    NSString *text = [note trimmedTextAtLine:0];
+    cell.titleLabel.text = [text length] > 0 ? text : @"untitled";
     cell.subtitleLabel.text = [note trimmedTextAtLine:1];
     cell.timeLabel.text = [note formattedUpdatedAt];
 
