@@ -17,6 +17,6 @@
 - (NSString *)formattedUpdatedAt;
 
 @property (strong, nonatomic) NSString* text;
-@property (strong, nonatomic) NSString* createdAt;
-@property (strong, nonatomic) NSString* updatedAt;
+@property (nonatomic) long long createdAt;
+@property (nonatomic) long long updatedAt;
 @end

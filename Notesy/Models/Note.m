@@ -9,8 +9,6 @@
 #import "Note.h"
 
 @implementation Note
-//@synthesize createdAt = _createdAt;
-//@synthesize updatedAt = _updatedAt;
 @dynamic text, createdAt, updatedAt;
 
 + (CBLDatabase *)dbInstanceFor:(NSString *)dbName {
@@ -52,8 +50,7 @@
 }
 
 - (BOOL) save:(NSError **)error {
-    long long intNow = [[[NSDate alloc] init] timeIntervalSince1970] * 1000;
-    NSString *now = [NSString stringWithFormat:@"%lld", intNow];
+    long long now = [[[NSDate alloc] init] timeIntervalSince1970] * 1000;
 
     self.updatedAt = now;
     if (!self.createdAt) self.createdAt = now;
@@ -75,9 +72,8 @@
 #pragma mark - Presenters
 
 - (NSString *)formattedUpdatedAt {
-    // TODO: refactor when data is in ISO date strings
     // TODO: match Mail.app for date formatting
-    long long secondsFromEpoch = [self.updatedAt longLongValue] / 1000;
+    long long secondsFromEpoch = self.updatedAt / 1000;
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:secondsFromEpoch];
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
