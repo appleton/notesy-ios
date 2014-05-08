@@ -7,6 +7,7 @@
 //
 
 #import "Note.h"
+#import "NSDate+Helper.h"
 
 @implementation Note
 @dynamic text, createdAt, updatedAt;
@@ -72,14 +73,9 @@
 #pragma mark - Presenters
 
 - (NSString *)formattedUpdatedAt {
-    // TODO: match Mail.app for date formatting
     long long secondsFromEpoch = self.updatedAt / 1000;
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:secondsFromEpoch];
-
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterShortStyle];
-
-    return [formatter stringFromDate:date];
+    return [NSDate stringForDisplayFromDate:date];
 }
 
 @end

@@ -25,6 +25,7 @@
 		A194835C1912A8BD00E46E5F /* SourceCodePro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A194835A1912A8BD00E46E5F /* SourceCodePro-Bold.otf */; };
 		A194835D1912A8BD00E46E5F /* SourceCodePro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A194835B1912A8BD00E46E5F /* SourceCodePro-Regular.otf */; };
 		A1948360191408B400E46E5F /* FormattingHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A194835F191408B400E46E5F /* FormattingHelpers.m */; };
+		A1C4C492191B7472008D9B04 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C4C491191B7472008D9B04 /* NSDate+Helper.m */; };
 		A1D9598B18F684A800113622 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598A18F684A800113622 /* Foundation.framework */; };
 		A1D9598D18F684A800113622 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598C18F684A800113622 /* CoreGraphics.framework */; };
 		A1D9598F18F684A800113622 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598E18F684A800113622 /* UIKit.framework */; };
@@ -79,6 +80,8 @@
 		A194835B1912A8BD00E46E5F /* SourceCodePro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Regular.otf"; sourceTree = "<group>"; };
 		A194835E191408B400E46E5F /* FormattingHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormattingHelpers.h; sourceTree = "<group>"; };
 		A194835F191408B400E46E5F /* FormattingHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormattingHelpers.m; sourceTree = "<group>"; };
+		A1C4C490191B7472008D9B04 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
+		A1C4C491191B7472008D9B04 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		A1D9598718F684A800113622 /* Notesy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notesy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D9598A18F684A800113622 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A1D9598C18F684A800113622 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -251,6 +254,8 @@
 				A194835F191408B400E46E5F /* FormattingHelpers.m */,
 				A1948347190EAC5F00E46E5F /* JNKeychain.h */,
 				A1948348190EAC5F00E46E5F /* JNKeychain.m */,
+				A1C4C490191B7472008D9B04 /* NSDate+Helper.h */,
+				A1C4C491191B7472008D9B04 /* NSDate+Helper.m */,
 				A1D9599218F684A800113622 /* Notesy-Info.plist */,
 				A1D9599318F684A800113622 /* InfoPlist.strings */,
 				A1D9599618F684A800113622 /* main.m */,
@@ -414,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1C4C492191B7472008D9B04 /* NSDate+Helper.m in Sources */,
 				A194834C190FCCB600E46E5F /* Note.m in Sources */,
 				A1363D1519158AED0023C6ED /* NotesTableSource.m in Sources */,
 				A1D9599B18F684A800113622 /* AppDelegate.m in Sources */,
