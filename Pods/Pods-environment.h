@@ -6,12 +6,6 @@
 // project.
 
 
-// LVDebounce
-#define COCOAPODS_POD_AVAILABLE_LVDebounce
-#define COCOAPODS_VERSION_MAJOR_LVDebounce 0
-#define COCOAPODS_VERSION_MINOR_LVDebounce 0
-#define COCOAPODS_VERSION_PATCH_LVDebounce 4
-
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
 #define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0
@@ -22,7 +16,7 @@
 #define COCOAPODS_POD_AVAILABLE_NSMutableURLRequest_BasicAuth
 #define COCOAPODS_VERSION_MAJOR_NSMutableURLRequest_BasicAuth 1
 #define COCOAPODS_VERSION_MINOR_NSMutableURLRequest_BasicAuth 0
-#define COCOAPODS_VERSION_PATCH_NSMutableURLRequest_BasicAuth 1
+#define COCOAPODS_VERSION_PATCH_NSMutableURLRequest_BasicAuth 2
 
 // couchbase-lite-ios
 #define COCOAPODS_POD_AVAILABLE_couchbase_lite_ios

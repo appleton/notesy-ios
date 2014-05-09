@@ -38,15 +38,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Set up UI
-    self.title = @"Notes";
-    self.navigationItem.titleView = [[UIView alloc] init];
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
-                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                       target:self
-                                                       action:@selector(insertNewNote:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    [self initNav];
+    [self initSearch];
 
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 
@@ -64,6 +57,26 @@
     [super didReceiveMemoryWarning];
     self.database = nil;
     self.userInfo = nil;
+}
+
+#pragma mark - UI Setup
+
+- (void) initNav {
+    self.title = @"Notes";
+    self.navigationItem.titleView = [[UIView alloc] init];
+
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                  target:self
+                                  action:@selector(insertNewNote:)];
+    self.navigationItem.rightBarButtonItem = addButton;
+}
+
+-(void) initSearch {
+    UISearchBar *sb = [[UISearchBar alloc] initWithFrame:self.tableView.tableHeaderView.frame];
+    sb.delegate = self;
+    self.navigationItem.titleView = sb;
+    [sb sizeToFit];
 }
 
 #pragma mark - Replication

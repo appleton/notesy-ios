@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+//#import "RFMarkdownTextView.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -28,6 +29,9 @@
                                                           action:@selector(showDeletePopover)];
     self.navigationItem.rightBarButtonItem = deleteButton;
 
+
+//    RFMarkdownTextView *textView = [[RFMarkdownTextView alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 280.0f, 124.0f)];
+//    [self.view addSubview:textView];
 }
 
 - (void)viewDidLoad {

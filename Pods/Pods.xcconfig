@@ -1,6 +1,6 @@
 FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/couchbase-lite-ios" "$(PODS_ROOT)/couchbase-lite-ios"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/LVDebounce" "${PODS_ROOT}/Headers/MBProgressHUD" "${PODS_ROOT}/Headers/NSMutableURLRequest-BasicAuth" "${PODS_ROOT}/Headers/couchbase-lite-ios"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/LVDebounce" -isystem "${PODS_ROOT}/Headers/MBProgressHUD" -isystem "${PODS_ROOT}/Headers/NSMutableURLRequest-BasicAuth" -isystem "${PODS_ROOT}/Headers/couchbase-lite-ios"
-OTHER_LDFLAGS = -ObjC -lsqlite3 -lz -framework CFNetwork -framework CoreGraphics -framework CouchbaseLite -framework CouchbaseLiteListener -framework Foundation -framework Security -framework SystemConfiguration
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/MBProgressHUD" "${PODS_ROOT}/Headers/NSMutableURLRequest-BasicAuth" "${PODS_ROOT}/Headers/couchbase-lite-ios"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/MBProgressHUD" -isystem "${PODS_ROOT}/Headers/NSMutableURLRequest-BasicAuth" -isystem "${PODS_ROOT}/Headers/couchbase-lite-ios"
+OTHER_LDFLAGS = -ObjC -lsqlite3 -lz -framework CFNetwork -framework CoreGraphics -framework CouchbaseLite -framework CouchbaseLiteListener -framework Security -framework SystemConfiguration
 PODS_ROOT = ${SRCROOT}/Pods

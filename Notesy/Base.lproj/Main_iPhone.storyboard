@@ -130,11 +130,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="tQt-TN-PWz">
-                        <barButtonItem key="leftBarButtonItem" title="Log out" id="gjj-FZ-IC7">
-                            <connections>
-                                <action selector="logoutButton:" destination="pGg-6v-bdr" id="V3z-O8-JUV"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" image="menu-icon" id="GR9-l4-kNf"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="mLL-gJ-YKr" id="SA5-gc-c4h"/>
@@ -184,6 +180,9 @@
             <point key="canvasLocation" x="902" y="64"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu-icon" width="22" height="18"/>
+    </resources>
     <color key="tintColor" red="0.1137254902" green="0.72549019609999998" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
