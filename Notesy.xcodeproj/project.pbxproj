@@ -19,8 +19,6 @@
 		A194832A190E7B3C00E46E5F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948329190E7B3C00E46E5F /* Constants.m */; };
 		A1948349190EAC5F00E46E5F /* JNKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948348190EAC5F00E46E5F /* JNKeychain.m */; };
 		A194834C190FCCB600E46E5F /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = A194834B190FCCB600E46E5F /* Note.m */; };
-		A19483551910ED8500E46E5F /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A19483531910ED8500E46E5F /* SourceSansPro-Light.otf */; };
-		A19483561910ED8500E46E5F /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A19483541910ED8500E46E5F /* SourceSansPro-Semibold.otf */; };
 		A19483591911F8EE00E46E5F /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A19483581911F8EE00E46E5F /* NoteTableViewCell.m */; };
 		A194835C1912A8BD00E46E5F /* SourceCodePro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A194835A1912A8BD00E46E5F /* SourceCodePro-Bold.otf */; };
 		A194835D1912A8BD00E46E5F /* SourceCodePro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A194835B1912A8BD00E46E5F /* SourceCodePro-Regular.otf */; };
@@ -72,8 +70,6 @@
 		A1948348190EAC5F00E46E5F /* JNKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNKeychain.m; sourceTree = "<group>"; };
 		A194834A190FCCB600E46E5F /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Note.h; path = Models/Note.h; sourceTree = "<group>"; };
 		A194834B190FCCB600E46E5F /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Note.m; path = Models/Note.m; sourceTree = "<group>"; };
-		A19483531910ED8500E46E5F /* SourceSansPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.otf"; sourceTree = "<group>"; };
-		A19483541910ED8500E46E5F /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
 		A19483571911F8EE00E46E5F /* NoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteTableViewCell.h; path = ../NoteTableViewCell.h; sourceTree = "<group>"; };
 		A19483581911F8EE00E46E5F /* NoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteTableViewCell.m; path = ../NoteTableViewCell.m; sourceTree = "<group>"; };
 		A194835A1912A8BD00E46E5F /* SourceCodePro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Bold.otf"; sourceTree = "<group>"; };
@@ -181,8 +177,6 @@
 		A19483521910ED4900E46E5F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				A19483531910ED8500E46E5F /* SourceSansPro-Light.otf */,
-				A19483541910ED8500E46E5F /* SourceSansPro-Semibold.otf */,
 				A194835A1912A8BD00E46E5F /* SourceCodePro-Bold.otf */,
 				A194835B1912A8BD00E46E5F /* SourceCodePro-Regular.otf */,
 			);
@@ -360,9 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A19483551910ED8500E46E5F /* SourceSansPro-Light.otf in Resources */,
 				A1D959A118F684A800113622 /* Main_iPad.storyboard in Resources */,
-				A19483561910ED8500E46E5F /* SourceSansPro-Semibold.otf in Resources */,
 				A194835C1912A8BD00E46E5F /* SourceCodePro-Bold.otf in Resources */,
 				A1D959A918F684A800113622 /* Images.xcassets in Resources */,
 				A1D9599E18F684A800113622 /* Main_iPhone.storyboard in Resources */,

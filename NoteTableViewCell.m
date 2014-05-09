@@ -17,12 +17,6 @@
     return self;
 }
 
-- (void)awakeFromNib {
-    self.titleLabel.font = [UIFont fontWithName:@"SourceSansPro-Semibold" size:17];
-    self.subtitleLabel.font = [UIFont fontWithName:@"SourceSansPro-Light" size:14];
-    self.timeLabel.font = [UIFont fontWithName:@"SourceSansPro-Light" size:14];
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
