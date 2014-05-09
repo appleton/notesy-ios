@@ -73,10 +73,10 @@
 }
 
 -(void) initSearch {
-    UISearchBar *sb = [[UISearchBar alloc] initWithFrame:self.tableView.tableHeaderView.frame];
-    sb.delegate = self;
-    self.navigationItem.titleView = sb;
-    [sb sizeToFit];
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:self.tableView.tableHeaderView.frame];
+    searchBar.delegate = self;
+    self.navigationItem.titleView = searchBar;
+    [searchBar sizeToFit];
 }
 
 #pragma mark - Replication
