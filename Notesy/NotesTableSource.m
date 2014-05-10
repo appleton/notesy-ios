@@ -9,6 +9,7 @@
 #import "NotesTableSource.h"
 #import "NoteTableViewCell.h"
 #import "Note.h"
+#import "NoDataView.h"
 
 @implementation NotesTableSource
 
@@ -26,4 +27,21 @@ static NSString* CellIdentifier = @"CellIdentifier";
 
     return cell;
 }
+
+- (void) couchTableSource:(CBLUITableSource *)source willUpdateFromQuery:(CBLLiveQuery *)query {
+    [self.rows count] > 0 && self.tableView.tableHeaderView ? [self hideWelcome] : [self showWelcome];
+}
+
+- (void) showWelcome {
+    NoDataView *view = [[[NSBundle mainBundle] loadNibNamed:@"NoDataView"
+                                                      owner:nil
+                                                    options:nil] lastObject];
+    view.frame = self.tableView.frame;
+    self.tableView.tableHeaderView = view;
+}
+
+- (void) hideWelcome {
+    self.tableView.tableHeaderView = nil;
+}
+
 @end

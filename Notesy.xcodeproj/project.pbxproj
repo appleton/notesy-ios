@@ -26,6 +26,8 @@
 		A1C4C492191B7472008D9B04 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C4C491191B7472008D9B04 /* NSDate+Helper.m */; };
 		A1C4C4A3191D4930008D9B04 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C4C4A2191D4930008D9B04 /* SettingsViewController.m */; };
 		A1C4C4AE191D7564008D9B04 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C4C4AD191D7564008D9B04 /* Accelerate.framework */; };
+		A1C4C4B0191EC10F008D9B04 /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C4C4AF191EC10F008D9B04 /* NoDataView.xib */; };
+		A1C4C4B3191EC2B9008D9B04 /* NoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C4C4B2191EC2B9008D9B04 /* NoDataView.m */; };
 		A1D9598B18F684A800113622 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598A18F684A800113622 /* Foundation.framework */; };
 		A1D9598D18F684A800113622 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598C18F684A800113622 /* CoreGraphics.framework */; };
 		A1D9598F18F684A800113622 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598E18F684A800113622 /* UIKit.framework */; };
@@ -83,6 +85,9 @@
 		A1C4C4A1191D4930008D9B04 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		A1C4C4A2191D4930008D9B04 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A1C4C4AD191D7564008D9B04 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		A1C4C4AF191EC10F008D9B04 /* NoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
+		A1C4C4B1191EC2B9008D9B04 /* NoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoDataView.h; sourceTree = "<group>"; };
+		A1C4C4B2191EC2B9008D9B04 /* NoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoDataView.m; sourceTree = "<group>"; };
 		A1D9598718F684A800113622 /* Notesy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notesy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D9598A18F684A800113622 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A1D9598C18F684A800113622 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -143,6 +148,8 @@
 		A1363D1619162A300023C6ED /* MasterView */ = {
 			isa = PBXGroup;
 			children = (
+				A1C4C4B1191EC2B9008D9B04 /* NoDataView.h */,
+				A1C4C4B2191EC2B9008D9B04 /* NoDataView.m */,
 				A1D959A218F684A800113622 /* MasterViewController.h */,
 				A1D959A318F684A800113622 /* MasterViewController.m */,
 				A1363D1319158AED0023C6ED /* NotesTableSource.h */,
@@ -250,6 +257,7 @@
 				A1948327190E798000E46E5F /* Constants.h */,
 				A1948329190E7B3C00E46E5F /* Constants.m */,
 				A1D959A818F684A800113622 /* Images.xcassets */,
+				A1C4C4AF191EC10F008D9B04 /* NoDataView.xib */,
 				A1D9599F18F684A800113622 /* Main_iPad.storyboard */,
 				A1D9599C18F684A800113622 /* Main_iPhone.storyboard */,
 				A1D9599118F684A800113622 /* Supporting Files */,
@@ -377,6 +385,7 @@
 				A1D9599E18F684A800113622 /* Main_iPhone.storyboard in Resources */,
 				A194835D1912A8BD00E46E5F /* SourceCodePro-Regular.otf in Resources */,
 				A1D9599518F684A800113622 /* InfoPlist.strings in Resources */,
+				A1C4C4B0191EC10F008D9B04 /* NoDataView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +440,7 @@
 				A1C4C492191B7472008D9B04 /* NSDate+Helper.m in Sources */,
 				A194834C190FCCB600E46E5F /* Note.m in Sources */,
 				A1363D1519158AED0023C6ED /* NotesTableSource.m in Sources */,
+				A1C4C4B3191EC2B9008D9B04 /* NoDataView.m in Sources */,
 				A1D9599B18F684A800113622 /* AppDelegate.m in Sources */,
 				A1D959A418F684A800113622 /* MasterViewController.m in Sources */,
 				A1D9599718F684A800113622 /* main.m in Sources */,
