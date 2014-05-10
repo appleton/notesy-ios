@@ -38,10 +38,12 @@ static NSString* CellIdentifier = @"CellIdentifier";
                                                     options:nil] lastObject];
     view.frame = self.tableView.frame;
     self.tableView.tableHeaderView = view;
+    self.tableView.scrollEnabled = NO;
 }
 
 - (void) hideWelcome {
     self.tableView.tableHeaderView = nil;
+    self.tableView.scrollEnabled = YES;
 }
 
 @end
