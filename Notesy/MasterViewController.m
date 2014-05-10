@@ -174,7 +174,6 @@
 }
 
 - (void) logout {
-    NSLog(@"logout");
     [self cancelDbReplication];
 
     self.push = nil;
