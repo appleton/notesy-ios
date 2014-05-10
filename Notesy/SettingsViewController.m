@@ -28,6 +28,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)websiteLinkButton:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://notesy.co"]];
+}
+
 - (IBAction)logoutButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{
         [[NSNotificationCenter defaultCenter] postNotificationName:kLogoutMessage object:nil];

@@ -41,6 +41,7 @@
 
     [self initNav];
     [self initSearch];
+    [self observeLogout];
 
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 
@@ -50,9 +51,12 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self observeLogout];
     [self replicateDb];
     [self loadNotes];
+}
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,10 +83,6 @@
     searchBar.delegate = self;
     self.navigationItem.titleView = searchBar;
     [searchBar sizeToFit];
-}
-
-- (IBAction)showSettingsButton:(id)sender {
-
 }
 
 #pragma mark - Replication
@@ -166,15 +166,15 @@
 }
 #pragma mark - Logout
 
-- (void)observeLogout {
+- (void) observeLogout {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(logout)
                                                  name:kLogoutMessage
                                                object:nil];
 }
 
-- (void)logout {
-    NSLog(@"hai");
+- (void) logout {
+    NSLog(@"logout");
     [self cancelDbReplication];
 
     self.push = nil;

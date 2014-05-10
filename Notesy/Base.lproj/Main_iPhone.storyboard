@@ -134,7 +134,6 @@
                     <navigationItem key="navigationItem" id="tQt-TN-PWz">
                         <barButtonItem key="leftBarButtonItem" image="menu-icon" id="GR9-l4-kNf">
                             <connections>
-                                <action selector="showSettingsButton:" destination="pGg-6v-bdr" id="FkX-JU-kbi"/>
                                 <segue destination="q1Y-sb-rbo" kind="modal" identifier="showSettings" id="ZM8-lY-P7z"/>
                             </connections>
                         </barButtonItem>
@@ -233,12 +232,12 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dK-T3-FPv">
                                                     <rect key="frame" x="20" y="0.0" width="280" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="https://app.notesy.co">
+                                                    <state key="normal" title="http://notesy.co">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="logoutButton:" destination="cfF-Ke-zZA" eventType="touchUpInside" id="zuu-Lv-gUa"/>
+                                                        <action selector="websiteLinkButton:" destination="cfF-Ke-zZA" eventType="touchUpInside" id="gyp-27-wQx"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
