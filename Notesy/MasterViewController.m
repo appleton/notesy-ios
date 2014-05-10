@@ -16,6 +16,7 @@
 #import "NoteTableViewCell.h"
 #import "FormattingHelpers.h"
 #import "NotesTableSource.h"
+#import "SettingsViewController.h"
 
 @interface MasterViewController()
 @property (strong, nonatomic) CBLDatabase* database;
@@ -49,6 +50,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self observeLogout];
     [self replicateDb];
     [self loadNotes];
 }
@@ -77,6 +79,10 @@
     searchBar.delegate = self;
     self.navigationItem.titleView = searchBar;
     [searchBar sizeToFit];
+}
+
+- (IBAction)showSettingsButton:(id)sender {
+
 }
 
 #pragma mark - Replication
@@ -158,6 +164,28 @@
 
     [self.navigationController pushViewController:detail animated:YES];
 }
+#pragma mark - Logout
+
+- (void)observeLogout {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(logout)
+                                                 name:kLogoutMessage
+                                               object:nil];
+}
+
+- (void)logout {
+    NSLog(@"hai");
+    [self cancelDbReplication];
+
+    self.push = nil;
+    self.pull = nil;
+    self.userInfo = nil;
+    self.database = nil;
+    self.delegate = nil;
+
+    [JNKeychain deleteValueForKey:KEYCHAIN_KEY];
+    [self performSegueWithIdentifier:@"loginModal" sender:self];
+}
 
 #pragma mark - Table View
 
@@ -193,21 +221,6 @@
 - (CBLDatabase *)database {
     if (!_database && self.userInfo) self.database = [Note dbInstanceFor:self.userInfo[@"notesDb"]];
     return _database;
-}
-
-#pragma mark - Temporary
-
-- (IBAction)logoutButton:(id)sender {
-    [self cancelDbReplication];
-
-    self.push = nil;
-    self.pull = nil;
-    self.userInfo = nil;
-    self.database = nil;
-    self.delegate = nil;
-
-    [JNKeychain deleteValueForKey:KEYCHAIN_KEY];
-    [self performSegueWithIdentifier:@"loginModal" sender:self];
 }
 
 @end

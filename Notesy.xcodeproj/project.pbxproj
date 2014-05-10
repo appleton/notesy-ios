@@ -24,6 +24,8 @@
 		A194835D1912A8BD00E46E5F /* SourceCodePro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A194835B1912A8BD00E46E5F /* SourceCodePro-Regular.otf */; };
 		A1948360191408B400E46E5F /* FormattingHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A194835F191408B400E46E5F /* FormattingHelpers.m */; };
 		A1C4C492191B7472008D9B04 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C4C491191B7472008D9B04 /* NSDate+Helper.m */; };
+		A1C4C4A3191D4930008D9B04 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C4C4A2191D4930008D9B04 /* SettingsViewController.m */; };
+		A1C4C4AE191D7564008D9B04 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C4C4AD191D7564008D9B04 /* Accelerate.framework */; };
 		A1D9598B18F684A800113622 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598A18F684A800113622 /* Foundation.framework */; };
 		A1D9598D18F684A800113622 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598C18F684A800113622 /* CoreGraphics.framework */; };
 		A1D9598F18F684A800113622 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D9598E18F684A800113622 /* UIKit.framework */; };
@@ -78,6 +80,9 @@
 		A194835F191408B400E46E5F /* FormattingHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormattingHelpers.m; sourceTree = "<group>"; };
 		A1C4C490191B7472008D9B04 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
 		A1C4C491191B7472008D9B04 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
+		A1C4C4A1191D4930008D9B04 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		A1C4C4A2191D4930008D9B04 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		A1C4C4AD191D7564008D9B04 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		A1D9598718F684A800113622 /* Notesy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notesy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D9598A18F684A800113622 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A1D9598C18F684A800113622 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -108,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1C4C4AE191D7564008D9B04 /* Accelerate.framework in Frameworks */,
 				A13CE5E718FD59F1004EDEEA /* Security.framework in Frameworks */,
 				A13CE5ED18FD5A10004EDEEA /* libz.dylib in Frameworks */,
 				A13CE5EB18FD5A07004EDEEA /* libsqlite3.dylib in Frameworks */,
@@ -183,6 +189,15 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		A1C4C4A0191D491F008D9B04 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				A1C4C4A1191D4930008D9B04 /* SettingsViewController.h */,
+				A1C4C4A2191D4930008D9B04 /* SettingsViewController.m */,
+			);
+			name = SettingsView;
+			sourceTree = "<group>";
+		};
 		A1D9597E18F684A800113622 = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +221,7 @@
 		A1D9598918F684A800113622 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1C4C4AD191D7564008D9B04 /* Accelerate.framework */,
 				A13CE5EC18FD5A10004EDEEA /* libz.dylib */,
 				A13CE5EA18FD5A07004EDEEA /* libsqlite3.dylib */,
 				A13CE5E818FD59FA004EDEEA /* SystemConfiguration.framework */,
@@ -224,6 +240,7 @@
 		A1D9599018F684A800113622 /* Notesy */ = {
 			isa = PBXGroup;
 			children = (
+				A1C4C4A0191D491F008D9B04 /* SettingsView */,
 				A194834D190FCCC400E46E5F /* Models */,
 				A1363D1819162A640023C6ED /* DetailView */,
 				A1363D1719162A430023C6ED /* LoginView */,
@@ -423,6 +440,7 @@
 				A194832A190E7B3C00E46E5F /* Constants.m in Sources */,
 				A19483591911F8EE00E46E5F /* NoteTableViewCell.m in Sources */,
 				A1948360191408B400E46E5F /* FormattingHelpers.m in Sources */,
+				A1C4C4A3191D4930008D9B04 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

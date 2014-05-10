@@ -12,4 +12,6 @@
 
 @interface MasterViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 @property (strong, nonatomic) DetailViewController *detailViewController;
+
+- (void)logout;
 @end
