@@ -29,10 +29,11 @@ static NSString* CellIdentifier = @"CellIdentifier";
 }
 
 - (void) couchTableSource:(CBLUITableSource *)source willUpdateFromQuery:(CBLLiveQuery *)query {
-    [self.rows count] > 0 && self.tableView.tableHeaderView ? [self hideWelcome] : [self showWelcome];
+    [self.rows count] > 0 ? [self hideWelcome] : [self showWelcome];
 }
 
 - (void) showWelcome {
+    if (self.tableView.tableHeaderView) return;
     NoDataView *view = [[[NSBundle mainBundle] loadNibNamed:@"NoDataView"
                                                       owner:nil
                                                     options:nil] lastObject];
@@ -42,6 +43,7 @@ static NSString* CellIdentifier = @"CellIdentifier";
 }
 
 - (void) hideWelcome {
+    if (!self.tableView.tableHeaderView) return;
     self.tableView.tableHeaderView = nil;
     self.tableView.scrollEnabled = YES;
 }
