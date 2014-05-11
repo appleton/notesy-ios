@@ -11,5 +11,5 @@
 
 #define kLogoutMessage @"DoLogout"
 
-@interface SettingsViewController : UITableViewController
+@interface SettingsViewController : UITableViewController <UIAlertViewDelegate>
 @end

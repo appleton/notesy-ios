@@ -33,6 +33,18 @@
 }
 
 - (IBAction)logoutButton:(id)sender {
+    [[[UIAlertView alloc] initWithTitle:@"Log out"
+                                message:@"Are you sure?"
+                               delegate:self
+                      cancelButtonTitle:@"Cancel"
+                      otherButtonTitles:@"Log out", nil] show];
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Log out"]) [self logout];
+}
+
+- (void) logout {
     [self dismissViewControllerAnimated:YES completion:^{
         [[NSNotificationCenter defaultCenter] postNotificationName:kLogoutMessage object:nil];
     }];
