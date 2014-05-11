@@ -255,7 +255,7 @@ Tap here to add your first note.</string>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dK-T3-FPv">
                                                     <rect key="frame" x="20" y="0.0" width="280" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="http://notesy.co">
+                                                    <state key="normal" title="Visit http://notesy.co">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
