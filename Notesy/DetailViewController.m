@@ -7,11 +7,12 @@
 //
 
 #import "DetailViewController.h"
-//#import "RFMarkdownTextView.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
-@property (weak, nonatomic) IBOutlet UITextView *noteText;
+@property (strong, nonatomic) NSTextStorage *noteTextStorage;
+@property (strong, nonatomic) NSLayoutManager *noteLayoutManager;
+@property (strong, nonatomic) UITextView *noteText;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *noteTextBottomConstraint;
 @end
 
@@ -19,22 +20,12 @@
 
 #pragma mark - Managing the detail item
 
-- (void)configureView {
-    if (self.note) self.noteText.text = self.note.text;
-    self.noteText.font = [UIFont fontWithName:@"SourceCodePro-Regular" size:17];
-    self.noteText.textContainerInset = UIEdgeInsetsMake(15, 15, 15, 15);
-    UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc]
-                                     initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
-                                                          target:self
-                                                          action:@selector(showDeletePopover)];
-    self.navigationItem.rightBarButtonItem = deleteButton;
-
-
-//    RFMarkdownTextView *textView = [[RFMarkdownTextView alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 280.0f, 124.0f)];
-//    [self.view addSubview:textView];
+- (void) configureView {
+    [self initTextField];
+    [self initNavigation];
 }
 
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
 
     if ([self.note.text length] == 0) [self.noteText becomeFirstResponder];
@@ -43,7 +34,7 @@
     [self configureView];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
+- (void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 
     [self removeObservers];
@@ -56,16 +47,44 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidChangeNotification object:nil];
 }
 
+- (void) initNavigation {
+    UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc]
+                                     initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
+                                     target:self
+                                     action:@selector(showDeletePopover)];
+    self.navigationItem.rightBarButtonItem = deleteButton;
+}
+
 #pragma mark - Managing Note
 
-- (void)observeTextField {
+- (void) initTextField {
+    if (!self.note) return;
+
+    self.noteTextStorage = [[NSTextStorage alloc] initWithString:self.note.text];
+
+    self.noteLayoutManager = [NSLayoutManager new];
+    [self.noteTextStorage addLayoutManager: self.noteLayoutManager];
+
+    NSTextContainer *textContainer = [NSTextContainer new];
+    [self.noteLayoutManager addTextContainer: textContainer];
+
+    self.noteText = [[UITextView alloc] initWithFrame:self.view.bounds textContainer:textContainer];
+    self.noteText.font = [UIFont fontWithName:@"SourceCodePro-Regular" size:17];
+
+    // TODO: use autolayout instead of 80px inset
+    self.noteText.textContainerInset = UIEdgeInsetsMake(80, 15, 15, 15);
+
+    [self.view addSubview:self.noteText];
+}
+
+- (void) observeTextField {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(saveNote)
                                                  name:UITextViewTextDidChangeNotification
                                                object:nil];
 }
 
-- (void)saveNote {
+- (void) saveNote {
     if (self.note.text && ![self.note.text isEqualToString:self.noteText.text]) {
         self.note.text = self.noteText.text;
     }
