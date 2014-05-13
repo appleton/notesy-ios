@@ -7,11 +7,13 @@
 //
 
 #import "DetailViewController.h"
+#import "MarkdownTextStorage.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
-@property (strong, nonatomic) NSTextStorage *noteTextStorage;
+@property (strong, nonatomic) MarkdownTextStorage *noteTextStorage;
 @property (strong, nonatomic) NSLayoutManager *noteLayoutManager;
+@property (strong, nonatomic) NSTextContainer *noteTextContainer;
 @property (strong, nonatomic) UITextView *noteText;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *noteTextBottomConstraint;
 @end
@@ -60,15 +62,15 @@
 - (void) initTextField {
     if (!self.note) return;
 
-    self.noteTextStorage = [[NSTextStorage alloc] initWithString:self.note.text];
+    self.noteTextStorage = [[MarkdownTextStorage alloc] initWithString:self.note.text];
 
     self.noteLayoutManager = [NSLayoutManager new];
     [self.noteTextStorage addLayoutManager: self.noteLayoutManager];
 
-    NSTextContainer *textContainer = [NSTextContainer new];
-    [self.noteLayoutManager addTextContainer: textContainer];
+    self.noteTextContainer = [NSTextContainer new];
+    [self.noteLayoutManager addTextContainer: self.noteTextContainer];
 
-    self.noteText = [[UITextView alloc] initWithFrame:self.view.bounds textContainer:textContainer];
+    self.noteText = [[UITextView alloc] initWithFrame:self.view.bounds textContainer:self.noteTextContainer];
     self.noteText.font = [UIFont fontWithName:@"SourceCodePro-Regular" size:17];
 
     // TODO: use autolayout instead of 80px inset
@@ -85,8 +87,8 @@
 }
 
 - (void) saveNote {
-    if (self.note.text && ![self.note.text isEqualToString:self.noteText.text]) {
-        self.note.text = self.noteText.text;
+    if (self.note.text && ![self.note.text isEqualToString:self.noteTextStorage.string]) {
+        self.note.text = self.noteTextStorage.string;
     }
 }
 

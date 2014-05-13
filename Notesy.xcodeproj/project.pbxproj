@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		734EA58DED6C454AA57CEED1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B44FE902987E44269E10ACF9 /* libPods.a */; };
+		A118587F1920B53A00266744 /* MarkdownTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = A118587E1920B53A00266744 /* MarkdownTextStorage.m */; };
 		A1363D1519158AED0023C6ED /* NotesTableSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A1363D1419158AED0023C6ED /* NotesTableSource.m */; };
 		A13CE5E318FD59C1004EDEEA /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5E218FD59C1004EDEEA /* CouchbaseLite.framework */; };
 		A13CE5E518FD59E7004EDEEA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5E418FD59E7004EDEEA /* CFNetwork.framework */; };
@@ -58,6 +59,9 @@
 
 /* Begin PBXFileReference section */
 		02E996934CB6426C956EAF5D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		A118587D1920B53A00266744 /* MarkdownTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkdownTextStorage.h; sourceTree = "<group>"; };
+		A118587E1920B53A00266744 /* MarkdownTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownTextStorage.m; sourceTree = "<group>"; };
+		A11858831921F68B00266744 /* SourceCodePro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceCodePro-Light.otf"; path = "../../../Library/Fonts/SourceCodePro-Light.otf"; sourceTree = "<group>"; };
 		A1363D1319158AED0023C6ED /* NotesTableSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesTableSource.h; sourceTree = "<group>"; };
 		A1363D1419158AED0023C6ED /* NotesTableSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesTableSource.m; sourceTree = "<group>"; };
 		A13CE5E218FD59C1004EDEEA /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchbaseLite.framework; path = "Pods/couchbase-lite-ios/CouchbaseLite.framework"; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 		A194834D190FCCC400E46E5F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A118587D1920B53A00266744 /* MarkdownTextStorage.h */,
+				A118587E1920B53A00266744 /* MarkdownTextStorage.m */,
 				A194834A190FCCB600E46E5F /* Note.h */,
 				A194834B190FCCB600E46E5F /* Note.m */,
 			);
@@ -191,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				A194835A1912A8BD00E46E5F /* SourceCodePro-Bold.otf */,
+				A11858831921F68B00266744 /* SourceCodePro-Light.otf */,
 				A194835B1912A8BD00E46E5F /* SourceCodePro-Regular.otf */,
 			);
 			name = Fonts;
@@ -448,6 +455,7 @@
 				A1D959A718F684A800113622 /* DetailViewController.m in Sources */,
 				A1948326190E6C9F00E46E5F /* LoginViewController.m in Sources */,
 				A194832A190E7B3C00E46E5F /* Constants.m in Sources */,
+				A118587F1920B53A00266744 /* MarkdownTextStorage.m in Sources */,
 				A19483591911F8EE00E46E5F /* NoteTableViewCell.m in Sources */,
 				A1948360191408B400E46E5F /* FormattingHelpers.m in Sources */,
 				A1C4C4A3191D4930008D9B04 /* SettingsViewController.m in Sources */,
