@@ -74,7 +74,7 @@
     self.noteText.font = [UIFont fontWithName:@"SourceCodePro-Regular" size:17];
 
     // TODO: use autolayout instead of 80px inset
-    self.noteText.textContainerInset = UIEdgeInsetsMake(80, 15, 15, 15);
+    self.noteText.textContainerInset = UIEdgeInsetsMake(80, 5, 20, 20);
 
     [self.view addSubview:self.noteText];
 }
