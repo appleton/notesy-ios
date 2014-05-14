@@ -12,7 +12,9 @@
 @property (nonatomic,strong) NSMutableAttributedString *attributedString;
 @property (nonatomic,strong) NSDictionary *attributeDictionary;
 @property (nonatomic,strong) UIFont *bodyFont;
+@property (nonatomic,strong) UIFont *boldFont;
 @property (nonatomic,strong) UIColor *bodyColour;
+@property (nonatomic,strong) UIColor *lightColour;
 @property (nonatomic,strong) NSMutableParagraphStyle *bodyIndent;
 @property (nonatomic,strong) NSMutableParagraphStyle *firstLineOutdent;
 @end
@@ -75,8 +77,7 @@
                                   range:searchRange
                              usingBlock:
          ^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
-             NSRange matchRange = [match rangeAtIndex:1];
-             [self addAttributes:attributes range:matchRange];
+             [self addAttributes:attributes range:match.range];
         }];
     }
 }
@@ -93,11 +94,11 @@
 
 - (NSDictionary *)attributeDictionary {
     if (!_attributeDictionary) {
-        NSDictionary *boldAttributes = @{NSFontAttributeName: [UIFont fontWithName:@"SourceCodePro-Bold" size:17]};
-        NSDictionary *italicAttributes = @{NSFontAttributeName: [UIFont fontWithName:@"SourceCodePro-Regular" size:17]};
-        NSDictionary *boldItalicAttributes = @{NSFontAttributeName: [UIFont fontWithName:@"SourceCodePro-Bold" size:17]};
+        NSDictionary *boldAttributes = @{NSFontAttributeName: self.boldFont};
+        NSDictionary *italicAttributes = @{NSFontAttributeName: self.bodyFont};
+        NSDictionary *boldItalicAttributes = @{NSFontAttributeName: self.boldFont};
         NSDictionary *codeAttributes = @{NSForegroundColorAttributeName: [UIColor grayColor]};
-        NSDictionary *headerAttributes = @{NSFontAttributeName: [UIFont fontWithName:@"SourceCodePro-Bold" size:17],
+        NSDictionary *headerAttributes = @{NSFontAttributeName: self.boldFont,
                                            NSParagraphStyleAttributeName: self.firstLineOutdent};
         NSDictionary *linkAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:0.255 green:0.514 blue:0.769 alpha:1.00]};
         NSDictionary *listAttributes = @{NSParagraphStyleAttributeName: self.firstLineOutdent};
@@ -123,11 +124,25 @@
     return _bodyFont;
 }
 
+- (UIFont *) boldFont {
+    if (!_boldFont) {
+        _boldFont = [UIFont fontWithName:@"SourceCodePro-Semibold" size:17];
+    }
+    return _boldFont;
+}
+
 - (UIColor *) bodyColour {
     if (!_bodyColour) {
         _bodyColour = [UIColor colorWithRed:0/255.0f green:4/255.0f blue:68/255.0f alpha:1.0f];
     }
     return _bodyColour;
+}
+
+- (UIColor *) lightColour {
+    if (!_lightColour) {
+        _lightColour = [UIColor colorWithRed:170/255.0f green:170/255.0f blue:170/255.0f alpha:1.0f];
+    }
+    return _lightColour;
 }
 
 - (NSMutableParagraphStyle *) bodyIndent {

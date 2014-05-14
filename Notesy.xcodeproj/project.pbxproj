@@ -16,6 +16,7 @@
 		A13CE5E918FD59FB004EDEEA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5E818FD59FA004EDEEA /* SystemConfiguration.framework */; };
 		A13CE5EB18FD5A07004EDEEA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5EA18FD5A07004EDEEA /* libsqlite3.dylib */; };
 		A13CE5ED18FD5A10004EDEEA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5EC18FD5A10004EDEEA /* libz.dylib */; };
+		A1531DD51923D2E900E7D0DC /* SourceCodePro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A1096F2619235D5B003C8308 /* SourceCodePro-Semibold.otf */; };
 		A1948326190E6C9F00E46E5F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948325190E6C9F00E46E5F /* LoginViewController.m */; };
 		A194832A190E7B3C00E46E5F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948329190E7B3C00E46E5F /* Constants.m */; };
 		A1948349190EAC5F00E46E5F /* JNKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948348190EAC5F00E46E5F /* JNKeychain.m */; };
@@ -59,9 +60,9 @@
 
 /* Begin PBXFileReference section */
 		02E996934CB6426C956EAF5D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		A1096F2619235D5B003C8308 /* SourceCodePro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceCodePro-Semibold.otf"; path = "../../../Library/Fonts/SourceCodePro-Semibold.otf"; sourceTree = "<group>"; };
 		A118587D1920B53A00266744 /* MarkdownTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkdownTextStorage.h; sourceTree = "<group>"; };
 		A118587E1920B53A00266744 /* MarkdownTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownTextStorage.m; sourceTree = "<group>"; };
-		A11858831921F68B00266744 /* SourceCodePro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceCodePro-Light.otf"; path = "../../../Library/Fonts/SourceCodePro-Light.otf"; sourceTree = "<group>"; };
 		A1363D1319158AED0023C6ED /* NotesTableSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesTableSource.h; sourceTree = "<group>"; };
 		A1363D1419158AED0023C6ED /* NotesTableSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesTableSource.m; sourceTree = "<group>"; };
 		A13CE5E218FD59C1004EDEEA /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchbaseLite.framework; path = "Pods/couchbase-lite-ios/CouchbaseLite.framework"; sourceTree = "<group>"; };
@@ -196,8 +197,8 @@
 		A19483521910ED4900E46E5F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				A1096F2619235D5B003C8308 /* SourceCodePro-Semibold.otf */,
 				A194835A1912A8BD00E46E5F /* SourceCodePro-Bold.otf */,
-				A11858831921F68B00266744 /* SourceCodePro-Light.otf */,
 				A194835B1912A8BD00E46E5F /* SourceCodePro-Regular.otf */,
 			);
 			name = Fonts;
@@ -386,6 +387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1531DD51923D2E900E7D0DC /* SourceCodePro-Semibold.otf in Resources */,
 				A1D959A118F684A800113622 /* Main_iPad.storyboard in Resources */,
 				A194835C1912A8BD00E46E5F /* SourceCodePro-Bold.otf in Resources */,
 				A1D959A918F684A800113622 /* Images.xcassets in Resources */,

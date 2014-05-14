@@ -27,7 +27,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>SourceCodePro-Light.otf</string>
-		<string>SourceSansPro-Semibold.otf</string>
+		<string>SourceCodePro-Semibold.otf</string>
 		<string>SourceCodePro-Regular.otf</string>
 		<string>SourceCodePro-Bold.otf</string>
 	</array>
