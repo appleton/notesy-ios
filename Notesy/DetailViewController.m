@@ -77,6 +77,12 @@
     self.noteText.textContainerInset = UIEdgeInsetsMake(80, 5, 20, 20);
 
     [self.view addSubview:self.noteText];
+
+    // The second part of the hack in - [MarkdownTextStorage initWithString:]. Remove the space
+    // inserted to force indentation to be applied.
+    if ([self.noteTextStorage.string isEqualToString:@" "]) {
+        [self.noteTextStorage deleteCharactersInRange:NSMakeRange(0, 1)];
+    }
 }
 
 - (void) observeTextField {

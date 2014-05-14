@@ -11,6 +11,7 @@
 @interface MarkdownTextStorage()
 @property (nonatomic,strong) NSMutableAttributedString *attributedString;
 @property (nonatomic,strong) NSDictionary *attributeDictionary;
+@property (nonatomic,strong) NSDictionary *defaultAttributes;
 @property (nonatomic,strong) UIFont *bodyFont;
 @property (nonatomic,strong) UIFont *boldFont;
 @property (nonatomic,strong) UIColor *bodyColour;
@@ -27,8 +28,18 @@
 - (instancetype) initWithString:(NSString *)str {
     self = [super init];
     if (self) {
-        _attributedString = [[NSMutableAttributedString alloc] initWithString:str];
-        [self resetRange:NSMakeRange(0, self.string.length)];
+        _attributedString = [[NSMutableAttributedString alloc] initWithString:str
+                                                                   attributes:self.defaultAttributes];
+
+        // Necessary hack. NSAttributedString will not immediately apply the indent when initialized
+        // with an empty string, you have to add and then delete a character in (I think) different
+        // run loop cycles. This adds a space, which is then removed at the end of
+        // - [DetailViewController initTextField].
+        if ([str isEqualToString:@""]) {
+            NSAttributedString *throwaway = [[NSMutableAttributedString alloc] initWithString:@" "
+                                                                                   attributes:self.defaultAttributes];
+            [self.attributedString appendAttributedString:throwaway];
+        }
     }
     return self;
 }
@@ -61,10 +72,7 @@
 }
 
 - (void) resetRange:(NSRange)range {
-    [self addAttribute:NSFontAttributeName value:self.bodyFont range:range];
-    [self addAttribute:NSForegroundColorAttributeName value:self.bodyColour range:range];
-    // TODO: this can't apply to an empty string, how to get around that on initial load?
-    [self addAttribute:NSParagraphStyleAttributeName value:self.bodyIndent range:range];
+    [self setAttributes:self.defaultAttributes range:range];
 }
 
 - (void) applyStylesToRange:(NSRange)searchRange {
@@ -115,6 +123,15 @@
         };
     }
     return _attributeDictionary;
+}
+
+- (NSDictionary *) defaultAttributes {
+    if (!_defaultAttributes) {
+        _defaultAttributes = @{NSFontAttributeName: self.bodyFont,
+                               NSForegroundColorAttributeName: self.bodyColour,
+                               NSParagraphStyleAttributeName: self.bodyIndent};
+    }
+    return _defaultAttributes;
 }
 
 - (UIFont *) bodyFont {
