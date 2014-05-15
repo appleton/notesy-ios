@@ -65,7 +65,8 @@
 -(void) processEditing {
     [super processEditing];
     NSRange paragaphRange = [self.string paragraphRangeForRange:self.editedRange];
-    NSLog(@"%@", [self.string substringWithRange:paragaphRange]);
+    // Handy logging to see text being highlighted
+    // NSLog(@"%@", [self.string substringWithRange:paragaphRange]);
 
     [self resetRange:paragaphRange];
     [self applyStylesToRange:paragaphRange];
@@ -108,7 +109,8 @@
         NSDictionary *codeAttributes = @{NSForegroundColorAttributeName: [UIColor grayColor]};
         NSDictionary *headerAttributes = @{NSFontAttributeName: self.boldFont,
                                            NSParagraphStyleAttributeName: self.firstLineOutdent};
-        NSDictionary *linkAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:0.255 green:0.514 blue:0.769 alpha:1.00]};
+        NSDictionary *linkAttributes = @{NSForegroundColorAttributeName: self.lightColour};
+        NSDictionary *linkTextAttributes = @{NSForegroundColorAttributeName: self.bodyColour};
         NSDictionary *listAttributes = @{NSParagraphStyleAttributeName: self.firstLineOutdent};
 
         _attributeDictionary = @{
@@ -119,7 +121,8 @@
             @"(`\\w+(\\s\\w+)*`)": codeAttributes,
             @"(```\n([\\s\n\\d\\w[/[\\.,-\\/#!?@$%\\^&\\*;:|{}<>+=\\-'_~()\\\"\\[\\]\\\\]/]]*)\n```)": codeAttributes,
             @"(\\[\\w+(\\s\\w+)*\\]\\(\\w+\\w[/[\\.,-\\/#!?@$%\\^&\\*;:|{}<>+=\\-'_~()\\\"\\[\\]\\\\]/ \\w+]*\\))": linkAttributes,
-            @"(\\*\\s|\\-\\s|\\+\\s)(.*)": listAttributes
+            @"(?<=\\[)(.*?)(?=\\]\\()": linkTextAttributes,
+            @"(\\*\\s|\\-\\s|\\+\\s)(.*)": listAttributes,
         };
     }
     return _attributeDictionary;
@@ -150,7 +153,7 @@
 
 - (UIColor *) bodyColour {
     if (!_bodyColour) {
-        _bodyColour = [UIColor colorWithRed:0/255.0f green:4/255.0f blue:68/255.0f alpha:1.0f];
+        _bodyColour = [UIColor blackColor];
     }
     return _bodyColour;
 }
