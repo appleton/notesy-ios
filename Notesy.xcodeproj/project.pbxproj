@@ -18,6 +18,7 @@
 		A13CE5ED18FD5A10004EDEEA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5EC18FD5A10004EDEEA /* libz.dylib */; };
 		A1531DD51923D2E900E7D0DC /* SourceCodePro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A1096F2619235D5B003C8308 /* SourceCodePro-Semibold.otf */; };
 		A1531DDA1924EC2000E7D0DC /* MarkdownTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1531DD91924EC2000E7D0DC /* MarkdownTextView.m */; };
+		A18720A9192558B20096B656 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A18720A8192558B20096B656 /* SignupViewController.m */; };
 		A1948326190E6C9F00E46E5F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948325190E6C9F00E46E5F /* LoginViewController.m */; };
 		A194832A190E7B3C00E46E5F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948329190E7B3C00E46E5F /* Constants.m */; };
 		A1948349190EAC5F00E46E5F /* JNKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948348190EAC5F00E46E5F /* JNKeychain.m */; };
@@ -74,6 +75,8 @@
 		A13CE5EC18FD5A10004EDEEA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		A1531DD81924EC2000E7D0DC /* MarkdownTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkdownTextView.h; sourceTree = "<group>"; };
 		A1531DD91924EC2000E7D0DC /* MarkdownTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownTextView.m; sourceTree = "<group>"; };
+		A18720A7192558B20096B656 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		A18720A8192558B20096B656 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		A1948324190E6C9F00E46E5F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		A1948325190E6C9F00E46E5F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A1948327190E798000E46E5F /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -171,8 +174,8 @@
 		A1363D1719162A430023C6ED /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
-				A1948324190E6C9F00E46E5F /* LoginViewController.h */,
-				A1948325190E6C9F00E46E5F /* LoginViewController.m */,
+				A18720A61925589C0096B656 /* Signup */,
+				A1531DDC1925510500E7D0DC /* Login */,
 			);
 			name = LoginView;
 			sourceTree = "<group>";
@@ -194,6 +197,24 @@
 				A1531DD91924EC2000E7D0DC /* MarkdownTextView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		A1531DDC1925510500E7D0DC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A1948324190E6C9F00E46E5F /* LoginViewController.h */,
+				A1948325190E6C9F00E46E5F /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		A18720A61925589C0096B656 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				A18720A7192558B20096B656 /* SignupViewController.h */,
+				A18720A8192558B20096B656 /* SignupViewController.m */,
+			);
+			name = Signup;
 			sourceTree = "<group>";
 		};
 		A194834D190FCCC400E46E5F /* Models */ = {
@@ -470,6 +491,7 @@
 				A1948349190EAC5F00E46E5F /* JNKeychain.m in Sources */,
 				A1D959A718F684A800113622 /* DetailViewController.m in Sources */,
 				A1948326190E6C9F00E46E5F /* LoginViewController.m in Sources */,
+				A18720A9192558B20096B656 /* SignupViewController.m in Sources */,
 				A194832A190E7B3C00E46E5F /* Constants.m in Sources */,
 				A118587F1920B53A00266744 /* MarkdownTextStorage.m in Sources */,
 				A19483591911F8EE00E46E5F /* NoteTableViewCell.m in Sources */,
