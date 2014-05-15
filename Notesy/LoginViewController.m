@@ -24,6 +24,10 @@
 
 @implementation LoginViewController
 
+- (void) viewDidAppear:(BOOL)animated {
+    [self.emailInput becomeFirstResponder];
+}
+
 - (IBAction)loginButton:(UIButton *)sender {
     [self hideLoginError];
 
