@@ -12,14 +12,15 @@
 #import "JNKeychain.h"
 #import "MBProgressHUD.h"
 #import "FormattingHelpers.h"
+#import "LoggerInner.h"
 
 @interface LoginViewController()
-@property (strong, nonatomic) NSURLConnection *currentConnection;
 @property (strong, nonatomic) NSString *notesDb;
 
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
 @property (weak, nonatomic) IBOutlet UILabel *loginErrorLabel;
+@property (strong, nonatomic) LoggerInner *loggerInner;
 @end
 
 @implementation LoginViewController
@@ -37,16 +38,20 @@
     }
 
     [self showLoginIsHappening];
-    [self logInUser:self.emailInput.text password:self.passwordInput.text];
-}
-
-- (void) logInUser:(NSString *)email password:(NSString *)password {
-    NSString *url = [NSString stringWithFormat:@"%@%@_users/%@", PROTOCOL, COUCH_URL,
-                                               [FormattingHelpers encodedUserNameFromEmail:email]];
-
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [NSMutableURLRequest basicAuthForRequest:request withUsername:email andPassword:password];
-    [NSURLConnection connectionWithRequest:request delegate:self];
+    [self.loggerInner logInUser:self.emailInput.text password:self.passwordInput.text
+                           then:^void (NSDictionary *results) {
+        [self hideLoginIsHappening];
+        if ([results objectForKey:@"error"]) {
+            [self showLoginError:results];
+        } else {
+            self.notesDb = results[@"notes_db"];
+            [self storeLoginData];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    } error:^void (NSDictionary *results) {
+        [self hideLoginIsHappening];
+        [self showLoginError:results];
+    }];
 }
 
 - (void) showLoginIsHappening {
@@ -73,39 +78,11 @@
                    forKey:KEYCHAIN_KEY];
 }
 
-#pragma mark NSURLConnection Delegate Methods
+# pragma mark - Getters
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    self.responseData = [[NSMutableData alloc] init];
+- (LoggerInner *) loggerInner {
+    if (!_loggerInner) _loggerInner = [[LoggerInner alloc] init];
+    return _loggerInner;
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [self.responseData appendData:data];
-}
-
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
-                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
-    // do not store a cached response for this connection
-    return nil;
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:self.responseData
-                                                            options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves
-                                                              error:nil];
-
-    [self hideLoginIsHappening];
-    if ([results objectForKey:@"error"]) {
-        [self showLoginError:results];
-    } else {
-        self.notesDb = results[@"notes_db"];
-        [self storeLoginData];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    [self hideLoginIsHappening];
-    [self showLoginError:@{@"reason": @"Network error. Please try again!"}];
-}
 @end
