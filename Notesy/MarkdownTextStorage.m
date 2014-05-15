@@ -112,9 +112,10 @@
         NSDictionary *linkAttributes = @{NSForegroundColorAttributeName: self.lightColour};
         NSDictionary *linkTextAttributes = @{NSForegroundColorAttributeName: self.bodyColour};
         NSDictionary *listAttributes = @{NSParagraphStyleAttributeName: self.firstLineOutdent};
+        // NSDictionary *gutterAttributes = @{NSForegroundColorAttributeName: self.lightColour};
 
         _attributeDictionary = @{
-            @"(#+.*)": headerAttributes,
+            @"(^#+.*)": headerAttributes,
             @"\\**(?:^|[^*])(\\*\\*(\\w+(\\s\\w+)*)\\*\\*)": boldAttributes,
             @"\\**(?:^|[^*])(\\*(\\w+(\\s\\w+)*)\\*)": italicAttributes,
             @"(\\*\\*\\*\\w+(\\s\\w+)*\\*\\*\\*)": boldItalicAttributes,
@@ -122,7 +123,10 @@
             @"(```\n([\\s\n\\d\\w[/[\\.,-\\/#!?@$%\\^&\\*;:|{}<>+=\\-'_~()\\\"\\[\\]\\\\]/]]*)\n```)": codeAttributes,
             @"(\\[\\w+(\\s\\w+)*\\]\\(\\w+\\w[/[\\.,-\\/#!?@$%\\^&\\*;:|{}<>+=\\-'_~()\\\"\\[\\]\\\\]/ \\w+]*\\))": linkAttributes,
             @"(?<=\\[)(.*?)(?=\\]\\()": linkTextAttributes,
-            @"(\\*\\s|\\-\\s|\\+\\s)(.*)": listAttributes,
+            @"([0-9]|\\*\\s|\\-\\s|\\+\\s)(.*)": listAttributes,
+            // TODO: do I want gutter contents to be lighter?
+            // @"(^#\\s)": gutterAttributes,
+            // @"(^[0-9]\\s|^\\*\\s|\\-\\s|\\+\\s)": gutterAttributes,
         };
     }
     return _attributeDictionary;
