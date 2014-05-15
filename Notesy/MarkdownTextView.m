@@ -17,7 +17,6 @@
 }
 
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
-    // TODO: how to make this work with no frame?!
     self = [super initWithFrame:CGRectMake(0, 0, 320, 568) textContainer:self.textContainer];
 
     return self;

@@ -58,6 +58,9 @@
 - (void) initTextField {
     if (!self.note) return;
 
+    // Makes autolayout not thow a fit when showing keyboard ¯\_(ツ)_/¯
+    self.noteText.translatesAutoresizingMaskIntoConstraints = NO;
+
     // Set the contents of the text field
     [self.noteText.textStorage replaceCharactersInRange:NSMakeRange(0, self.noteText.textStorage.string.length)
                                              withString:self.note.text];
