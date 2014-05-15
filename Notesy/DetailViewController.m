@@ -7,13 +7,9 @@
 //
 
 #import "DetailViewController.h"
-#import "MarkdownTextStorage.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
-@property (strong, nonatomic) MarkdownTextStorage *noteTextStorage;
-@property (strong, nonatomic) NSLayoutManager *noteLayoutManager;
-@property (strong, nonatomic) NSTextContainer *noteTextContainer;
 @property (strong, nonatomic) UITextView *noteText;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *noteTextBottomConstraint;
 @end
@@ -62,26 +58,15 @@
 - (void) initTextField {
     if (!self.note) return;
 
-    self.noteTextStorage = [[MarkdownTextStorage alloc] initWithString:self.note.text];
-
-    self.noteLayoutManager = [NSLayoutManager new];
-    [self.noteTextStorage addLayoutManager: self.noteLayoutManager];
-
-    self.noteTextContainer = [NSTextContainer new];
-    [self.noteLayoutManager addTextContainer: self.noteTextContainer];
-
-    self.noteText = [[UITextView alloc] initWithFrame:self.view.bounds textContainer:self.noteTextContainer];
-    self.noteText.font = [UIFont fontWithName:@"SourceCodePro-Regular" size:17];
-
-    // TODO: use autolayout instead of 80px inset
-    self.noteText.textContainerInset = UIEdgeInsetsMake(80, 5, 20, 20);
-
-    [self.view addSubview:self.noteText];
+    // Set the contents of the text field
+    [self.noteText.textStorage replaceCharactersInRange:NSMakeRange(0, self.noteText.textStorage.string.length)
+                                             withString:self.note.text];
+    self.noteText.textContainerInset = UIEdgeInsetsMake(20, 5, 20, 20);
 
     // The second part of the hack in - [MarkdownTextStorage initWithString:]. Remove the space
     // inserted to force indentation to be applied.
-    if ([self.noteTextStorage.string isEqualToString:@" "]) {
-        [self.noteTextStorage deleteCharactersInRange:NSMakeRange(0, 1)];
+    if ([self.noteText.textStorage.string isEqualToString:@" "]) {
+        [self.noteText.textStorage deleteCharactersInRange:NSMakeRange(0, 1)];
     }
 }
 
@@ -93,8 +78,8 @@
 }
 
 - (void) saveNote {
-    if (self.note.text && ![self.note.text isEqualToString:self.noteTextStorage.string]) {
-        self.note.text = self.noteTextStorage.string;
+    if (self.note.text && ![self.note.text isEqualToString:self.noteText.textStorage.string]) {
+        self.note.text = self.noteText.textStorage.string;
     }
 }
 
@@ -158,7 +143,7 @@
 
     NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
 
-    self.noteTextBottomConstraint.constant = 10;
+    self.noteTextBottomConstraint.constant = 0;
 
     [UIView animateWithDuration:animationDuration animations:^{
         [self.view layoutIfNeeded];

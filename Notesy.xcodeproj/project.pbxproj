@@ -17,6 +17,7 @@
 		A13CE5EB18FD5A07004EDEEA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5EA18FD5A07004EDEEA /* libsqlite3.dylib */; };
 		A13CE5ED18FD5A10004EDEEA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5EC18FD5A10004EDEEA /* libz.dylib */; };
 		A1531DD51923D2E900E7D0DC /* SourceCodePro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A1096F2619235D5B003C8308 /* SourceCodePro-Semibold.otf */; };
+		A1531DDA1924EC2000E7D0DC /* MarkdownTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1531DD91924EC2000E7D0DC /* MarkdownTextView.m */; };
 		A1948326190E6C9F00E46E5F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948325190E6C9F00E46E5F /* LoginViewController.m */; };
 		A194832A190E7B3C00E46E5F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948329190E7B3C00E46E5F /* Constants.m */; };
 		A1948349190EAC5F00E46E5F /* JNKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948348190EAC5F00E46E5F /* JNKeychain.m */; };
@@ -71,6 +72,8 @@
 		A13CE5E818FD59FA004EDEEA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A13CE5EA18FD5A07004EDEEA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A13CE5EC18FD5A10004EDEEA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		A1531DD81924EC2000E7D0DC /* MarkdownTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkdownTextView.h; sourceTree = "<group>"; };
+		A1531DD91924EC2000E7D0DC /* MarkdownTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownTextView.m; sourceTree = "<group>"; };
 		A1948324190E6C9F00E46E5F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		A1948325190E6C9F00E46E5F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A1948327190E798000E46E5F /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -183,6 +186,16 @@
 			name = DetailView;
 			sourceTree = "<group>";
 		};
+		A1531DD71924EC0200E7D0DC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1C4C4AF191EC10F008D9B04 /* NoDataView.xib */,
+				A1531DD81924EC2000E7D0DC /* MarkdownTextView.h */,
+				A1531DD91924EC2000E7D0DC /* MarkdownTextView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		A194834D190FCCC400E46E5F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +268,7 @@
 		A1D9599018F684A800113622 /* Notesy */ = {
 			isa = PBXGroup;
 			children = (
+				A1531DD71924EC0200E7D0DC /* Views */,
 				A1C4C4A0191D491F008D9B04 /* SettingsView */,
 				A194834D190FCCC400E46E5F /* Models */,
 				A1363D1819162A640023C6ED /* DetailView */,
@@ -265,7 +279,6 @@
 				A1948327190E798000E46E5F /* Constants.h */,
 				A1948329190E7B3C00E46E5F /* Constants.m */,
 				A1D959A818F684A800113622 /* Images.xcassets */,
-				A1C4C4AF191EC10F008D9B04 /* NoDataView.xib */,
 				A1D9599F18F684A800113622 /* Main_iPad.storyboard */,
 				A1D9599C18F684A800113622 /* Main_iPhone.storyboard */,
 				A1D9599118F684A800113622 /* Supporting Files */,
@@ -446,6 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1531DDA1924EC2000E7D0DC /* MarkdownTextView.m in Sources */,
 				A1C4C492191B7472008D9B04 /* NSDate+Helper.m in Sources */,
 				A194834C190FCCB600E46E5F /* Note.m in Sources */,
 				A1363D1519158AED0023C6ED /* NotesTableSource.m in Sources */,
