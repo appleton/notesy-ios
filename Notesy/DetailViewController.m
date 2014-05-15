@@ -60,6 +60,7 @@
 
     // Makes autolayout not thow a fit when showing keyboard ¯\_(ツ)_/¯
     self.noteText.translatesAutoresizingMaskIntoConstraints = NO;
+    self.noteText.delegate = self;
 
     // Set the contents of the text field
     [self.noteText.textStorage replaceCharactersInRange:NSMakeRange(0, self.noteText.textStorage.string.length)
@@ -84,6 +85,18 @@
     if (self.note.text && ![self.note.text isEqualToString:self.noteText.textStorage.string]) {
         self.note.text = self.noteText.textStorage.string;
     }
+}
+
+- (BOOL) textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    [self.noteText scrollRangeToVisible:range];
+
+    if ([text isEqualToString:@"\n"]) {
+        [UIView animateWithDuration:0.1 animations:^{
+            [self.noteText setContentOffset:CGPointMake(self.noteText.contentOffset.x, self.noteText.contentOffset.y + 40)];
+        }];
+    }
+
+    return YES;
 }
 
 #pragma mark Delete
