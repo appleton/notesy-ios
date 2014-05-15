@@ -143,14 +143,14 @@
 
 - (UIFont *) bodyFont {
     if (!_bodyFont) {
-        _bodyFont = [UIFont fontWithName:@"SourceCodePro-Regular" size:17];
+        _bodyFont = [UIFont fontWithName:@"SourceCodePro-Regular" size:16];
     }
     return _bodyFont;
 }
 
 - (UIFont *) boldFont {
     if (!_boldFont) {
-        _boldFont = [UIFont fontWithName:@"SourceCodePro-Semibold" size:17];
+        _boldFont = [UIFont fontWithName:@"SourceCodePro-Semibold" size:16];
     }
     return _boldFont;
 }
