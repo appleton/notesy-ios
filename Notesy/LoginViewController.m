@@ -8,10 +8,8 @@
 
 #import "LoginViewController.h"
 #import "Constants.h"
-#import "NSMutableURLRequest+BasicAuth.h"
 #import "JNKeychain.h"
 #import "MBProgressHUD.h"
-#import "FormattingHelpers.h"
 #import "LoggerInner.h"
 
 @interface LoginViewController()
@@ -38,20 +36,10 @@
     }
 
     [self showLoginIsHappening];
-    [self.loggerInner logInUser:self.emailInput.text password:self.passwordInput.text
-                           then:^void (NSDictionary *results) {
-        [self hideLoginIsHappening];
-        if ([results objectForKey:@"error"]) {
-            [self showLoginError:results];
-        } else {
-            self.notesDb = results[@"notes_db"];
-            [self storeLoginData];
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
-    } error:^void (NSDictionary *results) {
-        [self hideLoginIsHappening];
-        [self showLoginError:results];
-    }];
+    [self.loggerInner logInUser:self.emailInput.text
+                       password:self.passwordInput.text
+                           then:^void (NSDictionary *results) { [self onLoginSuccess:results]; }
+                          error:^void (NSDictionary *results) { [self onLoginError:results]; }];
 }
 
 - (void) showLoginIsHappening {
@@ -69,6 +57,23 @@
 
 - (void) hideLoginError {
     self.loginErrorLabel.text = @"";
+}
+
+- (void) onLoginSuccess:(NSDictionary *)results {
+    [self hideLoginIsHappening];
+
+    if ([results objectForKey:@"error"]) {
+        [self showLoginError:results];
+    } else {
+        self.notesDb = results[@"notes_db"];
+        [self storeLoginData];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+- (void) onLoginError:(NSDictionary *)results {
+    [self hideLoginIsHappening];
+    [self showLoginError:results];
 }
 
 - (void) storeLoginData {
