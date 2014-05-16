@@ -63,7 +63,7 @@
     self.noteText.delegate = self;
 
     // Set the contents of the text field
-    [self.noteText.textStorage replaceCharactersInRange:NSMakeRange(0, self.noteText.textStorage.string.length)
+    [self.noteText.textStorage replaceCharactersInRange:NSMakeRange(0, self.noteText.text.length)
                                              withString:self.note.text];
     self.noteText.textContainerInset = UIEdgeInsetsMake(20, 5, 20, 20);
 
@@ -82,8 +82,8 @@
 }
 
 - (void) saveNote {
-    if (self.note.text && ![self.note.text isEqualToString:self.noteText.textStorage.string]) {
-        self.note.text = self.noteText.textStorage.string;
+    if (self.note.text && ![self.note.text isEqualToString:self.noteText.text]) {
+        self.note.text = self.noteText.text;
     }
 }
 
