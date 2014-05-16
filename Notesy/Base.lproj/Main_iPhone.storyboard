@@ -181,7 +181,7 @@
                                     <outlet property="subtitleLabel" destination="a4j-Il-sKV" id="war-ZU-G8G"/>
                                     <outlet property="timeLabel" destination="TFd-Z8-LDj" id="0xz-QX-Xpf"/>
                                     <outlet property="titleLabel" destination="zpC-E9-MgG" id="uXc-5D-mwr"/>
-                                    <segue destination="P6o-j8-jWJ" kind="modal" identifier="loginModal" id="dAX-TD-Cqy"/>
+                                    <segue destination="Ah7-4n-0Wa" kind="push" identifier="showDetail" id="jUr-3t-vfg"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmptyCellIdentifier" rowHeight="181" id="Tw5-fK-Ikl">
@@ -222,6 +222,7 @@ Tap here to add your first note.</string>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="mLL-gJ-YKr" id="SA5-gc-c4h"/>
+                        <segue destination="P6o-j8-jWJ" kind="modal" identifier="loginModal" id="lZq-hI-os3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
@@ -240,7 +241,7 @@ Tap here to add your first note.</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wqg-Zl-f5o" customClass="MarkdownTextView">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wqg-Zl-f5o" customClass="MarkdownTextView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
