@@ -20,6 +20,7 @@
 		A1531DDA1924EC2000E7D0DC /* MarkdownTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1531DD91924EC2000E7D0DC /* MarkdownTextView.m */; };
 		A18720A9192558B20096B656 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A18720A8192558B20096B656 /* SignupViewController.m */; };
 		A18720AC19255F470096B656 /* LoggerInner.m in Sources */ = {isa = PBXBuildFile; fileRef = A18720AB19255F470096B656 /* LoggerInner.m */; };
+		A18720AF1925ECCE0096B656 /* SignerUpper.m in Sources */ = {isa = PBXBuildFile; fileRef = A18720AE1925ECCE0096B656 /* SignerUpper.m */; };
 		A1948326190E6C9F00E46E5F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948325190E6C9F00E46E5F /* LoginViewController.m */; };
 		A194832A190E7B3C00E46E5F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948329190E7B3C00E46E5F /* Constants.m */; };
 		A1948349190EAC5F00E46E5F /* JNKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = A1948348190EAC5F00E46E5F /* JNKeychain.m */; };
@@ -80,6 +81,8 @@
 		A18720A8192558B20096B656 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		A18720AA19255F470096B656 /* LoggerInner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerInner.h; sourceTree = "<group>"; };
 		A18720AB19255F470096B656 /* LoggerInner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggerInner.m; sourceTree = "<group>"; };
+		A18720AD1925ECCE0096B656 /* SignerUpper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignerUpper.h; sourceTree = "<group>"; };
+		A18720AE1925ECCE0096B656 /* SignerUpper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignerUpper.m; sourceTree = "<group>"; };
 		A1948324190E6C9F00E46E5F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		A1948325190E6C9F00E46E5F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A1948327190E798000E46E5F /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -179,8 +182,6 @@
 			children = (
 				A18720A61925589C0096B656 /* Signup */,
 				A1531DDC1925510500E7D0DC /* Login */,
-				A18720AA19255F470096B656 /* LoggerInner.h */,
-				A18720AB19255F470096B656 /* LoggerInner.m */,
 			);
 			name = LoginView;
 			sourceTree = "<group>";
@@ -207,6 +208,8 @@
 		A1531DDC1925510500E7D0DC /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				A18720AA19255F470096B656 /* LoggerInner.h */,
+				A18720AB19255F470096B656 /* LoggerInner.m */,
 				A1948324190E6C9F00E46E5F /* LoginViewController.h */,
 				A1948325190E6C9F00E46E5F /* LoginViewController.m */,
 			);
@@ -218,6 +221,8 @@
 			children = (
 				A18720A7192558B20096B656 /* SignupViewController.h */,
 				A18720A8192558B20096B656 /* SignupViewController.m */,
+				A18720AD1925ECCE0096B656 /* SignerUpper.h */,
+				A18720AE1925ECCE0096B656 /* SignerUpper.m */,
 			);
 			name = Signup;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 				A1C4C492191B7472008D9B04 /* NSDate+Helper.m in Sources */,
 				A194834C190FCCB600E46E5F /* Note.m in Sources */,
 				A1363D1519158AED0023C6ED /* NotesTableSource.m in Sources */,
+				A18720AF1925ECCE0096B656 /* SignerUpper.m in Sources */,
 				A1C4C4B3191EC2B9008D9B04 /* NoDataView.m in Sources */,
 				A1D9599B18F684A800113622 /* AppDelegate.m in Sources */,
 				A18720AC19255F470096B656 /* LoggerInner.m in Sources */,

@@ -1,36 +1,43 @@
 //
-//  LoggerInner.m
+//  SignerUpper.m
 //  Notesy
 //
-//  Created by Andy Appleton on 15/05/2014.
+//  Created by Andy Appleton on 16/05/2014.
 //  Copyright (c) 2014 Notesy.co. All rights reserved.
 //
 
-#import "LoggerInner.h"
+#import "SignerUpper.h"
 #import "Constants.h"
 #import "FormattingHelpers.h"
-#import "NSMutableURLRequest+BasicAuth.h"
 
-@interface LoggerInner()
+@interface SignerUpper()
 @property (strong, nonatomic) NSURLConnection *currentConnection;
 @property (strong, nonatomic) NSMutableData *responseData;
 @property (copy) void (^success) (NSDictionary *);
 @property (copy) void (^error) (NSDictionary *);
 @end
 
-@implementation LoggerInner
-- (void) logInUser:(NSString *)email
-          password:(NSString *)password
-              then:(void (^)(NSDictionary *results))success
-             error:(void (^)(NSDictionary *results))error {
+@implementation SignerUpper
+- (void) signUpUser:(NSString *)email
+           password:(NSString *)password
+               then:(void (^)(NSDictionary *results))success
+              error:(void (^)(NSDictionary *results))error {
     self.success = success;
     self.error = error;
 
-    NSString *url = [NSString stringWithFormat:@"%@%@_users/%@", PROTOCOL, COUCH_URL,
-                     [FormattingHelpers encodedUserNameFromEmail:email]];
+    NSString *url = [NSString stringWithFormat:@"%@%@users", PROTOCOL, APP_URL];
+    NSDictionary *postBody = @{@"email": email, @"password": password};
 
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [NSMutableURLRequest basicAuthForRequest:request withUsername:email andPassword:password];
+
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request addValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    request.HTTPMethod = @"POST";
+
+    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:postBody
+                                                       options:NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves
+                                                         error:nil];
+
     [NSURLConnection connectionWithRequest:request delegate:self];
 }
 
@@ -56,6 +63,7 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    self.error(@{@"reason": @"Network error. Please try again!"});
+    self.error(@{@"errors": @[@{@"param": @"Network error. Please try again!", @"msg":@""}]});
 }
+
 @end

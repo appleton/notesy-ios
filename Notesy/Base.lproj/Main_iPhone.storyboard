@@ -112,6 +112,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButton:" destination="P6o-j8-jWJ" eventType="touchUpInside" id="c4F-zN-IZk"/>
+                                    <action selector="signupButton:" destination="sW8-0e-ktC" eventType="touchUpInside" id="4KK-Pj-EzM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDr-pA-Z0V">
@@ -124,6 +125,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="emailInput" destination="XVS-28-jKu" id="Gg0-Lq-2nN"/>
+                        <outlet property="passwordInput" destination="tcc-RP-Tm5" id="Kev-8w-ymC"/>
+                        <outlet property="signupErrorLabel" destination="lDr-pA-Z0V" id="Bkm-pg-YuV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j2J-GG-YBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,7 +181,7 @@
                                     <outlet property="subtitleLabel" destination="a4j-Il-sKV" id="war-ZU-G8G"/>
                                     <outlet property="timeLabel" destination="TFd-Z8-LDj" id="0xz-QX-Xpf"/>
                                     <outlet property="titleLabel" destination="zpC-E9-MgG" id="uXc-5D-mwr"/>
-                                    <segue destination="Ah7-4n-0Wa" kind="push" identifier="showDetail" id="jUr-3t-vfg"/>
+                                    <segue destination="P6o-j8-jWJ" kind="modal" identifier="loginModal" id="dAX-TD-Cqy"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmptyCellIdentifier" rowHeight="181" id="Tw5-fK-Ikl">
@@ -216,7 +222,6 @@ Tap here to add your first note.</string>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="mLL-gJ-YKr" id="SA5-gc-c4h"/>
-                        <segue destination="P6o-j8-jWJ" kind="modal" identifier="loginModal" id="LI2-4F-Vbs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
@@ -235,7 +240,7 @@ Tap here to add your first note.</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wqg-Zl-f5o" customClass="MarkdownTextView">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wqg-Zl-f5o" customClass="MarkdownTextView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>

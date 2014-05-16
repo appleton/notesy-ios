@@ -14,11 +14,11 @@
 
 @interface LoginViewController()
 @property (strong, nonatomic) NSString *notesDb;
+@property (strong, nonatomic) LoggerInner *loggerInner;
 
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
 @property (weak, nonatomic) IBOutlet UILabel *loginErrorLabel;
-@property (strong, nonatomic) LoggerInner *loggerInner;
 @end
 
 @implementation LoginViewController
