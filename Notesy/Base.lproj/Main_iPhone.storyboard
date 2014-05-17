@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9X2-Em-BiD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -22,7 +22,7 @@
         <!--Login View Controller - Log in to notesy-->
         <scene sceneID="ELB-UK-jVJ">
             <objects>
-                <viewController storyboardIdentifier="loginViewController" title="Log in to notesy" id="P6o-j8-jWJ" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" title="Log in to notesy" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P6o-j8-jWJ" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Xs-4O-aRw"/>
                         <viewControllerLayoutGuide type="bottom" id="n4W-3u-92D"/>
@@ -60,6 +60,14 @@
                                 <rect key="frame" x="130" y="38" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mo-5c-v0w">
+                                <rect key="frame" x="20" y="253" width="220" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Don't have an account? Sign up">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -72,12 +80,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZCQ-fh-Ve6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="-631"/>
+            <point key="canvasLocation" x="1210" y="1371"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="puv-sa-GQ8">
             <objects>
-                <viewController storyboardIdentifier="signupViewController" id="sW8-0e-ktC" customClass="SignupViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signupViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sW8-0e-ktC" customClass="SignupViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="okP-z6-hHk"/>
                         <viewControllerLayoutGuide type="bottom" id="gX9-eD-jWv"/>
@@ -116,6 +124,14 @@
                                 <rect key="frame" x="130" y="39" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPZ-I8-SOY">
+                                <rect key="frame" x="20" y="253" width="224" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Already have an account? Log in">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -127,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j2J-GG-YBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1354" y="-631"/>
+            <point key="canvasLocation" x="1662" y="1371"/>
         </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="VgW-fR-Quf">
@@ -216,7 +232,7 @@ Tap here to add your first note.</string>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="mLL-gJ-YKr" id="SA5-gc-c4h"/>
-                        <segue destination="P6o-j8-jWJ" kind="modal" identifier="loginModal" id="lZq-hI-os3"/>
+                        <segue destination="9X2-Em-BiD" kind="modal" identifier="loginModal" id="9XO-J9-Tra"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
@@ -261,6 +277,32 @@ Tap here to add your first note.</string>
                 <customObject id="rhD-Yb-B0p" customClass="MarkdownTextView"/>
             </objects>
             <point key="canvasLocation" x="902" y="64"/>
+        </scene>
+        <!--Users Page View Controller-->
+        <scene sceneID="3mm-aW-uqi">
+            <objects>
+                <viewController id="9X2-Em-BiD" customClass="UsersPageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o1C-mY-xsa"/>
+                        <viewControllerLayoutGuide type="bottom" id="oTD-Yj-fvv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AMa-Lf-0Zr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cBE-gc-tTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902" y="683"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="EVg-w6-DBs">
+            <objects>
+                <pageViewController storyboardIdentifier="usersPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="NML-gD-eg4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ua9-lQ-dgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1436" y="683"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Vbq-3i-OJL">
@@ -360,7 +402,7 @@ Tap here to add your first note.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fWU-ey-qhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1436" y="756"/>
+            <point key="canvasLocation" x="1436" y="-596"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="54g-xl-deB">
@@ -375,7 +417,7 @@ Tap here to add your first note.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1b8-nZ-mDY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="756"/>
+            <point key="canvasLocation" x="902" y="-596"/>
         </scene>
     </scenes>
     <resources>

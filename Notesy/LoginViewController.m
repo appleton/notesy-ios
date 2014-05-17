@@ -64,7 +64,7 @@
 - (void) hideLoginError {
     self.loginButton.enabled = YES;
     [self.loginButton setTitle:@"Log in" forState:UIControlStateNormal];
-    self.loginButton.backgroundColor = [UIColor colorWithRed:43/255.0f green:184/255.0f blue:158/255.0f alpha:1.0f];;
+    self.loginButton.backgroundColor = [UIColor colorWithRed:43/255.0f green:184/255.0f blue:158/255.0f alpha:1.0f];
 }
 
 - (void) onLoginSuccess:(NSDictionary *)results {

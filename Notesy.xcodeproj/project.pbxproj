@@ -29,6 +29,7 @@
 		A194835C1912A8BD00E46E5F /* SourceCodePro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A194835A1912A8BD00E46E5F /* SourceCodePro-Bold.otf */; };
 		A194835D1912A8BD00E46E5F /* SourceCodePro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A194835B1912A8BD00E46E5F /* SourceCodePro-Regular.otf */; };
 		A1948360191408B400E46E5F /* FormattingHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A194835F191408B400E46E5F /* FormattingHelpers.m */; };
+		A1BC6243192794AF00238C6C /* UsersPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BC6242192794AF00238C6C /* UsersPageViewController.m */; };
 		A1C4C492191B7472008D9B04 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C4C491191B7472008D9B04 /* NSDate+Helper.m */; };
 		A1C4C4A3191D4930008D9B04 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C4C4A2191D4930008D9B04 /* SettingsViewController.m */; };
 		A1C4C4AE191D7564008D9B04 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C4C4AD191D7564008D9B04 /* Accelerate.framework */; };
@@ -97,6 +98,8 @@
 		A194835B1912A8BD00E46E5F /* SourceCodePro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Regular.otf"; sourceTree = "<group>"; };
 		A194835E191408B400E46E5F /* FormattingHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormattingHelpers.h; sourceTree = "<group>"; };
 		A194835F191408B400E46E5F /* FormattingHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormattingHelpers.m; sourceTree = "<group>"; };
+		A1BC6241192794AF00238C6C /* UsersPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersPageViewController.h; sourceTree = "<group>"; };
+		A1BC6242192794AF00238C6C /* UsersPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersPageViewController.m; sourceTree = "<group>"; };
 		A1C4C490191B7472008D9B04 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
 		A1C4C491191B7472008D9B04 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		A1C4C4A1191D4930008D9B04 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -182,6 +185,8 @@
 			children = (
 				A18720A61925589C0096B656 /* Signup */,
 				A1531DDC1925510500E7D0DC /* Login */,
+				A1BC6241192794AF00238C6C /* UsersPageViewController.h */,
+				A1BC6242192794AF00238C6C /* UsersPageViewController.m */,
 			);
 			name = LoginView;
 			sourceTree = "<group>";
@@ -496,6 +501,7 @@
 				A1363D1519158AED0023C6ED /* NotesTableSource.m in Sources */,
 				A18720AF1925ECCE0096B656 /* SignerUpper.m in Sources */,
 				A1C4C4B3191EC2B9008D9B04 /* NoDataView.m in Sources */,
+				A1BC6243192794AF00238C6C /* UsersPageViewController.m in Sources */,
 				A1D9599B18F684A800113622 /* AppDelegate.m in Sources */,
 				A18720AC19255F470096B656 /* LoggerInner.m in Sources */,
 				A1D959A418F684A800113622 /* MasterViewController.m in Sources */,
