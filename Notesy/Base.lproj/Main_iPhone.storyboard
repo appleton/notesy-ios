@@ -56,20 +56,17 @@
                                     <action selector="loginButton:" destination="P6o-j8-jWJ" eventType="touchUpInside" id="e9s-dd-AbD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzs-3B-gKX">
-                                <rect key="frame" x="20" y="68" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.87450980392156863" green="0.25882352941176473" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="mark" translatesAutoresizingMaskIntoConstraints="NO" id="9Y1-Oo-5Fc">
+                                <rect key="frame" x="130" y="38" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="cBv-Bk-HlY"/>
                     <connections>
                         <outlet property="emailInput" destination="hRU-ky-kZ2" id="hhu-td-Nfk"/>
-                        <outlet property="loginErrorLabel" destination="Mzs-3B-gKX" id="ydI-b9-W8w"/>
+                        <outlet property="loginButton" destination="0ns-KO-gcU" id="llo-V8-KCh"/>
                         <outlet property="passwordInput" destination="I2d-0A-Yjh" id="7kx-6j-6CL"/>
                     </connections>
                 </viewController>
@@ -115,20 +112,17 @@
                                     <action selector="signupButton:" destination="sW8-0e-ktC" eventType="touchUpInside" id="4KK-Pj-EzM"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDr-pA-Z0V">
-                                <rect key="frame" x="20" y="68" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.87450980389999999" green="0.25882352939999997" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="mark" translatesAutoresizingMaskIntoConstraints="NO" id="OFT-22-He8">
+                                <rect key="frame" x="130" y="39" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="emailInput" destination="XVS-28-jKu" id="Gg0-Lq-2nN"/>
                         <outlet property="passwordInput" destination="tcc-RP-Tm5" id="Kev-8w-ymC"/>
-                        <outlet property="signupErrorLabel" destination="lDr-pA-Z0V" id="Bkm-pg-YuV"/>
+                        <outlet property="signupButton" destination="2eT-YU-Dmg" id="qic-RV-OmJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j2J-GG-YBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -387,6 +381,7 @@ Tap here to add your first note.</string>
     <resources>
         <image name="arrow" width="41" height="58"/>
         <image name="follow" width="100" height="19"/>
+        <image name="mark" width="60" height="60"/>
         <image name="menu-icon" width="22" height="18"/>
     </resources>
     <color key="tintColor" red="0.1137254902" green="0.72549019609999998" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>

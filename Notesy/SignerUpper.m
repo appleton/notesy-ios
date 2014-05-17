@@ -63,7 +63,7 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    self.error(@{@"errors": @[@{@"param": @"Network error. Please try again!", @"msg":@""}]});
+    self.error(@{@"errors": @[@{@"param": @"Network error.", @"msg": @"Would you like to retry?"}]});
 }
 
 @end

@@ -18,13 +18,15 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
-@property (weak, nonatomic) IBOutlet UILabel *loginErrorLabel;
+@property (strong, nonatomic) IBOutlet UIButton *loginButton;
 @end
 
 @implementation LoginViewController
 
 - (void) viewDidAppear:(BOOL)animated {
     [self.emailInput becomeFirstResponder];
+    [self.emailInput addTarget:self action:@selector(hideLoginError) forControlEvents:UIControlEventEditingChanged];
+    [self.passwordInput addTarget:self action:@selector(hideLoginError) forControlEvents:UIControlEventEditingChanged];
 }
 
 - (IBAction)loginButton:(UIButton *)sender {
@@ -45,18 +47,24 @@
 - (void) showLoginIsHappening {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Logging in…";
+    self.loginButton.enabled = NO;
 }
 
 - (void) hideLoginIsHappening {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+    self.loginButton.enabled = YES;
 }
 
 - (void) showLoginError:(NSDictionary *)response {
-    self.loginErrorLabel.text = [response objectForKey:@"reason"];
+    self.loginButton.enabled = NO;
+    [self.loginButton setTitle:[response objectForKey:@"reason"] forState:UIControlStateNormal];
+    self.loginButton.backgroundColor = [UIColor colorWithRed:222/255.0f green:65/255.0f blue:47/255.0f alpha:1.0f];
 }
 
 - (void) hideLoginError {
-    self.loginErrorLabel.text = @"";
+    self.loginButton.enabled = YES;
+    [self.loginButton setTitle:@"Log in" forState:UIControlStateNormal];
+    self.loginButton.backgroundColor = [UIColor colorWithRed:43/255.0f green:184/255.0f blue:158/255.0f alpha:1.0f];;
 }
 
 - (void) onLoginSuccess:(NSDictionary *)results {
