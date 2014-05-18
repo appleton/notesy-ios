@@ -19,11 +19,6 @@
         splitViewController.delegate = (id)navigationController.topViewController;
     }
 
-    UIPageControl *pageControl = [UIPageControl appearance];
-    pageControl.pageIndicatorTintColor = [UIColor colorWithRed:43/255.0f green:184/255.0f blue:158/255.0f alpha:0.3f];;
-    pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:43/255.0f green:184/255.0f blue:158/255.0f alpha:1.0f];
-    pageControl.backgroundColor = [UIColor whiteColor];
-
     return YES;
 }
 

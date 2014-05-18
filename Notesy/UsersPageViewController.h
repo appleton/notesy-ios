@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#define kShowSignupMessage @"ShowSignupPage"
+#define kShowLoginMessage @"ShowLoginPage"
+
 @interface UsersPageViewController : UIPageViewController <UIPageViewControllerDataSource>
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @end

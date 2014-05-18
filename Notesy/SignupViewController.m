@@ -7,6 +7,7 @@
 //
 
 #import "SignupViewController.h"
+#import "UsersPageViewController.h"
 #import "SignerUpper.h"
 #import "Constants.h"
 #import "JNKeychain.h"
@@ -93,6 +94,10 @@
                             @"password": self.passwordInput.text,
                             @"notesDb": self.notesDb}
                    forKey:KEYCHAIN_KEY];
+}
+
+- (IBAction)loginPageButton:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kShowLoginMessage object:nil];
 }
 
 # pragma mark - Helpers

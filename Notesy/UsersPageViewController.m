@@ -32,6 +32,40 @@
     [self addChildViewController:self.pageViewController];
     [self.view addSubview:self.pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
+
+    [self initObservers];
+}
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) initObservers {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showSignupPage)
+                                                 name:kShowSignupMessage
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showLoginPage)
+                                                 name:kShowLoginMessage
+                                               object:nil];
+}
+
+- (void) showSignupPage {
+    NSArray *viewControllers = @[[self viewControllerAtIndex:1]];
+    [self.pageViewController setViewControllers:viewControllers
+                                      direction:UIPageViewControllerNavigationDirectionForward
+                                       animated:YES
+                                     completion:nil];
+}
+
+- (void) showLoginPage {
+    NSArray *viewControllers = @[[self viewControllerAtIndex:0]];
+    [self.pageViewController setViewControllers:viewControllers
+                                      direction:UIPageViewControllerNavigationDirectionReverse
+                                       animated:YES
+                                     completion:nil];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
@@ -56,14 +90,6 @@
 
 - (UIViewController *)viewControllerAtIndex:(NSUInteger)index {
     return [self.storyboard instantiateViewControllerWithIdentifier:[self.pages objectAtIndex:index]];
-}
-
-- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-    return [self.pages count];
-}
-
-- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
-    return 0;
 }
 
 @end
