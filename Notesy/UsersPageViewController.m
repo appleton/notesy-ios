@@ -68,6 +68,10 @@
                                      completion:nil];
 }
 
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
       viewControllerBeforeViewController:(UIViewController *)viewController {
     NSInteger index = [self.pages indexOfObject:viewController.restorationIdentifier];
