@@ -11,7 +11,7 @@
 @interface Note : CBLModel
 + (CBLDatabase *)dbInstanceFor:(NSString *)dbName;
 + (CBLQuery *) allIn:(CBLDatabase*)db;
-+ (CBLQuery *) findIn:(CBLDatabase*)db byId:(NSString *)noteId;
++ (CBLQuery *) searchIn:(CBLDatabase *)db forText:(NSString *)text;
 
 - (NSString *)trimmedTextAtLine:(int)line;
 - (NSString *)formattedUpdatedAt;

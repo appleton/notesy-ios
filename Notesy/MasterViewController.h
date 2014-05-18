@@ -10,7 +10,7 @@
 
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
+@interface MasterViewController : UITableViewController <UISearchBarDelegate, UITextFieldDelegate, UISearchDisplayDelegate>
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
 - (void)logout;

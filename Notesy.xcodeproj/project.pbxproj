@@ -168,14 +168,11 @@
 		A1363D1619162A300023C6ED /* MasterView */ = {
 			isa = PBXGroup;
 			children = (
+				A1BC62471929292A00238C6C /* TableView */,
 				A1C4C4B1191EC2B9008D9B04 /* NoDataView.h */,
 				A1C4C4B2191EC2B9008D9B04 /* NoDataView.m */,
 				A1D959A218F684A800113622 /* MasterViewController.h */,
 				A1D959A318F684A800113622 /* MasterViewController.m */,
-				A1363D1319158AED0023C6ED /* NotesTableSource.h */,
-				A1363D1419158AED0023C6ED /* NotesTableSource.m */,
-				A19483571911F8EE00E46E5F /* NoteTableViewCell.h */,
-				A19483581911F8EE00E46E5F /* NoteTableViewCell.m */,
 			);
 			name = MasterView;
 			sourceTree = "<group>";
@@ -251,6 +248,17 @@
 				A194835B1912A8BD00E46E5F /* SourceCodePro-Regular.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		A1BC62471929292A00238C6C /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				A1363D1319158AED0023C6ED /* NotesTableSource.h */,
+				A1363D1419158AED0023C6ED /* NotesTableSource.m */,
+				A19483571911F8EE00E46E5F /* NoteTableViewCell.h */,
+				A19483581911F8EE00E46E5F /* NoteTableViewCell.m */,
+			);
+			name = TableView;
 			sourceTree = "<group>";
 		};
 		A1C4C4A0191D491F008D9B04 /* SettingsView */ = {

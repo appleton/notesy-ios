@@ -8,6 +8,7 @@
 
 #import "Note.h"
 #import "NSDate+Helper.h"
+#import "CBLQuery+FullTextSearch.h"
 
 @implementation Note
 @dynamic text, createdAt, updatedAt;
@@ -42,8 +43,22 @@
     return query;
 }
 
-+ (CBLQuery*) findIn:(CBLDatabase*)db byId:(NSString *)noteId {
-    return [db createAllDocumentsQuery];
++ (CBLQuery *) searchIn:(CBLDatabase *)db forText:(NSString *)text {
+    CBLView* view = [db viewNamed: @"notesByDateSearch"];
+
+    if (!view.mapBlock) {
+        // On first query after launch, register the map function:
+        [view setMapBlock: MAPBLOCK({
+            NSString* text = doc[@"text"];
+            emit(CBLTextKey(text), doc[@"updatedAt"]);
+        }) reduceBlock: nil version: @"1"]; // bump version any time you change the MAPBLOCK body!
+    }
+
+    CBLQuery* query = [view createQuery];
+    query.descending = YES;
+    query.fullTextQuery = text;
+
+    return query;
 }
 
 - (NSTimeInterval)autosaveDelay {

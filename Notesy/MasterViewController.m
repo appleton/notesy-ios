@@ -20,10 +20,12 @@
 
 @interface MasterViewController()
 @property (strong, nonatomic) CBLDatabase* database;
+@property (strong, nonatomic) CBLLiveQuery *tableQuery;
 @property (strong, nonatomic) NSDictionary* userInfo;
 @property (strong, nonatomic) CBLReplication *pull;
 @property (strong, nonatomic) CBLReplication *push;
 @property (nonatomic) IBOutlet NotesTableSource* delegate;
+@property (strong, nonatomic) UISearchDisplayController *searchController;
 @end
 
 @implementation MasterViewController
@@ -80,6 +82,14 @@
 
 -(void) initSearch {
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:self.tableView.tableHeaderView.frame];
+
+    self.searchController = [[UISearchDisplayController alloc]
+                                                    initWithSearchBar:searchBar
+                                                   contentsController:self];
+    self.searchController.delegate = self;
+    self.searchController.searchResultsDataSource = self;
+    self.searchController.searchResultsDelegate = self;
+
     searchBar.delegate = self;
     searchBar.searchBarStyle = UISearchBarStyleMinimal;
     self.navigationItem.titleView = searchBar;
@@ -143,14 +153,14 @@
 - (void) loadNotes {
     if (self.delegate) return;
 
-    CBLQuery* query = [Note allIn:self.database];
+    self.tableQuery = [[Note allIn:self.database] asLiveQuery];
 
     self.delegate = [[NotesTableSource alloc] init];
     self.delegate.tableView = self.tableView;
-    self.delegate.query = query.asLiveQuery;
+    self.delegate.query = self.tableQuery;
 
-    [self.tableView setDataSource:self.delegate];
-    [self.tableView setDelegate:self.delegate];
+    self.tableView.dataSource = self.delegate;
+    self.tableView.delegate = self.delegate;
 }
 
 - (void)insertNewNote:(id)sender {
@@ -165,6 +175,7 @@
 
     [self.navigationController pushViewController:detail animated:YES];
 }
+
 #pragma mark - Logout
 
 - (void) observeLogout {
@@ -209,6 +220,24 @@
 
         [[segue destinationViewController] setNote:note];
     }
+}
+
+#pragma mark - Search
+
+- (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
+    // Search bar was focussed.
+    // TODO: show cancel button
+}
+
+- (BOOL) searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    if (![searchString isEqualToString:@""]) {
+        self.delegate.query = [[Note searchIn:self.database forText:searchString] asLiveQuery];
+    }
+    return YES;
+}
+
+- (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if ([searchText isEqualToString:@""]) self.delegate.query = self.tableQuery;
 }
 
 #pragma mark - Getters
