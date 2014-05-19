@@ -26,6 +26,8 @@
 @property (strong, nonatomic) CBLReplication *push;
 @property (nonatomic) IBOutlet NotesTableSource* delegate;
 @property (strong, nonatomic) UISearchDisplayController *searchController;
+@property (strong, nonatomic) UIBarButtonItem *addButton;
+@property (strong, nonatomic) UIBarButtonItem *navButton;
 @end
 
 @implementation MasterViewController
@@ -72,12 +74,12 @@
 - (void) initNav {
     self.title = @"Notes";
     self.navigationItem.titleView = [[UIView alloc] init];
+    [self insertNavButtons];
+}
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
-                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                  target:self
-                                  action:@selector(insertNewNote:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+- (void) insertNavButtons {
+    self.navigationItem.rightBarButtonItem = self.addButton;
+    self.navigationItem.leftBarButtonItem = self.navButton;
 }
 
 -(void) initSearch {
@@ -92,8 +94,13 @@
 
     searchBar.delegate = self;
     searchBar.searchBarStyle = UISearchBarStyleMinimal;
+
     self.navigationItem.titleView = searchBar;
     [searchBar sizeToFit];
+}
+
+- (void) segueToNavigation:(id)sender {
+    [self performSegueWithIdentifier:@"showSettings" sender:self];
 }
 
 #pragma mark - Replication
@@ -224,9 +231,13 @@
 
 #pragma mark - Search
 
-- (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
-    // Search bar was focussed.
-    // TODO: show cancel button
+- (BOOL) searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationItem.leftBarButtonItem = nil;
+
+    if (!searchBar.showsCancelButton) [searchBar setShowsCancelButton:YES animated:YES];
+
+    return YES;
 }
 
 - (BOOL) searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
@@ -240,6 +251,14 @@
     if ([searchText isEqualToString:@""]) self.delegate.query = self.tableQuery;
 }
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {
+    [searchBar resignFirstResponder];
+    searchBar.text = @"";
+    self.delegate.query = self.tableQuery;
+    [self.searchController.searchBar setShowsCancelButton:NO animated:NO];
+    [self insertNavButtons];
+}
+
 #pragma mark - Getters
 
 - (NSDictionary *)userInfo {
@@ -250,6 +269,25 @@
 - (CBLDatabase *)database {
     if (!_database && self.userInfo) self.database = [Note dbInstanceFor:self.userInfo[@"notesDb"]];
     return _database;
+}
+
+- (UIBarButtonItem *) addButton {
+    if (!_addButton) {
+        _addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                   target:self
+                                                                   action:@selector(insertNewNote:)];
+    }
+    return _addButton;
+}
+
+- (UIBarButtonItem *) navButton {
+    if (!_navButton) {
+        _navButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu-icon"]
+                                                      style:UIBarButtonItemStylePlain
+                                                     target:self
+                                                     action:@selector(segueToNavigation:)];
+    }
+    return _navButton;
 }
 
 @end
