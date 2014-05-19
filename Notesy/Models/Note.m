@@ -56,7 +56,7 @@
 
     CBLQuery* query = [view createQuery];
     query.descending = YES;
-    query.fullTextQuery = text;
+    query.fullTextQuery = [NSString stringWithFormat:@"%@*", text];
 
     return query;
 }
