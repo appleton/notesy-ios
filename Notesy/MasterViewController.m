@@ -122,6 +122,8 @@
 
     [self.push addObserver:self forKeyPath:@"completedChangesCount" options:0 context:nil];
     [self.pull addObserver:self forKeyPath:@"completedChangesCount" options:0 context:nil];
+    [self.push addObserver:self forKeyPath:@"lastError" options:0 context:nil];
+    [self.pull addObserver:self forKeyPath:@"lastError" options:0 context:nil];
 }
 
 - (void) replicateDb {
@@ -135,6 +137,8 @@
 - (void) cancelDbReplication {
     [self.push removeObserver:self forKeyPath:@"completedChangesCount"];
     [self.pull removeObserver:self forKeyPath:@"completedChangesCount"];
+    [self.push removeObserver:self forKeyPath:@"lastError"];
+    [self.pull removeObserver:self forKeyPath:@"lastError"];
 
     [self.push stop];
     [self.pull stop];
@@ -147,12 +151,18 @@
 
     if (object != self.pull && object != self.push) return;
 
-    unsigned completed = self.pull.completedChangesCount + self.push.completedChangesCount;
-    unsigned total = self.pull.changesCount + self.push.changesCount;
+    if ([keyPath isEqualToString:@"completedChangesCount"]) {
+        unsigned completed = self.pull.completedChangesCount + self.push.completedChangesCount;
+        unsigned total = self.pull.changesCount + self.push.changesCount;
 
-    BOOL showSpinner = (total > 0 && completed < total);
+        BOOL showSpinner = (total > 0 && completed < total);
 
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = showSpinner;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = showSpinner;
+    }
+
+    if ([keyPath isEqualToString:@"lastError"] && (self.push.lastError.code == 401 || self.pull.lastError.code == 401)) {
+        [self logout];
+    }
 }
 
 #pragma mark - Manage notes
