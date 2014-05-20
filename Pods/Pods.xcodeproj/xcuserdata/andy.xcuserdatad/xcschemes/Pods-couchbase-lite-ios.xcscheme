@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DC7178AA802545BB901D9FE5"
+               BlueprintIdentifier = "CB8CB8B01ABC47ABA6BAAED3"
                BuildableName = "libPods-couchbase-lite-ios.a"
                BlueprintName = "Pods-couchbase-lite-ios"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -39,20 +39,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-Log YES"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-LogSync YES"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-LogSyncVerbose YES"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

@@ -4,7 +4,7 @@ PODS:
   - NSMutableURLRequest-BasicAuth (1.0.2)
 
 DEPENDENCIES:
-  - couchbase-lite-ios (~> 1.0-beta3.32-bit)
+  - couchbase-lite-ios (~> 1.0-beta3.1-32bit)
   - MBProgressHUD (~> 0.8)
   - NSMutableURLRequest-BasicAuth
 
