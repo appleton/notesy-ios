@@ -82,13 +82,6 @@
 
 - (BOOL) textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     [self.noteText scrollRangeToVisible:range];
-
-    if ([text isEqualToString:@"\n"]) {
-        [UIView animateWithDuration:0.1 animations:^{
-            [self.noteText setContentOffset:CGPointMake(self.noteText.contentOffset.x, self.noteText.contentOffset.y + 40)];
-        }];
-    }
-
     return YES;
 }
 
