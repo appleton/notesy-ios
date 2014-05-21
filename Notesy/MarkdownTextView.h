@@ -9,4 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MarkdownTextView : UITextView
+- (void) replaceTextWith:(NSString *)text;
 @end

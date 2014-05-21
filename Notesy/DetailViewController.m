@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "MarkdownTextView.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -62,8 +63,8 @@
     self.noteText.delegate = self;
 
     // Set the contents of the text field
-    [self.noteText.textStorage replaceCharactersInRange:NSMakeRange(0, self.noteText.text.length)
-                                             withString:self.note.text];
+    [(MarkdownTextView *)self.noteText replaceTextWith:self.note.text];
+
     self.noteText.textContainerInset = UIEdgeInsetsMake(20, 5, 20, 20);
 }
 

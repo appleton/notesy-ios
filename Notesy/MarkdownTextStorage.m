@@ -11,7 +11,6 @@
 @interface MarkdownTextStorage()
 @property (nonatomic,strong) NSMutableAttributedString *attributedString;
 @property (nonatomic,strong) NSDictionary *attributeDictionary;
-@property (nonatomic,strong) UIFont *bodyFont;
 @property (nonatomic,strong) UIFont *boldFont;
 @property (nonatomic,strong) UIColor *bodyColour;
 @property (nonatomic,strong) UIColor *lightColour;
@@ -21,7 +20,6 @@
 
 @implementation MarkdownTextStorage {
     NSMutableAttributedString *_imp;
-
 }
 
 - (instancetype) initWithString:(NSString *)str {
@@ -39,6 +37,7 @@
     [_attributedString replaceCharactersInRange:range withString:str];
 
     [self edited:NSTextStorageEditedCharacters | NSTextStorageEditedAttributes range:range changeInLength:str.length - range.length];
+
     [self endEditing];
 }
 

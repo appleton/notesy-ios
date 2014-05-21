@@ -23,6 +23,12 @@
     return self;
 }
 
+// Use this as we need to set the font after setting the text intially
+- (void) replaceTextWith:(NSString *)text {
+    [self.textStorage replaceCharactersInRange:NSMakeRange(0, self.text.length) withString:text];
+    self.font = [(MarkdownTextStorage *)self.textStorage bodyFont];
+}
+
 #pragma mark - Getters
 
 - (NSTextStorage *) textStorage {
