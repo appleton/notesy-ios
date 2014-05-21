@@ -10,7 +10,6 @@
 #import "MarkdownTextStorage.h"
 
 @implementation MarkdownTextView {
-    NSString *_initialString;
     NSLayoutManager *_layoutManager;
     NSTextStorage *_textStorage;
     NSTextContainer *_textContainer;
@@ -18,6 +17,8 @@
 
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithFrame:CGRectMake(0, 0, 320, 568) textContainer:self.textContainer];
+
+    self.typingAttributes = [(MarkdownTextStorage *)self.textStorage defaultAttributes];
 
     return self;
 }

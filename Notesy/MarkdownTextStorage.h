@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MarkdownTextStorage : NSTextStorage
+@property (nonatomic,strong) NSDictionary *defaultAttributes;
+
 - (NSString *)string;
 - (NSDictionary *)attributesAtIndex:(NSUInteger)location
                      effectiveRange:(NSRangePointer)range;

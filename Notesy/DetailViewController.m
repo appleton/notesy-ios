@@ -25,7 +25,6 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-
     if ([self.note.text length] == 0) [self.noteText becomeFirstResponder];
     [self observeKeyboard];
     [self observeTextField];
@@ -66,12 +65,6 @@
     [self.noteText.textStorage replaceCharactersInRange:NSMakeRange(0, self.noteText.text.length)
                                              withString:self.note.text];
     self.noteText.textContainerInset = UIEdgeInsetsMake(20, 5, 20, 20);
-
-    // The second part of the hack in - [MarkdownTextStorage initWithString:]. Remove the space
-    // inserted to force indentation to be applied.
-    if ([self.noteText.textStorage.string isEqualToString:@" "]) {
-        [self.noteText.textStorage deleteCharactersInRange:NSMakeRange(0, 1)];
-    }
 }
 
 - (void) observeTextField {

@@ -11,7 +11,6 @@
 @interface MarkdownTextStorage()
 @property (nonatomic,strong) NSMutableAttributedString *attributedString;
 @property (nonatomic,strong) NSDictionary *attributeDictionary;
-@property (nonatomic,strong) NSDictionary *defaultAttributes;
 @property (nonatomic,strong) UIFont *bodyFont;
 @property (nonatomic,strong) UIFont *boldFont;
 @property (nonatomic,strong) UIColor *bodyColour;
@@ -30,16 +29,6 @@
     if (self) {
         _attributedString = [[NSMutableAttributedString alloc] initWithString:str
                                                                    attributes:self.defaultAttributes];
-
-        // Necessary hack. NSAttributedString will not immediately apply the indent when initialized
-        // with an empty string, you have to add and then delete a character in (I think) different
-        // run loop cycles. This adds a space, which is then removed at the end of
-        // - [DetailViewController initTextField].
-        if ([str isEqualToString:@""]) {
-            NSAttributedString *throwaway = [[NSMutableAttributedString alloc] initWithString:@" "
-                                                                                   attributes:self.defaultAttributes];
-            [self.attributedString appendAttributedString:throwaway];
-        }
     }
     return self;
 }
@@ -171,7 +160,7 @@
 
 - (NSMutableParagraphStyle *) bodyIndent {
     if (!_bodyIndent) {
-        _bodyIndent = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        _bodyIndent = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
         _bodyIndent.firstLineHeadIndent = 20.0;
         _bodyIndent.headIndent = 20.0;
     }
