@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <CouchbaseLite/CouchbaseLite.h>
 
+#define kAppEnteredForeground @"AppEnteredForeground"
+#define kAppEnteredBackground @"AppEnteredBackground"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 @property (strong, nonatomic) CBLDatabase *database;
 
 @end

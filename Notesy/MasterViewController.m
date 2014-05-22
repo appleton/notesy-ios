@@ -56,6 +56,7 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self replicateDb];
+    [self observeAppState];
     [self loadNotes];
 }
 
@@ -105,6 +106,17 @@
 
 #pragma mark - Replication
 
+- (void) observeAppState {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(replicateDb)
+                                                 name:kAppEnteredForeground
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(replicateDb)
+                                                 name:kAppEnteredBackground
+                                               object:nil];
+}
+
 - (void) initReplication {
     NSString *userSegment = [NSString stringWithFormat:@"%@:%@",
                              [FormattingHelpers urlEncode:self.userInfo[@"username"]],
@@ -116,9 +128,9 @@
     self.push = [self.database createPushReplication:url];
     self.pull = [self.database createPullReplication:url];
 
-    // TODO: Is this bad for battery?
     self.push.continuous = YES;
-    self.pull.continuous = YES;
+    // Can't use continuous pull as it causes a crash
+    self.pull.continuous = NO;
 
     [self.push addObserver:self forKeyPath:@"completedChangesCount" options:0 context:nil];
     [self.pull addObserver:self forKeyPath:@"completedChangesCount" options:0 context:nil];
