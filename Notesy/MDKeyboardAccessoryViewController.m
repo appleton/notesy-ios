@@ -27,7 +27,16 @@
 
 // TODO: this should be smarter about inserting link brackets
 - (void) keypress:(UIButton *)sender {
-    [self.textView replaceRange:self.textView.selectedTextRange withText:sender.titleLabel.text];
+    NSString *keyValue = sender.titleLabel.text;
+    UITextRange *insertPosition = self.textView.selectedTextRange;
+    NSRange rangePosition = self.textView.selectedRange;
+
+    if ([keyValue isEqualToString:@"[ ]()"]) {
+        [self.textView replaceRange:insertPosition withText:@"[]()"];
+        self.textView.selectedRange = NSMakeRange(rangePosition.location + 1, 0);
+    } else {
+        [self.textView replaceRange:insertPosition withText:keyValue];
+    }
 }
 
 @end
