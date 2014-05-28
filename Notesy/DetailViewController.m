@@ -8,10 +8,13 @@
 
 #import "DetailViewController.h"
 #import "MarkdownTextView.h"
+#import "MDKeyboardAccessoryViewController.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) UITextView *noteText;
+@property (strong, nonatomic) MDKeyboardAccessoryViewController *mdAccessoryViewController;
+@property (strong, nonatomic) UIView *mdAccessoryView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *noteTextBottomConstraint;
 @end
 
@@ -66,6 +69,8 @@
     [(MarkdownTextView *)self.noteText replaceTextWith:self.note.text];
 
     self.noteText.textContainerInset = UIEdgeInsetsMake(20, 5, 20, 20);
+    self.noteText.inputAccessoryView = self.mdAccessoryView;
+    self.mdAccessoryViewController.textView = self.noteText;
 }
 
 - (void) observeTextField {
@@ -86,7 +91,7 @@
     return YES;
 }
 
-#pragma mark Delete
+#pragma mark - Delete
 
 - (void)deleteNote {
     [self.noteText resignFirstResponder];
@@ -174,13 +179,32 @@
 
 #pragma mark - Setters
 
-- (void)setNote:(Note *)note {
+- (void) setNote:(Note *)note {
     if (_note != note) {
         _note = note;
         [self configureView];
     }
 
     if (self.masterPopoverController) [self.masterPopoverController dismissPopoverAnimated:YES];
+}
+
+# pragma mark - Getters
+
+- (UIView *) mdAccessoryView {
+    if (!_mdAccessoryView) {
+        _mdAccessoryView = self.mdAccessoryViewController.view;
+        [self.mdAccessoryViewController initButtons];
+    }
+    return _mdAccessoryView;
+}
+
+- (MDKeyboardAccessoryViewController *) mdAccessoryViewController {
+    if (!_mdAccessoryViewController) {
+        _mdAccessoryViewController = [[MDKeyboardAccessoryViewController alloc]
+                                      initWithNibName:@"MDKeyboardAccesory"
+                                               bundle:[NSBundle mainBundle]];
+    }
+    return _mdAccessoryViewController;
 }
 
 @end
