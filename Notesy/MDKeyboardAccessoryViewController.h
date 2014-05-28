@@ -10,7 +10,7 @@
 
 #define kMDKeypressNotification @"MDKeypress"
 
-@interface MDKeyboardAccessoryViewController : UIViewController
+@interface MDKeyboardAccessoryViewController : UIViewController <UIAlertViewDelegate>
 @property (strong, nonatomic) UITextView *textView;
 - (void) initButtons;
 @end

@@ -25,18 +25,50 @@
     }
 }
 
-// TODO: this should be smarter about inserting link brackets
 - (void) keypress:(UIButton *)sender {
     NSString *keyValue = sender.titleLabel.text;
-    UITextRange *insertPosition = self.textView.selectedTextRange;
-    NSRange rangePosition = self.textView.selectedRange;
 
     if ([keyValue isEqualToString:@"[ ]()"]) {
-        [self.textView replaceRange:insertPosition withText:@"[]()"];
-        self.textView.selectedRange = NSMakeRange(rangePosition.location + 1, 0);
-    } else {
-        [self.textView replaceRange:insertPosition withText:keyValue];
+        [self handleLinkKey];
+        return;
     }
+
+    [self.textView replaceRange:self.textView.selectedTextRange withText:keyValue];
+}
+
+- (void) handleLinkKey {
+    NSString *pbContents = [UIPasteboard generalPasteboard].string;
+
+    if (![self isALink:pbContents]) {
+        [self insertLinkWithContents:@""];
+        return;
+    }
+
+    [[[UIAlertView alloc] initWithTitle:pbContents
+                                message:@"Link detected on your clipboard. Would you like to insert it now?"
+                               delegate:self
+                      cancelButtonTitle:@"No"
+                      otherButtonTitles:@"Yes", nil] show];
+}
+
+- (void) insertLinkWithContents:(NSString *)contents {
+    NSRange selected = self.textView.selectedRange;
+
+    [self.textView replaceRange:self.textView.selectedTextRange
+                       withText:[NSString stringWithFormat:@"[](%@)", contents]];
+    self.textView.selectedRange = NSMakeRange(selected.location + 1, 0);
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSString *contents = @"";
+    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Yes"]) {
+        contents = [UIPasteboard generalPasteboard].string;
+    }
+    [self insertLinkWithContents:contents];
+}
+
+- (BOOL) isALink:(NSString *)str {
+    return [str hasPrefix:@"http://"] || [str hasPrefix:@"https://"];
 }
 
 @end
