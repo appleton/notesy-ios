@@ -66,7 +66,9 @@
 
 - (void) applyStylesToRange:(NSRange)searchRange {
     for (NSString *key in self.attributeDictionary) {
-        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:key options:0 error:nil];
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:key
+                                                                               options:NSRegularExpressionAnchorsMatchLines
+                                                                                 error:nil];
         NSDictionary *attributes = self.attributeDictionary[key];
 
         [regex enumerateMatchesInString:[_attributedString string]
