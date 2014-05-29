@@ -207,13 +207,10 @@
 		A1531DD71924EC0200E7D0DC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A1B2319A1937A90B00332D59 /* MarkdownKeyboard */,
+				A1B231991937A8E800332D59 /* MarkdownText */,
 				A1C4C4AF191EC10F008D9B04 /* NoDataView.xib */,
 				A1BC62491929EE3200238C6C /* EmptySearchView.xib */,
-				A1531DD81924EC2000E7D0DC /* MarkdownTextView.h */,
-				A1531DD91924EC2000E7D0DC /* MarkdownTextView.m */,
-				A1BC6250192F325B00238C6C /* MDKeyboardAccesory.xib */,
-				A1BC6252192F337A00238C6C /* MDKeyboardAccessoryViewController.h */,
-				A1BC6253192F337A00238C6C /* MDKeyboardAccessoryViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -243,8 +240,6 @@
 		A194834D190FCCC400E46E5F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A118587D1920B53A00266744 /* MarkdownTextStorage.h */,
-				A118587E1920B53A00266744 /* MarkdownTextStorage.m */,
 				A194834A190FCCB600E46E5F /* Note.h */,
 				A194834B190FCCB600E46E5F /* Note.m */,
 			);
@@ -259,6 +254,27 @@
 				A194835B1912A8BD00E46E5F /* SourceCodePro-Regular.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		A1B231991937A8E800332D59 /* MarkdownText */ = {
+			isa = PBXGroup;
+			children = (
+				A118587D1920B53A00266744 /* MarkdownTextStorage.h */,
+				A118587E1920B53A00266744 /* MarkdownTextStorage.m */,
+				A1531DD81924EC2000E7D0DC /* MarkdownTextView.h */,
+				A1531DD91924EC2000E7D0DC /* MarkdownTextView.m */,
+			);
+			name = MarkdownText;
+			sourceTree = "<group>";
+		};
+		A1B2319A1937A90B00332D59 /* MarkdownKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A1BC6250192F325B00238C6C /* MDKeyboardAccesory.xib */,
+				A1BC6252192F337A00238C6C /* MDKeyboardAccessoryViewController.h */,
+				A1BC6253192F337A00238C6C /* MDKeyboardAccessoryViewController.m */,
+			);
+			name = MarkdownKeyboard;
 			sourceTree = "<group>";
 		};
 		A1BC62471929292A00238C6C /* TableView */ = {
@@ -324,8 +340,8 @@
 			isa = PBXGroup;
 			children = (
 				A1531DD71924EC0200E7D0DC /* Views */,
-				A1C4C4A0191D491F008D9B04 /* SettingsView */,
 				A194834D190FCCC400E46E5F /* Models */,
+				A1C4C4A0191D491F008D9B04 /* SettingsView */,
 				A1363D1819162A640023C6ED /* DetailView */,
 				A1363D1719162A430023C6ED /* LoginView */,
 				A1363D1619162A300023C6ED /* MasterView */,

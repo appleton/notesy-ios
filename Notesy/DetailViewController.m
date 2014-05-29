@@ -180,10 +180,7 @@
 #pragma mark - Setters
 
 - (void) setNote:(Note *)note {
-    if (_note != note) {
-        _note = note;
-        [self configureView];
-    }
+    if (_note != note) _note = note;
 
     if (self.masterPopoverController) [self.masterPopoverController dismissPopoverAnimated:YES];
 }
