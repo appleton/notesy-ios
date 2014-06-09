@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.pages = @[@"loginViewController", @"signupViewController"];
+    self.pages = @[@"signupViewController", @"loginViewController"];
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"usersPageViewController"];
     self.pageViewController.dataSource = self;
 
@@ -53,17 +53,17 @@
 }
 
 - (void) showSignupPage {
-    NSArray *viewControllers = @[[self viewControllerAtIndex:1]];
+    NSArray *viewControllers = @[[self viewControllerAtIndex:0]];
     [self.pageViewController setViewControllers:viewControllers
-                                      direction:UIPageViewControllerNavigationDirectionForward
+                                      direction:UIPageViewControllerNavigationDirectionReverse
                                        animated:YES
                                      completion:nil];
 }
 
 - (void) showLoginPage {
-    NSArray *viewControllers = @[[self viewControllerAtIndex:0]];
+    NSArray *viewControllers = @[[self viewControllerAtIndex:1]];
     [self.pageViewController setViewControllers:viewControllers
-                                      direction:UIPageViewControllerNavigationDirectionReverse
+                                      direction:UIPageViewControllerNavigationDirectionForward
                                        animated:YES
                                      completion:nil];
 }
