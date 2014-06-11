@@ -10,7 +10,6 @@
 
 @interface MarkdownTextStorage : NSTextStorage
 @property (nonatomic,strong) NSDictionary *defaultAttributes;
-@property (nonatomic,strong) UIFont *bodyFont;
 
 - (NSString *)string;
 - (NSDictionary *)attributesAtIndex:(NSUInteger)location

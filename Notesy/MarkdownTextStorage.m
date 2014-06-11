@@ -11,7 +11,9 @@
 @interface MarkdownTextStorage()
 @property (nonatomic,strong) NSMutableAttributedString *attributedString;
 @property (nonatomic,strong) NSDictionary *attributeDictionary;
+@property (nonatomic,strong) UIFont *bodyFont;
 @property (nonatomic,strong) UIFont *boldFont;
+@property (nonatomic,strong) UIFont *italicFont;
 @property (nonatomic,strong) UIColor *bodyColour;
 @property (nonatomic,strong) UIColor *lightColour;
 @property (nonatomic,strong) NSMutableParagraphStyle *bodyIndent;
@@ -35,7 +37,6 @@
     [self beginEditing];
 
     [_attributedString replaceCharactersInRange:range withString:str];
-
     [self edited:NSTextStorageEditedCharacters | NSTextStorageEditedAttributes range:range changeInLength:str.length - range.length];
 
     [self endEditing];
@@ -51,13 +52,13 @@
 }
 
 -(void) processEditing {
-    [super processEditing];
     NSRange paragaphRange = [self.string paragraphRangeForRange:self.editedRange];
     // Handy logging to see text being highlighted
     // NSLog(@"%@", [self.string substringWithRange:paragaphRange]);
 
     [self resetRange:paragaphRange];
     [self applyStylesToRange:paragaphRange];
+    [super processEditing];
 }
 
 - (void) resetRange:(NSRange)range {
@@ -94,7 +95,7 @@
 - (NSDictionary *)attributeDictionary {
     if (!_attributeDictionary) {
         NSDictionary *boldAttributes = @{NSFontAttributeName: self.boldFont};
-        NSDictionary *italicAttributes = @{NSFontAttributeName: self.bodyFont};
+        NSDictionary *italicAttributes = @{NSFontAttributeName: self.italicFont};
         NSDictionary *boldItalicAttributes = @{NSFontAttributeName: self.boldFont};
         NSDictionary *codeAttributes = @{NSForegroundColorAttributeName: [UIColor grayColor]};
         NSDictionary *headerAttributes = @{NSFontAttributeName: self.boldFont,
@@ -143,6 +144,13 @@
         _boldFont = [UIFont fontWithName:@"SourceCodePro-Semibold" size:16];
     }
     return _boldFont;
+}
+
+- (UIFont *) italicFont {
+    if (!_italicFont) {
+        _italicFont = [UIFont fontWithName:@"Cousine-Italic" size:16];
+    }
+    return _italicFont;
 }
 
 - (UIColor *) bodyColour {
