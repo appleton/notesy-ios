@@ -114,6 +114,13 @@
     }
 }
 
+#pragma mark - Scroll view delegate
+
+// TODO: probably need a better way to trigger calculateAndSetNoteTextBottomConstraint
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self calculateAndSetNoteTextBottomConstraint];
+}
+
 #pragma mark - Keyboard observer
 
 - (void)observeKeyboard {
@@ -127,6 +134,38 @@
                                                object:nil];
 }
 
+- (UIView *) getKeyboard {
+    for (UIWindow *window in [[UIApplication sharedApplication] windows]) {
+        for(UIView *subview in [window subviews]) {
+            UIView *keyboard = [self checkViewForKeyboard:subview];
+            if (keyboard) return keyboard;
+        }
+    }
+    return nil;
+}
+
+- (UIView *) checkViewForKeyboard:(UIView *)view {
+    for(UIView *subview in view.subviews) {
+        if([[subview description] hasPrefix:@"<UIKeyboard"]) return subview;
+        [self checkViewForKeyboard:subview];
+    }
+    return nil;
+}
+
+- (void) calculateAndSetNoteTextBottomConstraint {
+    UIView *keyboard = [self getKeyboard];
+    if (!keyboard) return;
+
+    int kbTopPosition = keyboard.superview.frame.origin.y;
+    if (kbTopPosition < 0) return;
+
+    int screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    int newConstraint = screenHeight - kbTopPosition;
+    if (newConstraint == self.noteTextBottomConstraint.constant) return;
+
+    self.noteTextBottomConstraint.constant = newConstraint;
+}
+
 - (void)keyboardWillShow:(NSNotification *)notification {
     NSValue *kbFrame = [[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey];
 
@@ -137,9 +176,8 @@
     CGRect keyboardFrame = [kbFrame CGRectValue];
     CGRect finalKeyboardFrame = [self.view convertRect:keyboardFrame fromView:self.view.window];
     int kbHeight = finalKeyboardFrame.size.height;
-    int height = kbHeight + self.noteTextBottomConstraint.constant;
 
-    self.noteTextBottomConstraint.constant = height;
+    self.noteTextBottomConstraint.constant = kbHeight;
 
     [UIView animateWithDuration:duration delay:0.0 options:options animations:^{
         [self.view layoutIfNeeded];

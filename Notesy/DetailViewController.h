@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Note.h"
 
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate, UIActionSheetDelegate, UITextViewDelegate>
+@interface DetailViewController : UIViewController <UISplitViewControllerDelegate,
+                                                    UIActionSheetDelegate,
+                                                    UITextViewDelegate,
+                                                    UIScrollViewDelegate>
 @property (strong, nonatomic) Note* note;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end
