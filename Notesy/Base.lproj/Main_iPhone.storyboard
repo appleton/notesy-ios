@@ -446,23 +446,6 @@ Tap here to add your first note.</string>
             </objects>
             <point key="canvasLocation" x="902" y="-596"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="vPo-d4-Zlw">
-            <objects>
-                <viewController id="UKN-QM-wIK" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="AUT-6F-yxJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="25w-xv-bJd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LGF-xW-qqq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IYQ-6Z-QvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="arrow" width="41" height="58"/>
