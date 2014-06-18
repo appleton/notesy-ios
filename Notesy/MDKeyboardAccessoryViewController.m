@@ -11,6 +11,8 @@
 @interface MDKeyboardAccessoryViewController()
 @property (strong, nonatomic) IBOutlet UIView *view;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *keys;
+@property (strong, nonatomic) NSDictionary *startWrapMap;
+@property (strong, nonatomic) NSDictionary *endWrapMap;
 @end
 
 @implementation MDKeyboardAccessoryViewController
@@ -54,8 +56,18 @@
 - (void) keypress:(UIButton *)sender {
     NSString *keyValue = sender.titleLabel.text;
 
+    // TODO: handle wrapping with a link
     if ([keyValue isEqualToString:@"[ ]()"]) {
         [self handleLinkKey];
+        return;
+    }
+
+    if ([self keyCanWrapSelection:keyValue] && self.textView.selectedRange.length > 0) {
+        NSString *wrappedText = [NSString stringWithFormat:@"%@%@%@",
+                                                           self.startWrapMap[keyValue],
+                                                           [self.textView.text substringWithRange:self.textView.selectedRange],
+                                                           self.endWrapMap[keyValue]];
+        [self.textView replaceRange:self.textView.selectedTextRange withText:wrappedText];
         return;
     }
 
@@ -97,11 +109,41 @@
     return [str hasPrefix:@"http://"] || [str hasPrefix:@"https://"];
 }
 
+- (BOOL) keyCanWrapSelection:(NSString *)key {
+    return [key isEqualToString:@"["] || [key isEqualToString:@"]"] ||
+           [key isEqualToString:@"("] || [key isEqualToString:@")"] ||
+           [key isEqualToString:@"*"];
+}
+
 # pragma mark - Setters
 
 - (void) setTextView:(UITextView *)textView {
     _textView = textView;
     [self initSwipes];
+}
+
+# pragma mark - Getters
+
+- (NSDictionary *) startWrapMap {
+    if (!_startWrapMap) {
+        _startWrapMap = @{@"[": @"[",
+                          @"]": @"[",
+                          @"(": @"(",
+                          @")": @"(",
+                          @"*": @"*"};
+    }
+    return _startWrapMap;
+}
+
+- (NSDictionary *) endWrapMap {
+    if (!_endWrapMap) {
+        _endWrapMap = @{@"[": @"]",
+                        @"]": @"]",
+                        @"(": @")",
+                        @")": @")",
+                        @"*": @"*"};
+    }
+    return _endWrapMap;
 }
 
 @end
