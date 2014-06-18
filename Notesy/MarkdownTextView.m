@@ -19,7 +19,7 @@
     self = [super initWithFrame:CGRectMake(0, 0, 320, 568) textContainer:self.textContainer];
 
     self.typingAttributes = [(MarkdownTextStorage *)self.textStorage defaultAttributes];
-    // TODO: handle textview size change during drag
+
     self.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     self.alwaysBounceVertical = YES;
 

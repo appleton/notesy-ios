@@ -25,6 +25,32 @@
     }
 }
 
+- (void) initSwipes {
+    UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc]
+                                           initWithTarget:self
+                                                   action:@selector(moveCursorLeft)];
+    UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc]
+                                            initWithTarget:self
+                                                    action:@selector(moveCursorRight)];
+
+    leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
+
+    [self.textView addGestureRecognizer:leftSwipe];
+    [self.textView addGestureRecognizer:rightSwipe];
+}
+
+- (void) moveCursorLeft {
+    NSRange selected = self.textView.selectedRange;
+    if (selected.location > 0) self.textView.selectedRange = NSMakeRange(selected.location - 1, 0);
+}
+
+- (void) moveCursorRight {
+    NSRange selected = self.textView.selectedRange;
+    int length = self.textView.text.length;
+    if (selected.location < length) self.textView.selectedRange = NSMakeRange(selected.location + 1, 0);
+}
+
 - (void) keypress:(UIButton *)sender {
     NSString *keyValue = sender.titleLabel.text;
 
@@ -69,6 +95,13 @@
 
 - (BOOL) isALink:(NSString *)str {
     return [str hasPrefix:@"http://"] || [str hasPrefix:@"https://"];
+}
+
+# pragma mark - Setters
+
+- (void) setTextView:(UITextView *)textView {
+    _textView = textView;
+    [self initSwipes];
 }
 
 @end
