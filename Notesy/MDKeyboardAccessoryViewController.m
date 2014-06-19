@@ -78,7 +78,7 @@
     NSString *pbContents = [UIPasteboard generalPasteboard].string;
 
     if (![self isALink:pbContents]) {
-        [self insertLinkWithContents:@""];
+        [self insertLinkWithHref:@""];
         return;
     }
 
@@ -89,20 +89,23 @@
                       otherButtonTitles:@"Yes", nil] show];
 }
 
-- (void) insertLinkWithContents:(NSString *)contents {
+- (void) insertLinkWithHref:(NSString *)href {
     NSRange selected = self.textView.selectedRange;
+    NSString *text = [self.textView.text substringWithRange:self.textView.selectedRange];
 
     [self.textView replaceRange:self.textView.selectedTextRange
-                       withText:[NSString stringWithFormat:@"[](%@)", contents]];
-    self.textView.selectedRange = NSMakeRange(selected.location + 1, 0);
+                       withText:[NSString stringWithFormat:@"[%@](%@)", text, href]];
+    self.textView.selectedRange = NSMakeRange(selected.location + selected.length + 1, 0);
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSString *contents = @"";
+    NSString *href = @"";
+
     if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Yes"]) {
-        contents = [UIPasteboard generalPasteboard].string;
+        href = [UIPasteboard generalPasteboard].string;
     }
-    [self insertLinkWithContents:contents];
+
+    [self insertLinkWithHref:href];
 }
 
 - (BOOL) isALink:(NSString *)str {
