@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-couchbase-lite-ios.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2E20B05079884C1C9FB62434</key>
+		<key>7F382D66B9434DB4BFEC1BED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>85A1BD8459164EAB957B6D20</key>
+		<key>86117F2B90EF4A649C587BCB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BE240948CEDF4B78AB395558</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CB8CB8B01ABC47ABA6BAAED3</key>
+		<key>E3707AB5A02D4D54894FEBC0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

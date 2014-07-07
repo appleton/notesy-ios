@@ -12,7 +12,7 @@
 #import "Constants.h"
 #import "JNKeychain.h"
 #import "Note.h"
-#import "CouchbaseLite.h"
+#import "CouchbaseLite/CouchbaseLite.h"
 #import "NoteTableViewCell.h"
 #import "FormattingHelpers.h"
 #import "NotesTableSource.h"
@@ -129,8 +129,7 @@
     self.pull = [self.database createPullReplication:url];
 
     self.push.continuous = YES;
-    // Can't use continuous pull as it causes a crash
-    self.pull.continuous = NO;
+    self.pull.continuous = YES;
 
     [self.push addObserver:self forKeyPath:@"completedChangesCount" options:0 context:nil];
     [self.pull addObserver:self forKeyPath:@"completedChangesCount" options:0 context:nil];

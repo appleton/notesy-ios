@@ -18,10 +18,3 @@
 #define COCOAPODS_VERSION_MINOR_NSMutableURLRequest_BasicAuth 0
 #define COCOAPODS_VERSION_PATCH_NSMutableURLRequest_BasicAuth 2
 
-// couchbase-lite-ios
-#define COCOAPODS_POD_AVAILABLE_couchbase_lite_ios
-// This library does not follow semantic-versioning,
-// so we were not able to define version macros.
-// Please contact the author.
-// Version: 1.0-beta3.32-bit.
-

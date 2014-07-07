@@ -8,7 +8,7 @@
 
 #import "Note.h"
 #import "NSDate+Helper.h"
-#import "CBLQuery+FullTextSearch.h"
+#import "CouchbaseLite/CBLQuery+FullTextSearch.h"
 
 @implementation Note
 @dynamic text, createdAt, updatedAt;

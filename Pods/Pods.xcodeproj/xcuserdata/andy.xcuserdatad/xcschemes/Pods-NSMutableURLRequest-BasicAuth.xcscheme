@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BE240948CEDF4B78AB395558"
+               BlueprintIdentifier = "7F382D66B9434DB4BFEC1BED"
                BuildableName = "libPods-NSMutableURLRequest-BasicAuth.a"
                BlueprintName = "Pods-NSMutableURLRequest-BasicAuth"
                ReferencedContainer = "container:Pods.xcodeproj">

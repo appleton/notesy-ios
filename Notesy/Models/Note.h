@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Notesy.co. All rights reserved.
 //
 
-#import "CouchbaseLite.h"
+#import "CouchbaseLite/CouchbaseLite.h"
 
 @interface Note : CBLModel
 + (CBLDatabase *)dbInstanceFor:(NSString *)dbName;

@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		734EA58DED6C454AA57CEED1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B44FE902987E44269E10ACF9 /* libPods.a */; };
+		A111E584196B17AF00FF308D /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A111E583196B17AF00FF308D /* CouchbaseLite.framework */; };
 		A118587F1920B53A00266744 /* MarkdownTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = A118587E1920B53A00266744 /* MarkdownTextStorage.m */; };
 		A1363D1519158AED0023C6ED /* NotesTableSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A1363D1419158AED0023C6ED /* NotesTableSource.m */; };
-		A13CE5E318FD59C1004EDEEA /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5E218FD59C1004EDEEA /* CouchbaseLite.framework */; };
 		A13CE5E518FD59E7004EDEEA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5E418FD59E7004EDEEA /* CFNetwork.framework */; };
 		A13CE5E718FD59F1004EDEEA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5E618FD59F1004EDEEA /* Security.framework */; };
 		A13CE5E918FD59FB004EDEEA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CE5E818FD59FA004EDEEA /* SystemConfiguration.framework */; };
@@ -70,11 +70,11 @@
 /* Begin PBXFileReference section */
 		02E996934CB6426C956EAF5D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A1096F2619235D5B003C8308 /* SourceCodePro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceCodePro-Semibold.otf"; path = "../../../Library/Fonts/SourceCodePro-Semibold.otf"; sourceTree = "<group>"; };
+		A111E583196B17AF00FF308D /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchbaseLite.framework; path = Frameworks/CouchbaseLite.framework; sourceTree = "<group>"; };
 		A118587D1920B53A00266744 /* MarkdownTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkdownTextStorage.h; sourceTree = "<group>"; };
 		A118587E1920B53A00266744 /* MarkdownTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownTextStorage.m; sourceTree = "<group>"; };
 		A1363D1319158AED0023C6ED /* NotesTableSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesTableSource.h; sourceTree = "<group>"; };
 		A1363D1419158AED0023C6ED /* NotesTableSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesTableSource.m; sourceTree = "<group>"; };
-		A13CE5E218FD59C1004EDEEA /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchbaseLite.framework; path = "Pods/couchbase-lite-ios/CouchbaseLite.framework"; sourceTree = "<group>"; };
 		A13CE5E418FD59E7004EDEEA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		A13CE5E618FD59F1004EDEEA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A13CE5E818FD59FA004EDEEA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -153,10 +153,10 @@
 				A13CE5EB18FD5A07004EDEEA /* libsqlite3.dylib in Frameworks */,
 				A13CE5E918FD59FB004EDEEA /* SystemConfiguration.framework in Frameworks */,
 				A13CE5E518FD59E7004EDEEA /* CFNetwork.framework in Frameworks */,
-				A13CE5E318FD59C1004EDEEA /* CouchbaseLite.framework in Frameworks */,
 				A1D9598D18F684A800113622 /* CoreGraphics.framework in Frameworks */,
 				A1D9598F18F684A800113622 /* UIKit.framework in Frameworks */,
 				A1D9598B18F684A800113622 /* Foundation.framework in Frameworks */,
+				A111E584196B17AF00FF308D /* CouchbaseLite.framework in Frameworks */,
 				734EA58DED6C454AA57CEED1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,11 +325,11 @@
 			children = (
 				A1C4C4AD191D7564008D9B04 /* Accelerate.framework */,
 				A13CE5EC18FD5A10004EDEEA /* libz.dylib */,
+				A111E583196B17AF00FF308D /* CouchbaseLite.framework */,
 				A13CE5EA18FD5A07004EDEEA /* libsqlite3.dylib */,
 				A13CE5E818FD59FA004EDEEA /* SystemConfiguration.framework */,
 				A13CE5E618FD59F1004EDEEA /* Security.framework */,
 				A13CE5E418FD59E7004EDEEA /* CFNetwork.framework */,
-				A13CE5E218FD59C1004EDEEA /* CouchbaseLite.framework */,
 				A1D9598A18F684A800113622 /* Foundation.framework */,
 				A1D9598C18F684A800113622 /* CoreGraphics.framework */,
 				A1D9598E18F684A800113622 /* UIKit.framework */,
@@ -445,6 +445,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Notesy.co;
 				TargetAttributes = {
+					A1D9598618F684A800113622 = {
+						DevelopmentTeam = UYM4ZPX4A2;
+					};
 					A1D959AD18F684A800113622 = {
 						TestTargetID = A1D9598618F684A800113622;
 					};
@@ -692,16 +695,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/couchbase-lite-ios",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/Archives/2014-07-07/Continuous",
+					iOS,
+					"07-07-2014",
+					9.08am.xcarchive/Products/Library/Frameworks,
+					/Users/andy/Desktop,
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Notesy/Notesy-Prefix.pch";
 				INFOPLIST_FILE = "Notesy/Notesy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "33A1A60C-F801-48B2-B0C7-7D7A4443B040";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -714,17 +724,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Appleton (PN7TZUNJ93)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/couchbase-lite-ios",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/Archives/2014-07-07/Continuous",
+					iOS,
+					"07-07-2014",
+					9.08am.xcarchive/Products/Library/Frameworks,
+					/Users/andy/Desktop,
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Notesy/Notesy-Prefix.pch";
 				INFOPLIST_FILE = "Notesy/Notesy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "864BED08-46CC-4060-BB76-C71797F7DB2D";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
