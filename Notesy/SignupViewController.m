@@ -104,7 +104,8 @@
 
 - (NSString *) formatErrors:(NSArray *)errors {
     NSMutableArray *errorMsgStrings = [[NSMutableArray alloc] init];
-    for (NSDictionary *error in errors) {
+    for (NSMutableDictionary *error in errors) {
+        if (!error[@"param"]) error[@"param"] = @"";
         [errorMsgStrings addObject:[NSString stringWithFormat:@"%@ %@", error[@"param"], error[@"msg"]]];
     }
 
