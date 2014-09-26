@@ -3,6 +3,7 @@
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -32,17 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hRU-ky-kZ2">
-                                <rect key="frame" x="20" y="112" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I2d-0A-Yjh">
-                                <rect key="frame" x="20" y="150" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ns-KO-gcU">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ns-KO-gcU">
                                 <rect key="frame" x="20" y="188" width="280" height="44"/>
                                 <color key="backgroundColor" red="0.11372549019607843" green="0.72549019607843135" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.090196078430000007" green="0.58431372550000005" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -54,7 +45,7 @@
                                     <action selector="loginButton:" destination="P6o-j8-jWJ" eventType="touchUpInside" id="e9s-dd-AbD"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="mark" translatesAutoresizingMaskIntoConstraints="NO" id="9Y1-Oo-5Fc">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" image="mark" translatesAutoresizingMaskIntoConstraints="NO" id="9Y1-Oo-5Fc">
                                 <rect key="frame" x="135" y="32" width="50" height="50"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mo-5c-v0w">
@@ -73,8 +64,27 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hRU-ky-kZ2">
+                                <rect key="frame" x="20" y="112" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I2d-0A-Yjh">
+                                <rect key="frame" x="20" y="150" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="hRU-ky-kZ2" secondAttribute="trailing" constant="20" id="7AL-Z7-GMY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="I2d-0A-Yjh" secondAttribute="trailing" constant="20" id="B3t-nm-y3e"/>
+                            <constraint firstItem="0ns-KO-gcU" firstAttribute="leading" secondItem="XPX-MB-PFH" secondAttribute="leadingMargin" constant="20" id="Maa-yZ-uKH"/>
+                            <constraint firstItem="I2d-0A-Yjh" firstAttribute="leading" secondItem="XPX-MB-PFH" secondAttribute="leadingMargin" constant="20" id="PG7-Nx-bvC"/>
+                            <constraint firstAttribute="centerX" secondItem="9Y1-Oo-5Fc" secondAttribute="centerX" id="btp-hx-UbF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0ns-KO-gcU" secondAttribute="trailing" constant="20" id="fUu-mk-VEL"/>
+                            <constraint firstItem="hRU-ky-kZ2" firstAttribute="leading" secondItem="XPX-MB-PFH" secondAttribute="leadingMargin" constant="20" id="j2q-yG-ZuS"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cBv-Bk-HlY"/>
                     <connections>
@@ -99,17 +109,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XVS-28-jKu">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XVS-28-jKu">
                                 <rect key="frame" x="20" y="112" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tcc-RP-Tm5">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tcc-RP-Tm5">
                                 <rect key="frame" x="20" y="150" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eT-YU-Dmg">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eT-YU-Dmg">
                                 <rect key="frame" x="20" y="188" width="280" height="44"/>
                                 <color key="backgroundColor" red="0.1137254902" green="0.72549019609999998" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.090196078430000007" green="0.58431372550000005" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -138,10 +148,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="mark" translatesAutoresizingMaskIntoConstraints="NO" id="UXs-UO-I6y">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" image="mark" translatesAutoresizingMaskIntoConstraints="NO" id="UXs-UO-I6y">
                                 <rect key="frame" x="135" y="25" width="50" height="50"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Notesy!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgr-t3-rF5">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome to Notesy!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgr-t3-rF5">
                                 <rect key="frame" x="83" y="83" width="154" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -149,6 +159,16 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="UXs-UO-I6y" secondAttribute="centerX" id="6TK-ZB-9gF"/>
+                            <constraint firstItem="tcc-RP-Tm5" firstAttribute="leading" secondItem="KBm-TP-7RA" secondAttribute="leadingMargin" constant="20" id="8Kb-7x-6Yb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XVS-28-jKu" secondAttribute="trailing" constant="20" id="BZo-nb-rCH"/>
+                            <constraint firstItem="XVS-28-jKu" firstAttribute="leading" secondItem="KBm-TP-7RA" secondAttribute="leadingMargin" constant="20" id="OQ6-bX-ooF"/>
+                            <constraint firstItem="2eT-YU-Dmg" firstAttribute="leading" secondItem="KBm-TP-7RA" secondAttribute="leadingMargin" constant="20" id="dbh-ie-l1W"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tcc-RP-Tm5" secondAttribute="trailing" constant="20" id="lOu-vl-CF8"/>
+                            <constraint firstAttribute="centerX" secondItem="vgr-t3-rF5" secondAttribute="centerX" id="xZN-pd-HLj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2eT-YU-Dmg" secondAttribute="trailing" constant="20" id="yx3-te-sC4"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="emailInput" destination="XVS-28-jKu" id="Gg0-Lq-2nN"/>
