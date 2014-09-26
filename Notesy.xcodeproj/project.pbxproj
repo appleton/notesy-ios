@@ -46,7 +46,6 @@
 		A1D9599718F684A800113622 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D9599618F684A800113622 /* main.m */; };
 		A1D9599B18F684A800113622 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D9599A18F684A800113622 /* AppDelegate.m */; };
 		A1D9599E18F684A800113622 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D9599C18F684A800113622 /* Main_iPhone.storyboard */; };
-		A1D959A118F684A800113622 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D9599F18F684A800113622 /* Main_iPad.storyboard */; };
 		A1D959A418F684A800113622 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D959A318F684A800113622 /* MasterViewController.m */; };
 		A1D959A718F684A800113622 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D959A618F684A800113622 /* DetailViewController.m */; };
 		A1D959A918F684A800113622 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1D959A818F684A800113622 /* Images.xcassets */; };
@@ -128,7 +127,6 @@
 		A1D9599918F684A800113622 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A1D9599A18F684A800113622 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A1D9599D18F684A800113622 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		A1D959A018F684A800113622 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		A1D959A218F684A800113622 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		A1D959A318F684A800113622 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		A1D959A518F684A800113622 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -353,7 +351,6 @@
 				A1948327190E798000E46E5F /* Constants.h */,
 				A1948329190E7B3C00E46E5F /* Constants.m */,
 				A1D959A818F684A800113622 /* Images.xcassets */,
-				A1D9599F18F684A800113622 /* Main_iPad.storyboard */,
 				A1D9599C18F684A800113622 /* Main_iPhone.storyboard */,
 				A1D9599118F684A800113622 /* Supporting Files */,
 			);
@@ -478,7 +475,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1531DD51923D2E900E7D0DC /* SourceCodePro-Semibold.otf in Resources */,
-				A1D959A118F684A800113622 /* Main_iPad.storyboard in Resources */,
 				A1BC624A1929EE3200238C6C /* EmptySearchView.xib in Resources */,
 				A194835C1912A8BD00E46E5F /* SourceCodePro-Bold.otf in Resources */,
 				A1BC6251192F325B00238C6C /* MDKeyboardAccesory.xib in Resources */,
@@ -598,14 +594,6 @@
 			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
-		A1D9599F18F684A800113622 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1D959A018F684A800113622 /* Base */,
-			);
-			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
 		A1D959B818F684A800113622 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -650,7 +638,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -684,7 +672,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -697,7 +685,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -712,6 +700,7 @@
 				GCC_PREFIX_HEADER = "Notesy/Notesy-Prefix.pch";
 				INFOPLIST_FILE = "Notesy/Notesy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -726,7 +715,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
