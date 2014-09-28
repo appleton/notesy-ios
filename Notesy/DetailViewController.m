@@ -69,6 +69,7 @@
 
     self.noteText.textContainerInset = UIEdgeInsetsMake(20, 5, 20, 20);
     self.noteText.inputAccessoryView = self.mdAccessoryView;
+    NSLog(@"%@", self.mdAccessoryView);
     self.mdAccessoryViewController.textView = self.noteText;
 }
 
